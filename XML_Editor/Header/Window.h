@@ -78,8 +78,6 @@ namespace Window
 		}
 
 		return msg.message != WM_QUIT;
-
-		aa
 	}
 
 	inline void Show()
