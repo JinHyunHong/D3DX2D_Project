@@ -4,7 +4,7 @@
 namespace Window
 {
 	static HINSTANCE instance;
-	static HWND handle;
+	static HWND handle = nullptr;
 
 	inline LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 	{
@@ -37,11 +37,12 @@ namespace Window
 		WndClassEx.hbrBackground = (HBRUSH)(WHITE_BRUSH);
 		WndClassEx.lpszMenuName = nullptr;
 		WndClassEx.lpszClassName = L"XML_Editor";
+		WndClassEx.style = CS_HREDRAW | CS_VREDRAW;
 
-		RegisterClassEx(&WndClassEx);
+		assert(RegisterClassEx(&WndClassEx) != 0);
 
-		handle = CreateWindowEx(WS_EX_APPWINDOW, L"XML_Editor", L"XML_Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
-			CW_USEDEFAULT, static_cast<int>(width), static_cast<int>(height), NULL, NULL, instance, NULL);
+		handle = CreateWindowExW(WS_EX_APPWINDOW, L"XML_Editor", L"XML_Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
+			CW_USEDEFAULT, static_cast<int>(width), static_cast<int>(height), nullptr, nullptr, instance, nullptr);
 
 		if (!handle)
 		{
@@ -82,6 +83,7 @@ namespace Window
 
 	inline void Show()
 	{
+		SetForegroundWindow(handle);
 		SetFocus(handle);
 		ShowCursor(true);
 		ShowWindow(handle, 0);
