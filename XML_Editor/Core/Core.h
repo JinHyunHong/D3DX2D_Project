@@ -1,12 +1,7 @@
 #pragma once
-#include "../Header/Window.h"
 
 class Core final
 {
-private:
-	Core() = default;
-	~Core() = default;
-
 public:
 	static Core& GetInst()
 	{
@@ -14,11 +9,20 @@ public:
 		return Inst;
 	}
 
-	auto GetClientWidth() const -> const float& { return width; }
-	void SetClientWidth(const float& width) { this->width = width; }
+private:
+	Core();
+	~Core();
 
-	auto GetClientHegiht() const -> const float& { return height; }
-	void SetClientHegiht(const float& height) { this->height = height; }
+public:
+	const bool Initalize(const HINSTANCE& instance, const uint& width, const uint& height);
+	const bool Update();
+
+public:
+	auto GetClientWidth() const -> const uint& { return width; }
+	void SetClientWidth(const uint& width) { this->width = width; }
+
+	auto GetClientHegiht() const -> const uint& { return height; }
+	void SetClientHegiht(const uint& height) { this->height = height; }
 
 	auto GetWindowHandle() const -> const HWND& { return handle; }
 	void SetWindowHandle(const HWND& handle) { this->handle = handle; }
@@ -27,9 +31,15 @@ public:
 	void SetInstance(const HINSTANCE& instance) { this->instance = instance; }
 
 
+public:
+	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+	const bool Create();
+	void Show();
+	void Destroy();
+
 private:
-	float width = 0.0f;
-	float height = 0.0f;
+	uint width = 0;
+	uint height = 0;
 	HWND handle = nullptr;
 	HINSTANCE instance = nullptr;
 };

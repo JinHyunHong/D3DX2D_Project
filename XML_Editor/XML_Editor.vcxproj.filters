@@ -32,16 +32,16 @@
     <ClInclude Include="Core\Core.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Header\defines.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\Window.h">
+    <ClInclude Include="Header\Defines.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Header\Xml.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Subsystem\ISubsystem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
