@@ -1,45 +1,29 @@
 #pragma once
 
-class Core final
+class Core
 {
 public:
 	static Core& GetInst()
 	{
-		static Core Inst;
-		return Inst;
+		static Core inst;
+		return inst;
 	}
 
 private:
-	Core();
-	~Core();
+	Core() = default;
+	~Core() = default;
 
 public:
-	const bool Initalize(const HINSTANCE& instance, const uint& width, const uint& height);
-	const bool Update();
-
-public:
-	auto GetClientWidth() const -> const uint& { return width; }
-	void SetClientWidth(const uint& width) { this->width = width; }
-
-	auto GetClientHegiht() const -> const uint& { return height; }
-	void SetClientHegiht(const uint& height) { this->height = height; }
-
-	auto GetWindowHandle() const -> const HWND& { return handle; }
-	void SetWindowHandle(const HWND& handle) { this->handle = handle; }
-
-	auto GetInstance() const -> const HINSTANCE& { return instance; }
-	void SetInstance(const HINSTANCE& instance) { this->instance = instance; }
-
-
-public:
-	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-	const bool Create();
-	void Show();
+	bool Initialize(HINSTANCE instance, const uint& width, const uint& height);
+	bool Update();
 	void Destroy();
 
+	auto AddWindow(const WindowSplitType& type) -> const std::shared_ptr<window>;
+	auto GetWindow(const WindowSplitType& type) const -> const std::shared_ptr<window>;
+
 private:
+	std::vector<std::shared_ptr<window>> windows;
+	HINSTANCE instance = nullptr;
 	uint width = 0;
 	uint height = 0;
-	HWND handle = nullptr;
-	HINSTANCE instance = nullptr;
 };

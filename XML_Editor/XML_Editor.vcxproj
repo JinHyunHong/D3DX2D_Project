@@ -95,6 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,7 +148,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Core.cpp">
+    <ClCompile Include="Core\Core.cpp" />
+    <ClCompile Include="Manager\PathManager.cpp" />
+    <ClCompile Include="Manager\SubsystemManager.cpp" />
+    <ClCompile Include="Setting\Window.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -156,17 +160,31 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Setting\Window_Proc.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Subsystem\Context.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Subsystem\ISubsystem.h" />
     <ClInclude Include="Core\Core.h" />
+    <ClInclude Include="Manager\IManager.h" />
+    <ClInclude Include="Manager\PathManager.h" />
+    <ClInclude Include="Manager\SubsystemManager.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Subsystem\Context.h" />
+    <ClInclude Include="Subsystem\ISubsystem.h" />
+    <ClInclude Include="Setting\Window.h" />
     <ClInclude Include="Header\Defines.h" />
     <ClInclude Include="Header\Xml.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="XML_Editor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,7 +3,7 @@
 
 int APIENTRY WinMain(HINSTANCE Inst, HINSTANCE PrevInst, LPSTR lpszCmdParam, int nCmdShow)
 {
-	Core::GetInst().Initalize(Inst, 500, 500);
+	Core::GetInst().Initialize(Inst, 800, 500);
 
 	while (Core::GetInst().Update())
 	{

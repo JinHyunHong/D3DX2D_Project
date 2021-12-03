@@ -1,10 +1,10 @@
 #pragma once
 
-class ISubsystem
+class IManager
 {
 public:
-	ISubsystem() = default;
-	virtual ~ISubsystem() = default;
+	IManager() = default;
+	virtual ~IManager() = default;
 
 	virtual bool Initiailize() = 0;
 	virtual void Update() = 0;

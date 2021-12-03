@@ -1,10 +1,19 @@
 #pragma once
 
-// Base
+//Base
 #include <iostream>
 #include <Windows.h>
 #include <assert.h>
 #include <memory>
+#include <typeinfo>
+#include <filesystem>
 #include "Header/defines.h"
+#include "resource.h"
+#include "Header/Xml.h"
 
-// STL
+//STL
+#include <vector>
+#include <unordered_map>
+
+//Settings
+#include "Setting/Window.h"
