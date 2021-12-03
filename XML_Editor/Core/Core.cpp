@@ -31,10 +31,10 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 	auto window = GetWindow(WindowSplitType::Right);
 	auto context = sub_manager->GetSubsystem<Context>();
 	context->SetFileName("Il.xml");
-	context->AddElement("Il");
-	context->AddAttribute("das", "wds", "fas");
-	context->AddElement("fas", "fas");
-	context->AddAttribute("ww", "ewq", "gds");
+	context->AddElement("A");
+	context->AddAttribute("A", "wds", "fas");
+	context->AddElement("B", "A");
+	context->AddAttribute("B", "ewq", "gds");
 	context->SaveToFile(tool->GetManager<PathManager>()->GetPath(Directory_path::XmlFiles));
 	window->DrawTextWindow("asdas");
 
