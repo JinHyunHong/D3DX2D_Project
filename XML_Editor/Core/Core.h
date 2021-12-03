@@ -11,7 +11,7 @@ public:
 
 private:
 	Core() = default;
-	~Core() = default;
+	~Core();
 
 public:
 	bool Initialize(HINSTANCE instance, const uint& width, const uint& height);
@@ -22,6 +22,7 @@ public:
 	auto GetWindow(const WindowSplitType& type) const -> const std::shared_ptr<window>;
 
 private:
+	class Tool* tool = nullptr;
 	std::vector<std::shared_ptr<window>> windows;
 	HINSTANCE instance = nullptr;
 	uint width = 0;

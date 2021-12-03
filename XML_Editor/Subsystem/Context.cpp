@@ -1,7 +1,12 @@
 #include "stdafx.h"
 #include "Context.h"
 
-bool Context::Initiailize()
+Context::Context(Tool* const tool) :
+	ISubsystem(tool)
+{
+}
+
+bool Context::Initialize()
 {
 	return true;
 }

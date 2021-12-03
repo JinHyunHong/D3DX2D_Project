@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "PathManager.h"
 
-PathManager::PathManager()
+PathManager::PathManager(class Tool* const tool) :
+	IManager(tool)
 {
 }
 
-bool PathManager::Initiailize()
+bool PathManager::Initialize()
 {
 	std::filesystem::path root_path_name = std::filesystem::current_path();
 	root_path = root_path_name.string();

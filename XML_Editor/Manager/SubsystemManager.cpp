@@ -2,7 +2,8 @@
 #include "SubsystemManager.h"
 
 
-SubsystemManager::SubsystemManager()
+SubsystemManager::SubsystemManager(class Tool* const tool) :
+	IManager(tool)
 {
 }
 
@@ -10,11 +11,11 @@ SubsystemManager::~SubsystemManager()
 {
 }
 
-bool SubsystemManager::Initiailize()
+bool SubsystemManager::Initialize()
 {
 	for (const auto& subsystem : subsystems)
 	{
-		if (!subsystem->Initiailize())
+		if (!subsystem->Initialize())
 		{
 			assert(false);
 			return false;
@@ -28,5 +29,16 @@ void SubsystemManager::Update()
 {
 	for (const auto& subsystem : subsystems)
 		subsystem->Update();
+}
+
+void SubsystemManager::AddSubsystem(const std::shared_ptr<ISubsystem>& subsystem)
+{
+	if (!subsystem)
+	{
+		assert(false);
+		return;
+	}
+
+	subsystems.emplace_back(subsystem);
 }
 

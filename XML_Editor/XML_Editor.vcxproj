@@ -149,6 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Core.cpp" />
+    <ClCompile Include="Core\Tool.cpp" />
+    <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\PathManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
     <ClCompile Include="Setting\Window.cpp">
@@ -166,9 +168,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Subsystem\Context.cpp" />
+    <ClCompile Include="Subsystem\ISubsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h" />
+    <ClInclude Include="Core\Tool.h" />
     <ClInclude Include="Manager\IManager.h" />
     <ClInclude Include="Manager\PathManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />

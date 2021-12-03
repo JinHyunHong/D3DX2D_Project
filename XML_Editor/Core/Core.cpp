@@ -1,14 +1,32 @@
 #include "stdafx.h"
 #include "Core.h"
+#include "Manager/PathManager.h"
+#include "Manager/SubsystemManager.h"
+#include "Subsystem/Context.h"
+
+Core::~Core()
+{
+	delete tool;
+	tool = nullptr;
+}
 
 bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 {
 	this->instance = instance;
 	this->width = width;
 	this->height = height;
+
 	AddWindow(WindowSplitType::Main);
 	AddWindow(WindowSplitType::Left);
 	AddWindow(WindowSplitType::Right);
+
+	tool = new Tool();
+	tool->Initialize();
+	tool->AddManager(std::make_shared<PathManager>(tool));
+	tool->AddManager(std::make_shared<SubsystemManager>(tool));
+	auto sub_manager = tool->GetManager<SubsystemManager>();
+	sub_manager->AddSubsystem(std::make_shared<Context>(tool));
+
 	return true;
 }
 
@@ -17,6 +35,8 @@ bool Core::Update()
 	for (const auto& window : windows)
 		if (!window->Update())
 			return false;
+
+	tool->Update();
 	return true;
 }
 

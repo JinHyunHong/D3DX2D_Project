@@ -3,9 +3,12 @@
 class ISubsystem
 {
 public:
-	ISubsystem() = default;
+	ISubsystem(class Tool* const tool);
 	virtual ~ISubsystem() = default;
 
-	virtual bool Initiailize() = 0;
+	virtual bool Initialize() = 0;
 	virtual void Update() = 0;
+
+protected:
+	class Tool* tool = nullptr;
 };

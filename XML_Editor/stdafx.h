@@ -15,5 +15,8 @@
 #include <vector>
 #include <unordered_map>
 
+//Tool
+#include "Core/Tool.h"
+
 //Settings
 #include "Setting/Window.h"

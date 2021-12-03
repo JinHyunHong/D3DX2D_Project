@@ -20,6 +20,27 @@ const bool window::Initalize()
 	return true;
 }
 
+auto window::GetChild(const WindowSplitType& type) -> std::shared_ptr<window>
+{
+	for (const auto& child : childs)
+	{
+		if (child->GetType() == type)
+			return child;
+	}
+	return nullptr;
+}
+
+void window::AddChild(const std::shared_ptr<window>& child)
+{
+	if (!child)
+		return;
+
+	if (GetChild(child->GetType()))
+		return;
+
+	childs.emplace_back(child);
+}
+
 const bool window::Create()
 {
 	WNDCLASSEX WndClassEx;
@@ -119,11 +140,6 @@ void window::Show()
 	ShowCursor(TRUE);
 	ShowWindow(handle, SW_NORMAL);
 	UpdateWindow(handle);
-	//SetForegroundWindow(handle1);
-	//SetFocus(handle1);
-	//ShowCursor(TRUE);
-	//ShowWindow(handle1, SW_NORMAL);
-	//UpdateWindow(handle1);
 }
 
 void window::Destroy()

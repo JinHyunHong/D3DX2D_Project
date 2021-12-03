@@ -10,10 +10,10 @@ class PathManager final :
 	public IManager
 {
 public:
-	PathManager();
+	PathManager(class Tool* const tool);
 	~PathManager() = default;
 
-	bool Initiailize() override;
+	bool Initialize() override;
 	void Update() override {};
 
 	auto GetRootPath() const -> const std::string& { return root_path; }

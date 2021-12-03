@@ -6,14 +6,16 @@ class SubsystemManager final :
 	public IManager
 {
 public:
-	SubsystemManager();
+	SubsystemManager(class Tool* const tool);
 	~SubsystemManager();
 
-	bool Initiailize() override;
+	bool Initialize() override;
 	void Update() override;
 
+	void AddSubsystem(const std::shared_ptr<class ISubsystem>& subsystem);
+
 	template<typename T>
-	auto GetSubsystem() const -> const std::shared_ptr<class ISubsystem>;
+	auto GetSubsystem() const -> const std::shared_ptr<T>;
 
 	auto GetSubsystems() const -> const std::vector<std::shared_ptr<class ISubsystem>>& { return subsystems; }
 
@@ -22,14 +24,14 @@ private:
 };
 
 template<typename T>
-inline auto SubsystemManager::GetSubsystem() const -> const std::shared_ptr<class ISubsystem>
+inline auto SubsystemManager::GetSubsystem() const -> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<ISubsystem, T>::value, "Type T has no is-a relationship with ISubsystem.");
 	
 	for (const auto& subsystem : subsystems)
 	{
 		if (typeid(*subsystem) == typeid(T))
-			return subsystem;
+			return std::static_pointer_cast<T>(subsystem);
 	}
 	
 	return nullptr;

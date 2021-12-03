@@ -5,10 +5,10 @@ class Context final :
 	public ISubsystem
 {
 public:
-	Context() = default;
+	Context(class Tool* const tool);
 	~Context() = default;
 
-	bool Initiailize() override;
+	bool Initialize() override;
 	void Update() override {};
 
 	auto GetDocument() const -> const Xml::XMLDocument& { return doc; }

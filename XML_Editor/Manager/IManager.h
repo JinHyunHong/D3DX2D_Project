@@ -3,9 +3,12 @@
 class IManager
 {
 public:
-	IManager() = default;
+	IManager(class Tool* const tool);
 	virtual ~IManager() = default;
 
-	virtual bool Initiailize() = 0;
+	virtual bool Initialize() = 0;
 	virtual void Update() = 0;
+
+protected:
+	class Tool* tool = nullptr;
 };

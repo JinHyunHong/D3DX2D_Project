@@ -37,6 +37,11 @@ public:
 	auto GetParent() const -> const std::shared_ptr<window>& { return parent; }
 	void SetParent(const std::shared_ptr<window>& parent) {this->parent = parent;}
 
+	auto GetChilds() const -> const std::vector<std::shared_ptr<window>>& { return childs; }
+	auto GetChild(const WindowSplitType& type)->std::shared_ptr<window>;
+
+	void AddChild(const std::shared_ptr<window>& child);
+
 
 public:
 	const bool Create();
@@ -50,6 +55,7 @@ private:
 	HWND handle = nullptr;
 	HINSTANCE instance = nullptr;
 	std::shared_ptr<window> parent;
+	std::vector<std::shared_ptr<window>> childs;
 
 public:
 	static LRESULT CALLBACK MainWndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
