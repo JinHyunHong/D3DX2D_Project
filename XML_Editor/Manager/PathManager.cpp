@@ -11,7 +11,7 @@ bool PathManager::Initialize()
 	std::filesystem::path root_path_name = std::filesystem::current_path();
 	root_path = root_path_name.string();
 
-	CreatePath(Directory_path::XmlFiles, root_path + "/XmlFiles");
+	CreatePath(Directory_path::XmlFiles, root_path + "\\XmlFiles\\");
 
 	return true;
 }

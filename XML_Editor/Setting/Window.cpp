@@ -41,6 +41,14 @@ void window::AddChild(const std::shared_ptr<window>& child)
 	childs.emplace_back(child);
 }
 
+void window::DrawTextWindow(const std::string& text)
+{
+	RECT rect;
+	GetClientRect(handle, &rect);
+	auto hdc = GetDC(handle);
+	DrawTextA(hdc, text.c_str(), text.length(), &rect, DT_WORDBREAK);
+}
+
 const bool window::Create()
 {
 	WNDCLASSEX WndClassEx;

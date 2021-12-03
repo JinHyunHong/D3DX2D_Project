@@ -42,6 +42,8 @@ public:
 
 	void AddChild(const std::shared_ptr<window>& child);
 
+	void DrawTextWindow(const std::string& text);
+
 
 public:
 	const bool Create();

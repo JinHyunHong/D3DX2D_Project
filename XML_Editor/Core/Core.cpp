@@ -21,11 +21,23 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 	AddWindow(WindowSplitType::Right);
 
 	tool = new Tool();
-	tool->Initialize();
 	tool->AddManager(std::make_shared<PathManager>(tool));
 	tool->AddManager(std::make_shared<SubsystemManager>(tool));
 	auto sub_manager = tool->GetManager<SubsystemManager>();
 	sub_manager->AddSubsystem(std::make_shared<Context>(tool));
+	tool->Initialize();
+
+
+	auto window = GetWindow(WindowSplitType::Right);
+	auto context = sub_manager->GetSubsystem<Context>();
+	context->SetFileName("Il.xml");
+	context->AddElement("Il");
+	context->AddAttribute("das", "wds", "fas");
+	context->AddElement("fas", "fas");
+	context->AddAttribute("ww", "ewq", "gds");
+	context->SaveToFile(tool->GetManager<PathManager>()->GetPath(Directory_path::XmlFiles));
+	window->DrawTextWindow("asdas");
+
 
 	return true;
 }
