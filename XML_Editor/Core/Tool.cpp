@@ -36,3 +36,4 @@ void Tool::AddManager(const std::shared_ptr<class IManager>& manager)
 
 	managers.emplace_back(manager);
 }
+

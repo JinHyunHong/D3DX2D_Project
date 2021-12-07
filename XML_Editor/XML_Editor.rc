@@ -62,10 +62,112 @@ IDI_ICON1               ICON                    "icon1.ico"
 
 IDR_MENU1 MENU
 BEGIN
-    MENUITEM "새 파일",                        ID_40001
-    MENUITEM "저장",                          ID_40002
-    MENUITEM "구조 추가",                       ID_40003
-    MENUITEM "내용 넣기",                       0
+    MENUITEM "새 파일",                        ID_NEW_FILE
+    MENUITEM "불러오기",                        ID_LOAD_FILE
+    MENUITEM "저장",                          ID_SAVE_FILE
+    MENUITEM "구조 추가",                       ID_ADD_ELEMENT
+    MENUITEM "내용 넣기",                       ID_ADD_ATTRIBUTE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ELEMENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_ATTRIBUTE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 440
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_SAVE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 440
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ELEMENT_DIALOG DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",ID_ELEMENT_OK,198,155,50,14
+    PUSHBUTTON      "취소",ID_ELEMENT_CANCEL,252,155,50,14
+    EDITTEXT        IDC_EDIT_ELEMENT_NEW,27,63,112,26,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ELEMENT_BASE,170,62,115,27,ES_AUTOHSCROLL
+    LTEXT           "Base Element",IDC_STATIC,191,42,44,8
+    LTEXT           "New Element",IDC_STATIC,60,42,42,8
+END
+
+IDD_ATTRIBUTE_DIALOG DIALOGEX 0, 0, 447, 191
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",ID_ATTRIBUTE_OK,335,170,50,14
+    PUSHBUTTON      "취소",ID_ATTRIBUTE_CANCEL,390,170,50,14
+    EDITTEXT        IDC_EDIT_ATTRIBUTE_VALUE,305,61,112,26,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ATTRIBUTE_BASE,27,60,115,27,ES_AUTOHSCROLL
+    LTEXT           "Base Element",IDC_STATIC,51,47,44,8
+    LTEXT           "New Attribute",IDC_STATIC,195,46,46,8
+    EDITTEXT        IDC_EDIT_ATTRIBUTE_NEW2,169,60,112,26,ES_AUTOHSCROLL
+    LTEXT           "New Value",IDC_STATIC,334,46,34,8
+END
+
+IDD_SAVE_DIALOG DIALOGEX 0, 0, 447, 191
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",ID_ATTRIBUTE_OK,335,170,50,14
+    PUSHBUTTON      "취소",ID_ATTRIBUTE_CANCEL,390,170,50,14
+    EDITTEXT        IDC_EDIT_ATTRIBUTE_BASE,27,60,115,27,ES_AUTOHSCROLL
+    LTEXT           "Base Element",-1,51,47,44,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ELEMENT_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ATTRIBUTE_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SAVE_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
 END
 
 #endif    // 한국어(대한민국) resources

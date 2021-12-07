@@ -18,5 +18,12 @@
 //Tool
 #include "Core/Tool.h"
 
+//Manager
+#include "Manager/PathManager.h"
+#include "Manager/SubsystemManager.h"
+
+//Subsystem
+#include "Subsystem/Context.h"
+
 //Settings
 #include "Setting/Window.h"

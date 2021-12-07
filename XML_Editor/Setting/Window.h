@@ -1,32 +1,29 @@
 #pragma once
 
-enum class WindowSplitType : uint
+enum class Dialog_type
 {
 	Unknown,
-	Main,
-	Left,
-	Right
+	AddElement,
+	AddAttribute
 };
+
 
 class window final
 {
 public:
-	window(const WindowSplitType& type, const HINSTANCE& instance, 
-		const uint& width, const uint& height);
+	window(class Tool* const tool, const HINSTANCE& instance, const uint& width, const uint& height);
 	~window();
 
 public:
-	const bool Initalize();
+	const bool Initialize();
 	const bool Update();
 
 public:
-	auto GetType() const -> const WindowSplitType& { return type; }
-
 	auto GetClientWidth() const -> const uint& { return width; }
 	void SetClientWidth(const uint& width) { this->width = width; }
 
-	auto GetClientHegiht() const -> const uint& { return height; }
-	void SetClientHegiht(const uint& height) { this->height = height; }
+	auto GetClientHeight() const -> const uint& { return height; }
+	void SetClientHeight(const uint& height) { this->height = height; }
 
 	auto GetWindowHandle() const -> const HWND& { return handle; }
 	void SetWindowHandle(const HWND& handle) { this->handle = handle; }
@@ -34,15 +31,17 @@ public:
 	auto GetInstance() const -> const HINSTANCE& { return instance; }
 	void SetInstance(const HINSTANCE& instance) { this->instance = instance; }
 
-	auto GetParent() const -> const std::shared_ptr<window>& { return parent; }
-	void SetParent(const std::shared_ptr<window>& parent) {this->parent = parent;}
-
-	auto GetChilds() const -> const std::vector<std::shared_ptr<window>>& { return childs; }
-	auto GetChild(const WindowSplitType& type)->std::shared_ptr<window>;
-
-	void AddChild(const std::shared_ptr<window>& child);
-
 	void DrawTextWindow(const std::string& text);
+	void EraseTextsWindow();
+
+	auto GetDialog(const Dialog_type& type);
+	auto GetDialog(const HWND& handle) const -> const std::shared_ptr<class Dialog>;
+	auto GetDialogEmptyHandle() const->const Dialog_type;
+
+	void CreateInDialog(const Dialog_type& type, const int& resource_id);
+	void AddDialogHandle(const Dialog_type& type, const HWND& handle);
+
+	auto GetDialogType(const std::shared_ptr<class Dialog>& dialog) const -> const Dialog_type;
 
 
 public:
@@ -51,16 +50,13 @@ public:
 	void Destroy();
 
 private:
-	WindowSplitType type = WindowSplitType::Unknown;
+	class Tool* tool = nullptr;
+	HINSTANCE instance = nullptr;
 	uint width = 0;
 	uint height = 0;
 	HWND handle = nullptr;
-	HINSTANCE instance = nullptr;
-	std::shared_ptr<window> parent;
-	std::vector<std::shared_ptr<window>> childs;
+	std::unordered_map<Dialog_type, std::shared_ptr<class Dialog>> dialogs;
 
 public:
-	static LRESULT CALLBACK MainWndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-	static LRESULT CALLBACK SubLeftWndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-	static LRESULT CALLBACK SubRightWndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 };

@@ -10,6 +10,7 @@ public:
 
 	bool Initialize() override;
 	void Update() override {};
+	void Destroy() override;
 
 	auto GetDocument() const -> const Xml::XMLDocument& { return doc; }
 	auto GetDeclaration() const -> const Xml::XMLDeclaration* { return dec; }
@@ -24,13 +25,16 @@ public:
 	auto GetFileName() const -> const std::string& { return file_name; }
 	auto SetFileName(const std::string& file_name){ return this->file_name = file_name; }
 
-	bool SaveToFile(const std::string& path);
-	bool LoadFromFile(const std::string& path);
+	bool SaveToFile(const std::string& filepath_name);
+	bool LoadFromFile(const std::string& filepath_name);
+
+	auto ToString() -> const std::string;
 
 private:
 	Xml::XMLDocument doc;
-	Xml::XMLDeclaration* dec;
+	Xml::XMLDeclaration* dec = nullptr;
 	std::string file_name = "";
+
 };
 
 

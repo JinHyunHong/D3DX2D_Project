@@ -51,6 +51,12 @@
     <ClCompile Include="Subsystem\ISubsystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Setting\Dialog.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting\Dialog_Proc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Setting\Window.h">
@@ -87,6 +93,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Core\Tool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting\Dialog.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -153,6 +153,8 @@
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\PathManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
+    <ClCompile Include="Setting\Dialog.cpp" />
+    <ClCompile Include="Setting\Dialog_Proc.cpp" />
     <ClCompile Include="Setting\Window.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
@@ -177,6 +179,7 @@
     <ClInclude Include="Manager\PathManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Setting\Dialog.h" />
     <ClInclude Include="Subsystem\Context.h" />
     <ClInclude Include="Subsystem\ISubsystem.h" />
     <ClInclude Include="Setting\Window.h" />

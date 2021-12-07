@@ -17,6 +17,7 @@ public:
 
 	void AddManager(const std::shared_ptr<class IManager>& manager);
 
+
 private:
 	std::vector<std::shared_ptr<class IManager>> managers;
 };

@@ -1,9 +1,11 @@
 ﻿#include "../stdafx.h"
 #include "window.h"
+#include "Dialog.h"
 
-window::window(const WindowSplitType& type, const HINSTANCE& instance, 
+window::window(Tool* const tool, 
+	const HINSTANCE& instance,
 	const uint& width, const uint& height) :
-	type(type),
+	tool(tool),
 	instance(instance),
 	width(width),
 	height(height)
@@ -15,30 +17,9 @@ window::~window()
 	Destroy();
 }
 
-const bool window::Initalize()
+const bool window::Initialize()
 {
 	return true;
-}
-
-auto window::GetChild(const WindowSplitType& type) -> std::shared_ptr<window>
-{
-	for (const auto& child : childs)
-	{
-		if (child->GetType() == type)
-			return child;
-	}
-	return nullptr;
-}
-
-void window::AddChild(const std::shared_ptr<window>& child)
-{
-	if (!child)
-		return;
-
-	if (GetChild(child->GetType()))
-		return;
-
-	childs.emplace_back(child);
 }
 
 void window::DrawTextWindow(const std::string& text)
@@ -49,12 +30,76 @@ void window::DrawTextWindow(const std::string& text)
 	DrawTextA(hdc, text.c_str(), text.length(), &rect, DT_WORDBREAK);
 }
 
+void window::EraseTextsWindow()
+{
+	RECT rect{ 0, 0, width, height };
+	InvalidateRect(handle, &rect, TRUE);
+}
+
+auto window::GetDialog(const Dialog_type& type)
+{
+	assert(dialogs.find(type) != dialogs.end());
+
+	return dialogs[type];
+}
+
+auto window::GetDialog(const HWND& handle) const -> const std::shared_ptr<class Dialog>
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (dialog.second->GetHandle() == handle)
+			return dialog.second;
+	}
+
+	return nullptr;
+}
+
+void window::CreateInDialog(const Dialog_type& type, const int& resource_id)
+{
+	std::shared_ptr<Dialog> dialog = std::make_shared<Dialog>(tool);
+	dialogs[type] = dialog;
+	dialog->Initalize(instance, handle, resource_id);
+}
+
+void window::AddDialogHandle(const Dialog_type& type, const HWND& handle)
+{
+	if (type == Dialog_type::Unknown || !handle)
+	{
+		assert(false);
+		return;
+	}
+
+	dialogs[type]->SetHandle(handle);
+}
+
+
+auto window::GetDialogEmptyHandle() const -> const Dialog_type
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (!dialog.second->GetHandle())
+			return dialog.first;
+	}
+	return Dialog_type::Unknown;
+}
+
+auto window::GetDialogType(const std::shared_ptr<class Dialog>& ref_dialog) const -> const Dialog_type
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (dialog.second == ref_dialog)
+			return dialog.first;
+	}
+	return Dialog_type::Unknown;
+}
+
+
 const bool window::Create()
 {
 	WNDCLASSEX WndClassEx;
 	
 	WndClassEx.cbClsExtra = 0;
-	WndClassEx.cbWndExtra = 0;
+	WndClassEx.cbWndExtra = sizeof(window*);
 	WndClassEx.hbrBackground = static_cast<HBRUSH>(GetStockObject(WHITE_BRUSH));
 	WndClassEx.hCursor = LoadCursor(instance, IDC_ARROW);
 	WndClassEx.hIcon = LoadIcon(instance, MAKEINTRESOURCE(IDI_ICON1));
@@ -62,67 +107,20 @@ const bool window::Create()
 	WndClassEx.hInstance = instance;
 	WndClassEx.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
 	WndClassEx.style = CS_HREDRAW | CS_VREDRAW;
-	WndClassEx.cbSize = sizeof(WNDCLASSEX);
-
-	switch (type)
-	{
-	case WindowSplitType::Unknown:
-	{
-		assert(false);
-		return false;
-	}
-	case WindowSplitType::Main:
-	{
-		WndClassEx.lpszClassName = L"XML_Editor";
-		WndClassEx.lpfnWndProc = MainWndProc;
-		assert(RegisterClassEx(&WndClassEx) != 0);
-		handle = CreateWindowExW(WS_EX_APPWINDOW, L"XML_Editor", L"XML_Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
-			CW_USEDEFAULT, static_cast<int>(width), static_cast<int>(height), nullptr, nullptr, instance, nullptr);
-		break;
-	}
-	case WindowSplitType::Left:
-	{
-		if (!parent)
-		{
-			assert(false);
-			return false;
-		}
-		RECT rect;
-		GetClientRect(parent->GetWindowHandle(), &rect);
-		WndClassEx.lpszClassName = L"left";
-		WndClassEx.lpfnWndProc = SubLeftWndProc;
-		assert(RegisterClassEx(&WndClassEx) != 0);
-		handle = CreateWindowExW(WS_EX_CLIENTEDGE, L"left", L"left",
-			WS_CHILD | WS_VISIBLE, rect.left, rect.top,
-			(rect.right - rect.left) / 2, (rect.bottom - rect.top), parent->GetWindowHandle(), NULL,
-			instance, NULL);
-		break;
-	}
-	case WindowSplitType::Right:
-	{
-		if (!parent)
-		{
-			assert(false);
-			return false;
-		}
-		RECT rect;
-		GetClientRect(parent->GetWindowHandle(), &rect);
-		WndClassEx.lpszClassName = L"right";
-		WndClassEx.lpfnWndProc = SubRightWndProc;
-		assert(RegisterClassEx(&WndClassEx) != 0);
-		handle = CreateWindowExW(WS_EX_CLIENTEDGE, L"right", L"right",
-			WS_CHILD | WS_VISIBLE, rect.right / 2, rect.top,
-			(rect.right - rect.left) / 2, (rect.bottom - rect.top), parent->GetWindowHandle(), NULL,
-			instance, NULL);
-		break;
-	}
-	}
+	WndClassEx.cbSize = sizeof(WNDCLASSEX);		
+	WndClassEx.lpszClassName = L"XML_Editor";
+	WndClassEx.lpfnWndProc = WndProc;
+	assert(RegisterClassEx(&WndClassEx) != 0);
+	handle = CreateWindowExW(WS_EX_APPWINDOW, L"XML_Editor", L"XML_Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
+		CW_USEDEFAULT, static_cast<int>(width), static_cast<int>(height), nullptr, nullptr, instance, nullptr);
 
 	if (!handle)
 	{
 		assert(false);
 		return false;
 	}
+
+	SetWindowLongPtr(handle, GWL_USERDATA, (LONG)this);
 
 	return true;
 }
@@ -155,4 +153,3 @@ void window::Destroy()
 	DestroyWindow(handle);
 	UnregisterClass(L"XML_Editor", instance);
 }
-
