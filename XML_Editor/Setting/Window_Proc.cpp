@@ -6,10 +6,12 @@
 LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
 	window* win = nullptr;
+	Context* context = nullptr;
 
-	if (iMsg == WM_COMMAND)
+	if (iMsg == WM_COMMAND || iMsg == WM_PAINT)
 	{
 		win = (window*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+		context = win->tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
 
 		if (!win)
 			return 0;
@@ -18,17 +20,24 @@ LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 	switch (iMsg)
 	{
+	case WM_PAINT:
+	{
+		win->DrawTextWindow(context->ToString());
+		break;
+	}
+
 	case WM_COMMAND:
 	{
-		Context* context = win->tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
 		switch (LOWORD(wParam))
 		{
 		case ID_NEW_FILE:
 		{
-			context->Destroy();
 			win->EraseTextsWindow();
+			context->Destroy();
+			SetWindowTextA(win->handle, "제목없음");
+			context->Initialize();
+			break;
 		}
-		break;
 		case ID_ADD_ELEMENT:
 		{
 			win->CreateInDialog(Dialog_type::AddElement, IDD_ELEMENT_DIALOG);
@@ -57,11 +66,16 @@ LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				{
 					MessageBox(win->handle, L"불러오기 완료", L"불러오기 완료", MB_OK);
 					win->DrawTextWindow(context->ToString());
+					SetWindowTextA(win->handle, context->GetFileName().c_str());
 				}
 				else
+				{
 					MessageBox(win->handle, L"불러오기 실패", L"불러오기 실패", MB_OK);
+					SetWindowTextA(win->handle, "제목없음");
+				}
 			}
 
+			win->EraseTextsWindow();
 
 			break;
 		}
@@ -85,11 +99,16 @@ LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 					win->DrawTextWindow(context->ToString());
 				}
 				else
+				{ 
 					MessageBox(win->handle, L"저장실패", L"저장실패", MB_OK);
+					SetWindowTextA(win->handle, "제목없음");
+				}
 			}
+
+			win->EraseTextsWindow();
+
 			break;
 		}
-
 		}
 		break;
 	}

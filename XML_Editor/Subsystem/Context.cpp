@@ -8,6 +8,9 @@ Context::Context(Tool* const tool) :
 
 bool Context::Initialize()
 {
+	dec = doc.NewDeclaration();
+	doc.LinkEndChild(dec);
+
 	return true;
 }
 
@@ -55,7 +58,7 @@ auto Context::GetElement(const std::string& element_name) -> Xml::XMLElement*
 		{
 			if (chlild_element->Name() == element_name)
 			{
-				return element;
+				return chlild_element;
 			}
 		}
 

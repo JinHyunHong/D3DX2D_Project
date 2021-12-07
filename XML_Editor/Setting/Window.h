@@ -45,7 +45,7 @@ public:
 
 
 public:
-	const bool Create();
+	const bool Create(const wchar_t* class_name, const wchar_t* window_name);
 	void Show();
 	void Destroy();
 

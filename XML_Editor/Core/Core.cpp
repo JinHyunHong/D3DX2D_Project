@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "Core.h"
-#include "Manager/PathManager.h"
-#include "Manager/SubsystemManager.h"
-#include "Subsystem/Context.h"
 
 
 Core::~Core()
@@ -18,15 +15,18 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 
 	tool = new Tool();
 
-	tool->AddManager(std::make_shared<PathManager>(tool));
 	tool->AddManager(std::make_shared<SubsystemManager>(tool));
 	auto sub_manager = tool->GetManager<SubsystemManager>();
 	sub_manager->AddSubsystem(std::make_shared<Context>(tool));
 	tool->Initialize();
 
 	current_window = std::make_shared<window>(tool, instance, width, height);
-	current_window->Create();
+	current_window->Create(L"XML_Editor", L"제목없음");
 	current_window->Show();
+
+
+	Context* context = sub_manager->GetSubsystem_raw<Context>();
+	current_window->DrawTextWindow(context->ToString());
 
 	return true;
 }

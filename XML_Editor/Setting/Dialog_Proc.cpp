@@ -67,7 +67,7 @@ BOOL Dialog::Dlg_WndProc_AddElement(window* const base_win, HWND hDlg, UINT iMsg
 
 			Context* context = tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
 			context->AddElement(new_text, base_text);
-			base_win->DrawTextWindow(context->ToString());
+			base_win->EraseTextsWindow();
 
 			EndDialog(hDlg, 0);
 			break;
@@ -107,7 +107,7 @@ BOOL Dialog::Dlg_WndProc_AddAttribute(window* const base_win, HWND hDlg, UINT iM
 
 			Context* context = tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
 			context->AddAttribute<const char*>(base_text, new_text, value_text.c_str());
-			base_win->DrawTextWindow(context->ToString());
+			base_win->EraseTextsWindow();
 
 			EndDialog(hDlg, 0);
 			break;

@@ -10,11 +10,9 @@
 #define IDD_SAVE_DIALOG                 112
 #define IDC_EDIT_ELEMENT_NEW            1005
 #define IDC_EDIT_ELEMENT_BASE           1007
-#define IDC_EDIT_ATTRIBUTE_NEW          1008
 #define IDC_EDIT_ATTRIBUTE_VALUE        1008
-#define IDC_EDIT_ATTRIBITE_BASE         1009
 #define IDC_EDIT_ATTRIBUTE_BASE         1009
-#define IDC_EDIT_ATTRIBUTE_NEW2         1010
+#define IDC_EDIT_ATTRIBUTE_NEW          1010
 #define ID_ATTRIBUTE_OK                 1011
 #define ID_ATTRIBUTE_CANCEL             1012
 #define ID_ELEMENT_OK                   1013

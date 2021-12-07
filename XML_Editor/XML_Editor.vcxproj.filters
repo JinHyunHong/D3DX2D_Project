@@ -39,9 +39,6 @@
     <ClCompile Include="Manager\SubsystemManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\PathManager.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Tool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -87,9 +84,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Manager\SubsystemManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\PathManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Core\Tool.h">

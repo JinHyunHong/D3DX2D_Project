@@ -24,15 +24,16 @@ const bool window::Initialize()
 
 void window::DrawTextWindow(const std::string& text)
 {
-	RECT rect;
-	GetClientRect(handle, &rect);
-	auto hdc = GetDC(handle);
+	PAINTSTRUCT ps;
+	RECT rect{ 0, 0, static_cast<LONG>(width), static_cast<LONG>(height) };
+	HDC hdc = BeginPaint(handle, &ps);
 	DrawTextA(hdc, text.c_str(), text.length(), &rect, DT_WORDBREAK);
+	EndPaint(handle, &ps);
 }
 
 void window::EraseTextsWindow()
 {
-	RECT rect{ 0, 0, width, height };
+	RECT rect{ 0, 0, static_cast<LONG>(width), static_cast<LONG>(height) };
 	InvalidateRect(handle, &rect, TRUE);
 }
 
@@ -94,10 +95,10 @@ auto window::GetDialogType(const std::shared_ptr<class Dialog>& ref_dialog) cons
 }
 
 
-const bool window::Create()
+const bool window::Create(const wchar_t* class_name, const wchar_t* window_name)
 {
 	WNDCLASSEX WndClassEx;
-	
+
 	WndClassEx.cbClsExtra = 0;
 	WndClassEx.cbWndExtra = sizeof(window*);
 	WndClassEx.hbrBackground = static_cast<HBRUSH>(GetStockObject(WHITE_BRUSH));
@@ -107,11 +108,11 @@ const bool window::Create()
 	WndClassEx.hInstance = instance;
 	WndClassEx.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
 	WndClassEx.style = CS_HREDRAW | CS_VREDRAW;
-	WndClassEx.cbSize = sizeof(WNDCLASSEX);		
-	WndClassEx.lpszClassName = L"XML_Editor";
+	WndClassEx.cbSize = sizeof(WNDCLASSEXA);		
+	WndClassEx.lpszClassName = class_name;
 	WndClassEx.lpfnWndProc = WndProc;
 	assert(RegisterClassEx(&WndClassEx) != 0);
-	handle = CreateWindowExW(WS_EX_APPWINDOW, L"XML_Editor", L"XML_Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
+	handle = CreateWindowEx(WS_EX_APPWINDOW, class_name, window_name, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
 		CW_USEDEFAULT, static_cast<int>(width), static_cast<int>(height), nullptr, nullptr, instance, nullptr);
 
 	if (!handle)
