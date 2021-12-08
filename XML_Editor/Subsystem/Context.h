@@ -30,6 +30,8 @@ public:
 
 	auto ToString() -> const std::string;
 
+	auto DeduceTextType(const std::string& text) -> const std::string;
+
 private:
 	Xml::XMLDocument doc;
 	Xml::XMLDeclaration* dec = nullptr;

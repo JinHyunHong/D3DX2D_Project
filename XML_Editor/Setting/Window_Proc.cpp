@@ -65,7 +65,6 @@ LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				if (context->LoadFromFile(file_name))
 				{
 					MessageBox(win->handle, L"불러오기 완료", L"불러오기 완료", MB_OK);
-					win->DrawTextWindow(context->ToString());
 					SetWindowTextA(win->handle, context->GetFileName().c_str());
 				}
 				else
@@ -96,7 +95,6 @@ LRESULT window::WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				if (context->SaveToFile(file_name))
 				{
 					MessageBox(win->handle, L"저장완료", L"저장완료", MB_OK); 
-					win->DrawTextWindow(context->ToString());
 				}
 				else
 				{ 

@@ -101,12 +101,20 @@ BOOL Dialog::Dlg_WndProc_AddAttribute(window* const base_win, HWND hDlg, UINT iM
 		{
 		case ID_ATTRIBUTE_OK:
 		{
+			Context* context = tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
 			std::string base_text = GetText(IDC_EDIT_ATTRIBUTE_BASE);
 			std::string new_text = GetText(IDC_EDIT_ATTRIBUTE_NEW);
 			std::string value_text = GetText(IDC_EDIT_ATTRIBUTE_VALUE);
 
-			Context* context = tool->GetManager<SubsystemManager>()->GetSubsystem_raw<Context>();
-			context->AddAttribute<const char*>(base_text, new_text, value_text.c_str());
+			std::string type = context->DeduceTextType(value_text);
+
+			if(type == "float")
+				context->AddAttribute<float>(base_text, new_text, std::stof(value_text));
+			else if(type == "int")
+				context->AddAttribute<int>(base_text, new_text, std::stoi(value_text));
+			else
+				context->AddAttribute<const char*>(base_text, new_text, value_text.c_str());
+
 			base_win->EraseTextsWindow();
 
 			EndDialog(hDlg, 0);

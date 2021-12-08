@@ -87,3 +87,20 @@ auto Context::ToString() -> const std::string
 
 	return printer.CStr();
 }
+
+auto Context::DeduceTextType(const std::string& text) -> const std::string
+{
+	if (text.empty())
+		return "";
+
+	if (text.find_last_not_of("0123456789") == std::string::npos)
+	{
+		if (text.find_last_not_of(".") == std::string::npos)
+			return std::string("float");
+		else
+			return std::string("int");
+	}
+
+	else
+		return std::string("string");
+}
