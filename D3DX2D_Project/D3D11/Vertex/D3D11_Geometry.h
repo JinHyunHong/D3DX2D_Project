@@ -1,39 +1,37 @@
 #pragma once
 #include "stdafx.h"
 
-struct D3D11_VertexTexture
-{
-	D3DXVECTOR3 position;
-	D3DXVECTOR2 uv;
-
-	D3D11_INPUT_ELEMENT_DESC desc[];
-
-	D3D11_VertexTexture()
-		: position(0, 0, 0),
-		uv(0, 0)
-	{}
-
-	D3D11_VertexTexture(const D3DXVECTOR3& position, const D3DXVECTOR2& uv)
-		: position(position), uv(uv)
-	{}
-};
-
-struct D3D11_VertexColor
-{
-	D3DXVECTOR3 position;
-	D3DXCOLOR color;
-
-	D3D11_INPUT_ELEMENT_DESC desc[];
-	
-	D3D11_VertexColor(const D3DXVECTOR3& position, const D3DXCOLOR& color)
-		: position(position), color(color)
-	{
-		{}
-	}
-};
-
 template<typename T>
 class D3D11_Geometry
 {
+public:
+	D3D11_Geometry() = default;
+	virtual ~D3D11_Geometry();
 
+	// Vertices
+	auto GetVertexCount() const { return static_cast<uint>(vertices.size()); }
+	auto GetVertexPointer() const { return vertices.data(); }
+	auto GetVertexByteWidth() const { return GetVertexCount() * sizeof(T); }
+	auto GetVertices() const -> const std::vector<T>& { return vertices; }
+	auto GetVertices(const uint& offset, const uint& count) -> const std::vector<T>;
+	void AddVertex(const T& vertex);
+	void AddVertices(const std::vector<T>& vertices);
+	void SetVertices(const std::vector<T>& vertices);
+
+	// Indices
+	auto GetIndexCount() const { return static_cast<uint>(indices.size()); }
+	auto GetIndexPointer() const { return vertices.data(); }
+	auto GetIndexByteWidth() const { return GetIndexCount() * sizeof(uint); }
+	auto GetIndices() const -> const std::vector<uint>& { return vertices; }
+	auto GetIndices(const uint& offset, const uint& count) -> const std::vector<uint>;
+	void AddIndex(const uint& index);
+	void AddIndices(const std::vector<uint>& indices);
+	void Setindices(const std::vector<uint>& indices);
+
+	void Clear();
+private:
+	std::vector<T> vertices;
+	std::vector<uint> indices;
 };
+
+#include "D3D11_Geometry.inl"

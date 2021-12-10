@@ -22,7 +22,10 @@
     <ClCompile Include="Core\Core.cpp" />
     <ClCompile Include="Core\Tool.cpp" />
     <ClCompile Include="D3D11\ID3D11.cpp" />
-    <ClCompile Include="D3D11\Vertex\D3D11_VertexBuffer.cpp" />
+    <ClCompile Include="D3D11\InputAssembler\D3D11_IndexBuffer.cpp" />
+    <ClCompile Include="D3D11\InputAssembler\D3D11_InputLayout.cpp" />
+    <ClCompile Include="D3D11\InputAssembler\D3D11_VertexBuffer.cpp" />
+    <ClCompile Include="D3D11\Vertex\D3D11_Vertex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
@@ -40,8 +43,11 @@
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Core\Tool.h" />
     <ClInclude Include="D3D11\ID3D11.h" />
+    <ClInclude Include="D3D11\InputAssembler\D3D11_IndexBuffer.h" />
+    <ClInclude Include="D3D11\InputAssembler\D3D11_InputLayout.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h" />
-    <ClInclude Include="D3D11\Vertex\D3D11_VertexBuffer.h" />
+    <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
+    <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
     <ClInclude Include="Utillity\defines.h" />
     <ClInclude Include="Manager\IManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />
@@ -53,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <ClInclude Include="D3D11\Vertex\D3D11_Geometry.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

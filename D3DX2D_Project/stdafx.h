@@ -25,6 +25,13 @@
 #include <iomanip>
 #include <sstream>
 
+//Subsystem
+#include "Subsystem/D3D11_Base.h"
+
+
+//D3D11Wrapper Class
+#include "D3D11/ID3D11.h"
+
 //Utillity
 #include "Utillity/defines.h"
 #include "Utillity/GUID_Creator.h"
