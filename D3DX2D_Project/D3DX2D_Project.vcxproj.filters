@@ -45,6 +45,15 @@
     <ClCompile Include="Subsystem\D3D11_Base.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="D3D11\ID3D11.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Utillity\GUID_Creator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11\Vertex\D3D11_VertexBuffer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -59,7 +68,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Header\defines.h">
+    <ClInclude Include="Utillity\defines.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Subsystem\ISubsystem.h">
@@ -74,5 +83,20 @@
     <ClInclude Include="Subsystem\D3D11_Base.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="D3D11\ID3D11.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utillity\GUID_Creator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11\Vertex\D3D11_VertexBuffer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

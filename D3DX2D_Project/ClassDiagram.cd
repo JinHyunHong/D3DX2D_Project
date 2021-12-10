@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAgQQAYAAgAAAABAhAAAAAAAEAAACAAAA=</HashCode>
+      <FileName>Core\Core.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tool" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABACAAAAAAQAAAAAAAAgAIAAgAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Core\Tool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IManager" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgQAAAQAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manager\IManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SubsystemManager" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAQQAAAAEAAAAAAAAIAAAIBAAAAAACAAA=</HashCode>
+      <FileName>Manager\SubsystemManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="window" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AERBAEAEAECAhQQAQQAQAAAABABEAEAIAAACQAAAAAA=</HashCode>
+      <FileName>Setting\Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="D3D11_Base" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAEAACAAEAAQAABAEAAAACAABAEAgEAAAggAIAAAA=</HashCode>
+      <FileName>Subsystem\D3D11_Base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ISubsystem" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAQAAAAAgQAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subsystem\ISubsystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ID3D11" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAoA=</HashCode>
+      <FileName>D3D11\ID3D11.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUID_Creator" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAQgAAAAA=</HashCode>
+      <FileName>Utillity\GUID_Creator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="uint" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utillity\defines.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="Dialog_type" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABAAAAAABA=</HashCode>
+      <FileName>Setting\Window.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

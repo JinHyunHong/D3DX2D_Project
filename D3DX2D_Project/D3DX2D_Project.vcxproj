@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="Core\Core.cpp" />
     <ClCompile Include="Core\Tool.cpp" />
+    <ClCompile Include="D3D11\ID3D11.cpp" />
+    <ClCompile Include="D3D11\Vertex\D3D11_VertexBuffer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
@@ -32,17 +34,25 @@
     </ClCompile>
     <ClCompile Include="Subsystem\D3D11_Base.cpp" />
     <ClCompile Include="Subsystem\ISubsystem.cpp" />
+    <ClCompile Include="Utillity\GUID_Creator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Core\Tool.h" />
-    <ClInclude Include="Header\defines.h" />
+    <ClInclude Include="D3D11\ID3D11.h" />
+    <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h" />
+    <ClInclude Include="D3D11\Vertex\D3D11_VertexBuffer.h" />
+    <ClInclude Include="Utillity\defines.h" />
     <ClInclude Include="Manager\IManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />
     <ClInclude Include="Setting\Window.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Subsystem\D3D11_Base.h" />
     <ClInclude Include="Subsystem\ISubsystem.h" />
+    <ClInclude Include="Utillity\GUID_Creator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
