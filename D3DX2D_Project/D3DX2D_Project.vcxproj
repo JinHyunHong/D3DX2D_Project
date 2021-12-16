@@ -25,6 +25,12 @@
     <ClCompile Include="D3D11\InputAssembler\D3D11_IndexBuffer.cpp" />
     <ClCompile Include="D3D11\InputAssembler\D3D11_InputLayout.cpp" />
     <ClCompile Include="D3D11\InputAssembler\D3D11_VertexBuffer.cpp" />
+    <ClCompile Include="D3D11\Rasterizer\D3D11_RasterizerState.cpp" />
+    <ClCompile Include="D3D11\Rasterizer\D3D11_Viewport.cpp" />
+    <ClCompile Include="D3D11\Shader\D3D11_ConstantBuffer.cpp" />
+    <ClCompile Include="D3D11\Shader\D3D11_SamplerState.cpp" />
+    <ClCompile Include="D3D11\Shader\D3D11_Shader.cpp" />
+    <ClCompile Include="D3D11\Shader\D3D11_Texture.cpp" />
     <ClCompile Include="D3D11\Vertex\D3D11_Vertex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
@@ -45,6 +51,12 @@
     <ClInclude Include="D3D11\ID3D11.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_IndexBuffer.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_InputLayout.h" />
+    <ClInclude Include="D3D11\Rasterizer\D3D11_RasterizerState.h" />
+    <ClInclude Include="D3D11\Rasterizer\D3D11_Viewport.h" />
+    <ClInclude Include="D3D11\Shader\D3D11_ConstantBuffer.h" />
+    <ClInclude Include="D3D11\Shader\D3D11_SamplerState.h" />
+    <ClInclude Include="D3D11\Shader\D3D11_Shader.h" />
+    <ClInclude Include="D3D11\Shader\D3D11_Texture.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
@@ -136,7 +148,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DIRECTX_VER_11;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>

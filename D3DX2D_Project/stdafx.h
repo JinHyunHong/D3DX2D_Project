@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX
+
 //D3DLibrary
 #include <d3dcompiler.h>
 #include <d3d11.h>
