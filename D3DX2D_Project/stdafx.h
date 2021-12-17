@@ -26,10 +26,13 @@
 #include <guiddef.h>
 #include <iomanip>
 #include <sstream>
+#include <random>
+#include <chrono>
 
 //Utillity
 #include "Utillity/defines.h"
 #include "Utillity/GUID_Creator.h"
+#include "Utillity/Math/Math.h"
 
 //Tool
 #include "Core/Tool.h"

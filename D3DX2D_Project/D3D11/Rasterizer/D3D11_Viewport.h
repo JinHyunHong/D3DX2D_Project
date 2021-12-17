@@ -9,7 +9,7 @@ public:
 		const float& width = 0.0f, const float& height = 0.0f,
 		const float& min_depth = 0.0f, const float& max_depth = 1.0f);
 	D3D11_Viewport(const D3D11_Viewport& rhs);
-	D3D11_Viewport() = default;
+	D3D11_Viewport() {};
 
 	bool operator == (const D3D11_Viewport& rhs) const {
 		return x == rhs.x && y == rhs.y && width == rhs.width && height == rhs.height
