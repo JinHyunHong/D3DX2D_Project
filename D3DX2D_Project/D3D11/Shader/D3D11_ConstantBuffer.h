@@ -1,13 +1,13 @@
 #pragma once
 
-class D3D11_ConstnatBuffer final :
+class D3D11_ConstantBuffer final :
 	public D3D11
 {
 public:
-	D3D11_ConstnatBuffer(class D3D11_Base* const base);
-	~D3D11_ConstnatBuffer();
+	D3D11_ConstantBuffer(class D3D11_Base* const base);
+	~D3D11_ConstantBuffer();
 
-	auto GetResource() const -> const ID3D11Buffer* { return buffer; }
+	auto GetResource() const -> ID3D11Buffer* { return buffer; }
 
 	template<typename T>
 	void Create(const D3D11_USAGE& usage = D3D11_USAGE_DYNAMIC);
@@ -22,7 +22,7 @@ private:
 };
 
 template<typename T>
-inline void D3D11_ConstnatBuffer::Create(const D3D11_USAGE& usage)
+inline void D3D11_ConstantBuffer::Create(const D3D11_USAGE& usage)
 {
 	D3D11_BUFFER_DESC desc;
 	ZeroMemory(&desc, sizeof(D3D11_BUFFER_DESC));
@@ -49,7 +49,7 @@ inline void D3D11_ConstnatBuffer::Create(const D3D11_USAGE& usage)
 }
 
 template<typename T>
-inline auto D3D11_ConstnatBuffer::Map() -> T*
+inline auto D3D11_ConstantBuffer::Map() -> T*
 {
 	D3D11_MAPPED_SUBRESOURCE sub_resource;
 

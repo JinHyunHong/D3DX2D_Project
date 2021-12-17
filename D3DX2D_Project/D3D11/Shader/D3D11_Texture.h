@@ -7,7 +7,7 @@ public:
 	D3D11_Texture(class D3D11_Base* const base);
 	~D3D11_Texture();
 
-	auto GetResource() const -> const ID3D11ShaderResourceView* { return resource; }
+	auto GetResource() const -> ID3D11ShaderResourceView* { return resource; }
 	void Create(const std::string& path);
 	void Clear();
 

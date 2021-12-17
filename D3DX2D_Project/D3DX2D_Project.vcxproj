@@ -22,9 +22,11 @@
     <ClCompile Include="Core\Core.cpp" />
     <ClCompile Include="Core\Tool.cpp" />
     <ClCompile Include="D3D11\D3D11.cpp" />
+    <ClCompile Include="D3D11\D3D11_Pipeline.cpp" />
     <ClCompile Include="D3D11\InputAssembler\D3D11_IndexBuffer.cpp" />
     <ClCompile Include="D3D11\InputAssembler\D3D11_InputLayout.cpp" />
     <ClCompile Include="D3D11\InputAssembler\D3D11_VertexBuffer.cpp" />
+    <ClCompile Include="D3D11\OutputMerger\D3D11_BlendState.cpp" />
     <ClCompile Include="D3D11\Rasterizer\D3D11_RasterizerState.cpp" />
     <ClCompile Include="D3D11\Rasterizer\D3D11_Viewport.cpp" />
     <ClCompile Include="D3D11\Shader\D3D11_ConstantBuffer.cpp" />
@@ -49,9 +51,11 @@
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Core\Tool.h" />
     <ClInclude Include="D3D11\D3D11.h" />
+    <ClInclude Include="D3D11\D3D11_Pipeline.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_IndexBuffer.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_InputLayout.h" />
     <ClInclude Include="D3D11\Object.h" />
+    <ClInclude Include="D3D11\OutputMerger\D3D11_BlendState.h" />
     <ClInclude Include="D3D11\Rasterizer\D3D11_RasterizerState.h" />
     <ClInclude Include="D3D11\Rasterizer\D3D11_Viewport.h" />
     <ClInclude Include="D3D11\Shader\D3D11_ConstantBuffer.h" />

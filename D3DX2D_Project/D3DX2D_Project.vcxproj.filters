@@ -81,6 +81,12 @@
     <ClCompile Include="D3D11\Rasterizer\D3D11_Viewport.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="D3D11\OutputMerger\D3D11_BlendState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D11\D3D11_Pipeline.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -153,6 +159,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="D3D11\Object.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11\OutputMerger\D3D11_BlendState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D11\D3D11_Pipeline.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
