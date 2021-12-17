@@ -1,7 +1,7 @@
 #pragma once
 
 class D3D11_ConstnatBuffer final :
-	public ID3D11
+	public D3D11
 {
 public:
 	D3D11_ConstnatBuffer(class D3D11_Base* const base);
@@ -45,7 +45,7 @@ inline void D3D11_ConstnatBuffer::Create(const D3D11_USAGE& usage)
 	}
 
 	auto h_reslut = device->CreateBuffer(&desc, nullptr, &buffer);
-	assert(SUCCEEDED(h_result));
+	assert(SUCCEEDED(h_reslut));
 }
 
 template<typename T>

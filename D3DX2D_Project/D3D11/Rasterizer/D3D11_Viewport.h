@@ -1,7 +1,7 @@
 #pragma once
 
 class D3D11_Viewport final :
-	public ID3D11
+	public Object
 {
 public:
 	D3D11_Viewport(

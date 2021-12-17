@@ -1,7 +1,7 @@
 #pragma once
 
 class D3D11_SamplerState final :
-	public ID3D11
+	public D3D11
 {
 public:
 	D3D11_SamplerState(class D3D11_Base* const base);

@@ -2,7 +2,7 @@
 #include "D3D11_VertexBuffer.h"
 
 D3D11_VertexBuffer::D3D11_VertexBuffer(D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 

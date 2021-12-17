@@ -2,7 +2,7 @@
 #include "D3D11_InputLayout.h"
 
 D3D11_InputLayout::D3D11_InputLayout(class D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 

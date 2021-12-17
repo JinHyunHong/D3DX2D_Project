@@ -2,7 +2,7 @@
 #include "D3D11_IndexBuffer.h"
 
 D3D11_IndexBuffer::D3D11_IndexBuffer(D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 
@@ -44,7 +44,7 @@ auto D3D11_IndexBuffer::Create(const std::vector<uint> indices, const D3D11_USAG
 	assert(SUCCEEDED(h_result));
 }
 
-auto D3D11_IndexBuffer::Clear()
+void D3D11_IndexBuffer::Clear()
 {
 	SAFE_RELEASE(buffer);
 	stride = 0;

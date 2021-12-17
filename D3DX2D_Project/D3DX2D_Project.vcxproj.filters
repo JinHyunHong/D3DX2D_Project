@@ -57,7 +57,7 @@
     <ClCompile Include="D3D11\Vertex\D3D11_Vertex.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="D3D11\ID3D11.cpp">
+    <ClCompile Include="D3D11\D3D11.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="D3D11\InputAssembler\D3D11_InputLayout.cpp">
@@ -110,7 +110,7 @@
     <ClInclude Include="Subsystem\D3D11_Base.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="D3D11\ID3D11.h">
+    <ClInclude Include="D3D11\D3D11.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Utillity\GUID_Creator.h">
@@ -152,8 +152,12 @@
     <ClInclude Include="D3D11\Rasterizer\D3D11_Viewport.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="D3D11\Object.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

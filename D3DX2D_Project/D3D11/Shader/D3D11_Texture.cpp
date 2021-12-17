@@ -3,7 +3,7 @@
 
 
 D3D11_Texture::D3D11_Texture(class D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 

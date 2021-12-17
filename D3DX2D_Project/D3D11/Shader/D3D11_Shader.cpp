@@ -2,7 +2,7 @@
 #include "D3D11_Shader.h"
 
 D3D11_Shader::D3D11_Shader(D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 
@@ -118,17 +118,18 @@ auto D3D11_Shader::Compile(const Shader_Type& type, const std::string& shader_pa
 		{
 		case Shader_Type::VertexShader:
 		{
-			h_result = device->CreateVertexShader(blob->GetBufferPointer(), blob->GetBufferSize(), nullptr, 
+			h_result = device->CreateVertexShader(blob->GetBufferPointer(), blob->GetBufferSize(), nullptr,
 				reinterpret_cast<ID3D11VertexShader**>(&shader_resource));
 			assert(SUCCEEDED(h_result));
 			break;
 		}
-		case Shader_Type::PixelShader: 
+		case Shader_Type::PixelShader:
 		{
 			h_result = device->CreatePixelShader(blob->GetBufferPointer(), blob->GetBufferSize(), nullptr,
 				reinterpret_cast<ID3D11PixelShader**>(&shader_resource));
 			assert(SUCCEEDED(h_result));
 			break;
+		}
 		}
 	}
 

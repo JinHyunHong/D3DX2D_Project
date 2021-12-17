@@ -2,7 +2,7 @@
 #include "D3D11_SamplerState.h"
 
 D3D11_SamplerState::D3D11_SamplerState(D3D11_Base* const base) :
-	ID3D11(base)
+	D3D11(base)
 {
 }
 

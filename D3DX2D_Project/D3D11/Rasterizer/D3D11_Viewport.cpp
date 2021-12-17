@@ -3,7 +3,7 @@
 
 D3D11_Viewport::D3D11_Viewport(const float& x, const float& y, const float& width, 
 	const float& height, const float& min_depth, const float& max_depth) :
-	ID3D11()
+	Object()
 {
 }
 

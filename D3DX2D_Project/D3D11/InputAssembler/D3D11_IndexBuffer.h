@@ -2,14 +2,14 @@
 
 
 class D3D11_IndexBuffer final :
-	public ID3D11
+	public D3D11
 {
 public:
 	D3D11_IndexBuffer(class D3D11_Base* const base);
 	~D3D11_IndexBuffer();
 
 	auto Create(const std::vector<uint> indices, const D3D11_USAGE& usage = D3D11_USAGE_IMMUTABLE);
-	auto Clear();
+	void Clear();
 
 	auto GetStride() const -> const uint& { return stride; }
 	auto GetOffset() const -> const uint& { return offset; }

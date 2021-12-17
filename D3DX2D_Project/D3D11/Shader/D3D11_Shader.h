@@ -16,7 +16,7 @@ enum class CompilationState : uint
 };
 
 class D3D11_Shader final :
-	public ID3D11
+	public D3D11
 {
 public:
 	D3D11_Shader(class D3D11_Base* const base);

@@ -1,7 +1,7 @@
 #pragma once
 
 class D3D11_Texture final :
-	public ID3D11
+	public D3D11
 {
 public:
 	D3D11_Texture(class D3D11_Base* const base);
