@@ -14,10 +14,27 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 
 	tool = new Tool();
 
-	tool->AddManager(std::make_shared<SubsystemManager>(tool));
-	auto sub_manager = tool->GetManager<SubsystemManager>();
-	tool->Initialize();
+	// Managers Initialize
+	auto sub_manager = std::make_shared<SubsystemManager>(tool);
+	tool->AddManager(sub_manager);
 
+	if (!tool->Initialize())
+	{
+		assert(false);
+		return false;
+	}
+
+
+	// Subsystems Initialize
+	sub_manager->AddSubsystem(std::make_shared<Timer>(tool));
+
+	if(!sub_manager->Initialize()) 
+	{
+		assert(false);
+		return false;
+	}
+
+	// Create Window
 	current_window = std::make_shared<window>(tool, instance, width, height);
 	current_window->Create(L"D3DX2D_Project", L"D3DX2D_Project");
 	current_window->Show();

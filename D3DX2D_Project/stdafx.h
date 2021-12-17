@@ -45,6 +45,7 @@
 
 //Subsystem
 #include "Subsystem/D3D11_Base.h"
+#include "Subsystem/Timer.h"
 
 //D3D11Wrapper Class
 #include "D3D11/Object.h"

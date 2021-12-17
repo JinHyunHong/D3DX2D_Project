@@ -37,5 +37,5 @@ auto Stopwatch::GetElapsedTimeMs() const -> const float
 
 auto Stopwatch::GetElapsedTimeSec() const -> const float
 {
-	return GetElapsedTimeMs() / 1000.0;
+	return GetElapsedTimeMs() / 1000.f;
 }

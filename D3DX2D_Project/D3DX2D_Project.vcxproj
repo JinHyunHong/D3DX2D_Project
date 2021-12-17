@@ -36,7 +36,9 @@
     <ClCompile Include="D3D11\Vertex\D3D11_Vertex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
+    <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Setting\Window.cpp" />
     <ClCompile Include="Setting\Window_Proc.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -66,6 +68,8 @@
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
+    <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Subsystem\Timer.h" />
     <ClInclude Include="Utillity\defines.h" />
     <ClInclude Include="Manager\IManager.h" />
@@ -81,6 +85,9 @@
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.inl">
       <FileType>Document</FileType>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
