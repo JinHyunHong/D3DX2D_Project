@@ -48,12 +48,12 @@ void SceneManager::SetCurrentScene(const std::string& scene_name)
 	current_scene = scenes[scene_name];
 }
 
-auto SceneManager::CreateScene(const std::string& scene_name) -> std::shared_ptr<class Scene>&
+auto SceneManager::CreateScene(const std::string& scene_name) -> std::shared_ptr<class Scene>
 {
 	if (scenes.find(scene_name) != scenes.end())
 	{
 		assert(false);
-		return;
+		return nullptr;
 	}
 
 	auto new_scene = std::make_shared<Scene>(tool);

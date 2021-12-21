@@ -33,7 +33,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Subsystem\ISubsystem.cpp">
+    <ClCompile Include="Manager\Subsystem\ISubsystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Manager\IManager.cpp">
@@ -42,7 +42,7 @@
     <ClCompile Include="Manager\SubsystemManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Subsystem\D3D11_Base.cpp">
+    <ClCompile Include="Manager\Subsystem\D3D11_Base.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Utillity\GUID_Creator.cpp">
@@ -87,13 +87,19 @@
     <ClCompile Include="D3D11\D3D11_Pipeline.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Subsystem\Timer.cpp">
+    <ClCompile Include="Manager\Subsystem\Timer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Manager\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Actor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,7 +119,7 @@
     <ClInclude Include="Utillity\defines.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Subsystem\ISubsystem.h">
+    <ClInclude Include="Manager\Subsystem\ISubsystem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Manager\SubsystemManager.h">
@@ -122,7 +128,7 @@
     <ClInclude Include="Manager\IManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Subsystem\D3D11_Base.h">
+    <ClInclude Include="Manager\Subsystem\D3D11_Base.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="D3D11\D3D11.h">
@@ -179,7 +185,7 @@
     <ClInclude Include="Utillity\Math\Math.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Subsystem\Timer.h">
+    <ClInclude Include="Manager\Subsystem\Timer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Scene.h">
@@ -188,8 +194,20 @@
     <ClInclude Include="Manager\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\Actor.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Component\IComponent.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Scene\Actor.inl">
+      <Filter>헤더 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>

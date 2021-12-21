@@ -38,6 +38,8 @@
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
+    <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
+    <ClCompile Include="Scene\Actor.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Setting\Window.cpp" />
     <ClCompile Include="Setting\Window_Proc.cpp" />
@@ -45,9 +47,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Subsystem\D3D11_Base.cpp" />
-    <ClCompile Include="Subsystem\ISubsystem.cpp" />
-    <ClCompile Include="Subsystem\Timer.cpp" />
+    <ClCompile Include="Manager\Subsystem\D3D11_Base.cpp" />
+    <ClCompile Include="Manager\Subsystem\ISubsystem.cpp" />
+    <ClCompile Include="Manager\Subsystem\Timer.cpp" />
     <ClCompile Include="Utillity\GUID_Creator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -69,15 +71,18 @@
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
     <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h" />
+    <ClInclude Include="Scene\Actor.h" />
+    <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Scene.h" />
-    <ClInclude Include="Subsystem\Timer.h" />
+    <ClInclude Include="Manager\Subsystem\Timer.h" />
     <ClInclude Include="Utillity\defines.h" />
     <ClInclude Include="Manager\IManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />
     <ClInclude Include="Setting\Window.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Subsystem\D3D11_Base.h" />
-    <ClInclude Include="Subsystem\ISubsystem.h" />
+    <ClInclude Include="Manager\Subsystem\D3D11_Base.h" />
+    <ClInclude Include="Manager\Subsystem\ISubsystem.h" />
     <ClInclude Include="Utillity\GUID_Creator.h" />
     <ClInclude Include="Utillity\Math\Math.h" />
   </ItemGroup>
@@ -88,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Scene\Actor.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

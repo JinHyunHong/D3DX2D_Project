@@ -15,7 +15,7 @@ public:
 
 	void SetCurrentScene(const std::string& scene_name);
 
-	auto CreateScene(const std::string& scene_name) -> std::shared_ptr<class Scene>&;
+	auto CreateScene(const std::string& scene_name) -> std::shared_ptr<class Scene>;
 
 	auto GetAllScene() const -> const std::unordered_map<std::string, std::shared_ptr<class Scene>>& { return scenes; }
 

@@ -44,8 +44,9 @@
 #include "Setting/Window.h"
 
 //Subsystem
-#include "Subsystem/D3D11_Base.h"
-#include "Subsystem/Timer.h"
+#include "Manager/Subsystem/D3D11_Base.h"
+#include "Manager/Subsystem/Timer.h"
+#include "Manager/Subsystem/Renderer/Renderer.h"
 
 //D3D11Wrapper Class
 #include "D3D11/Object.h"

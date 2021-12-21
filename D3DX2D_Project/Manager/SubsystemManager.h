@@ -1,6 +1,6 @@
 #pragma once
 #include "IManager.h"
-#include "../Subsystem/ISubsystem.h"
+#include "Subsystem/ISubsystem.h"
 
 class SubsystemManager final :
 	public IManager
