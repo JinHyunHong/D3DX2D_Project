@@ -34,6 +34,9 @@
 #include "Utillity/GUID_Creator.h"
 #include "Utillity/Math/Math.h"
 
+//Core
+#include "Core/Core.h"
+
 //Tool
 #include "Core/Tool.h"
 

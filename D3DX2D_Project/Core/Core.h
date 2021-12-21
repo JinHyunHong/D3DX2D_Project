@@ -18,6 +18,9 @@ public:
 
 	auto GetWindow() -> std::shared_ptr<class window>& { return current_window; }
 
+	auto GetWidth() const -> const uint& { return width; }
+	auto GetHeight() const -> const uint& { return height; }
+
 private:
 	Core() = default;
 	~Core();

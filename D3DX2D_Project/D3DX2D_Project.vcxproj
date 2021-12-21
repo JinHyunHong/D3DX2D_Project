@@ -40,6 +40,10 @@
     <ClCompile Include="Manager\SubsystemManager.cpp" />
     <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
     <ClCompile Include="Scene\Actor.cpp" />
+    <ClCompile Include="Scene\Component\AIScriptComponent.cpp" />
+    <ClCompile Include="Scene\Component\CameraComponent.cpp" />
+    <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
+    <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Setting\Window.cpp" />
     <ClCompile Include="Setting\Window_Proc.cpp" />
@@ -73,7 +77,11 @@
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h" />
     <ClInclude Include="Scene\Actor.h" />
+    <ClInclude Include="Scene\Component\AIScriptComponent.h" />
+    <ClInclude Include="Scene\Component\CameraComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
+    <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
+    <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Manager\Subsystem\Timer.h" />
     <ClInclude Include="Utillity\defines.h" />
