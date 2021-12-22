@@ -115,7 +115,7 @@ void D3D11_Pipeline::SetConstantBuffer(const uint& slot, const uint& scope, cons
 	ID3D11Buffer* constant_buffers[]{ buffer->GetResource() };
 
 	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->VSSetConstantBuffers(slot, 1, constant_buffers);
-	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->PSSetConstantBuffers(slot, 1, constant_buffers);
+	if (scope & static_cast<uint>(Shader_Type::PixelShader)) device_context->PSSetConstantBuffers(slot, 1, constant_buffers);
 }
 
 void D3D11_Pipeline::SetShaderResource(const uint& slot, const uint& scope, const D3D11_Texture* shader_resource)
@@ -129,7 +129,7 @@ void D3D11_Pipeline::SetShaderResource(const uint& slot, const uint& scope, cons
 	ID3D11ShaderResourceView* resources[]{ shader_resource->GetResource() };
 
 	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->VSSetShaderResources(slot, 1, resources);
-	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->PSSetShaderResources(slot, 1, resources);
+	if (scope & static_cast<uint>(Shader_Type::PixelShader)) device_context->PSSetShaderResources(slot, 1, resources);
 }
 
 void D3D11_Pipeline::SetSamplerState(const uint& slot, const uint& scope, const D3D11_SamplerState* state)
@@ -143,7 +143,7 @@ void D3D11_Pipeline::SetSamplerState(const uint& slot, const uint& scope, const 
 	ID3D11SamplerState* states[]{ state->GetResource() };
 
 	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->VSSetSamplers(slot, 1, states);
-	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->PSSetSamplers(slot, 1, states);
+	if (scope & static_cast<uint>(Shader_Type::PixelShader)) device_context->PSSetSamplers(slot, 1, states);
 }
 
 void D3D11_Pipeline::SetConstantBuffer_clear(const uint& slot, const uint& scope)
@@ -157,7 +157,7 @@ void D3D11_Pipeline::SetConstantBuffer_clear(const uint& slot, const uint& scope
 	ID3D11Buffer* constant_buffers[]{ nullptr };
 
 	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->VSSetConstantBuffers(slot, 1, constant_buffers);
-	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->PSSetConstantBuffers(slot, 1, constant_buffers);
+	if (scope & static_cast<uint>(Shader_Type::PixelShader)) device_context->PSSetConstantBuffers(slot, 1, constant_buffers);
 }
 
 void D3D11_Pipeline::SetShaderResource_clear(const uint& slot, const uint& scope)
@@ -171,7 +171,7 @@ void D3D11_Pipeline::SetShaderResource_clear(const uint& slot, const uint& scope
 	ID3D11ShaderResourceView* resources[]{ nullptr };
 
 	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->VSSetShaderResources(slot, 1, resources);
-	if (scope & static_cast<uint>(Shader_Type::VertexShader)) device_context->PSSetShaderResources(slot, 1, resources);
+	if (scope & static_cast<uint>(Shader_Type::PixelShader)) device_context->PSSetShaderResources(slot, 1, resources);
 }
 
 void D3D11_Pipeline::Draw(const uint& vertex_count, const uint& vertex_offset)

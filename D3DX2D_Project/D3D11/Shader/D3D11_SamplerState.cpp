@@ -16,6 +16,7 @@ void D3D11_SamplerState::Create(const D3D11_FILTER& filter, const D3D11_TEXTURE_
 {
 	D3D11_SAMPLER_DESC desc;
 	ZeroMemory(&desc, sizeof(D3D11_SAMPLER_DESC));
+	desc.Filter = filter;
 	desc.AddressU = address_mode;
 	desc.AddressV = address_mode;
 	desc.AddressW = address_mode;
@@ -30,7 +31,8 @@ void D3D11_SamplerState::Create(const D3D11_FILTER& filter, const D3D11_TEXTURE_
 	desc.MipLODBias = 0.0f;
 
 	auto h_result = device->CreateSamplerState(&desc, &state);
-	assert(SUCCEEDED(h_result));}
+	assert(SUCCEEDED(h_result));
+}
 
 void D3D11_SamplerState::Clear()
 {

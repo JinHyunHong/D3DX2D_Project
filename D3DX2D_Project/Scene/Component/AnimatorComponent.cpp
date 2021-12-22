@@ -15,7 +15,7 @@ bool AnimatorComponent::Initialize()
 
 void AnimatorComponent::Update()
 {
-	if (current_animation.expired() || IsPlaying())
+	if (current_animation.expired() || !IsPlaying())
 		return;
 
 	frame_counter += timer->GetDeltaTimeMs();

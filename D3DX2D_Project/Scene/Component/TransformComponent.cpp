@@ -98,11 +98,11 @@ void TransformComponent::SetPosition(const D3DXVECTOR3& world_position)
 		D3DXMatrixInverse(&inverse, nullptr, &parent->GetWorldMatrix());
 		D3DXVECTOR3 position;
 		D3DXVec3TransformCoord(&position, &world_position, &inverse);
-		SetLocalScale(position);
+		SetLocalPosition(position);
 	}
 
 	else
-		SetLocalScale(world_position);
+		SetLocalPosition(world_position);
 }
 
 auto TransformComponent::GetRotation() -> const D3DXVECTOR3
@@ -132,11 +132,11 @@ void TransformComponent::SetRotation(const D3DXVECTOR3& world_rotation)
 		D3DXMatrixInverse(&inverse, nullptr, &GetWorldRotationMatrix());
 		D3DXVECTOR3 rotation;
 		D3DXVec3TransformNormal(&rotation, &world_rotation, &inverse);
-		SetLocalScale(rotation);
+		SetLocalRotation(rotation);
 	}
 
 	else
-		SetLocalScale(world_rotation);
+		SetLocalRotation(world_rotation);
 }
 
 auto TransformComponent::GetWorldRotationMatrix() const -> const D3DXMATRIX
