@@ -39,7 +39,7 @@ public:
 	void Stop();
 	void Pause();
 
-	bool IsPlaying() const { return animation_mode == AnimationMode::Play; }
+	bool IsPlaying() const {return animation_mode == AnimationMode::Play;}
 
 private:
 	class Timer* timer = nullptr;

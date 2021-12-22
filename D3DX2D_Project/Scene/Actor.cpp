@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Actor.h"
-#include "Component/IComponent.h"
+#include "Component/TransformComponent.h"
 
 Actor::Actor(Tool* const tool) :
 	tool(tool)

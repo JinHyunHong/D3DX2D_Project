@@ -2,18 +2,6 @@
 
 #define NOMINMAX
 
-// D3DLibrary
-#include <d3dcompiler.h>
-#include <d3d11.h>
-#include <D3DX10math.h>
-#include <D3DX11async.h>
-
-#pragma comment(lib, "dxgi.lib")
-#pragma comment(lib, "d3dx11.lib")
-#pragma comment(lib, "d3d11.lib")
-#pragma comment(lib, "d3d10.lib")
-#pragma comment(lib, "d3dcompiler.lib")
-
 // Base
 #include <iostream>
 #include <Windows.h>
@@ -31,11 +19,25 @@
 #include <chrono>
 #include <mutex>
 
+
+// D3DLibrary
+#include <d3dcompiler.h>
+#include <d3d11.h>
+#include <D3DX10math.h>
+#include <D3DX11async.h>
+
+#pragma comment(lib, "dxgi.lib")
+#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3dx11.lib")
+#pragma comment(lib, "d3dx10.lib")
+#pragma comment(lib, "d3dcompiler.lib")
+
+
 // Utillity
 #include "Utillity/defines.h"
+#include "Utillity/Math/Math.h"
 #include "Utillity/Xml.h"
 #include "Utillity/GUID_Creator.h"
-#include "Utillity/Math/Math.h"
 
 // Core
 #include "Core/Core.h"
@@ -43,17 +45,17 @@
 // Tool
 #include "Core/Tool.h"
 
+// Settings
+#include "Setting/Window.h"
+
 // Manager
 #include "Manager/SubsystemManager.h"
 #include "Manager/SceneManager.h"
 #include "Manager/ResourceManager.h"
 
-// Settings
-#include "Setting/Window.h"
-
 // Subsystem
-#include "Manager/Subsystem/D3D11_Base.h"
 #include "Manager/Subsystem/Timer.h"
+#include "Manager/Subsystem/D3D11_Base.h"
 #include "Manager/Subsystem/Renderer/Renderer.h"
 
 // D3D11Wrapper Class

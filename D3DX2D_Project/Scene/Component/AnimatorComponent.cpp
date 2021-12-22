@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "AnimatorComponent.h"
 
-AnimatorComponent::AnimatorComponent(Tool* const tool, Actor* const actor, TransformComponent* const transform)  :
+AnimatorComponent::AnimatorComponent(Tool* const tool, Actor* const actor, 
+	TransformComponent* const transform)  :
 	IComponent(tool, actor, transform)
 {
 	timer = tool->GetManager<SubsystemManager>()->GetSubsystem<Timer>();

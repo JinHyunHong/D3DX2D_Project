@@ -1,12 +1,10 @@
 #pragma once
-#include "stdafx.h"
 
 class IComponent
 {
 public:
 	IComponent(class Tool* const tool, class Actor* const actor,
-		class TransformComponent* const transform)
-		: tool(tool), actor(actor), transform(transform) {};
+		class TransformComponent* const transform);
 	virtual ~IComponent() = default;
 
 	virtual bool Initialize() = 0;
@@ -14,7 +12,7 @@ public:
 	virtual void Destroy() = 0;
 
 	auto GetActor() const -> Actor* { return actor; }
-	auto GetTransform() const -> TransformComponent* { return transform; }
+	auto GetTransform() const -> class TransformComponent* { return transform; }
 
 	auto IsEnable() { return is_enabled; }
 	void SetEnable(const bool& is_enabled) { this->is_enabled = is_enabled; }
