@@ -11,6 +11,7 @@ public:
 
 	bool Initialize(HINSTANCE instance, const uint& width, const uint& height);
 	bool Update();
+	void Render();
 	void Destroy();
 
 	auto GetInstance() const -> const HINSTANCE& { return instance; }

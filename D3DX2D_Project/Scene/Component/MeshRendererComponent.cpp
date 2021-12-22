@@ -41,7 +41,7 @@ void MeshRendererComponent::SetStandardMaterial()
 	vertex_shader->Create(Shader_Type::VertexShader, "Assets/Shader/Animation.hlsl");
 
 	pixel_shader = std::make_shared<D3D11_Shader>(base);
-	vertex_shader->Create(Shader_Type::PixelShader, "Assets/Shader/Animation.hlsl");
+	pixel_shader->Create(Shader_Type::PixelShader, "Assets/Shader/Animation.hlsl");
 
 	input_layout = std::make_shared<D3D11_InputLayout>(base);
 	input_layout->Create(D3D11_VertexTexture::descs, D3D11_VertexTexture::count, vertex_shader->GetShaderBlob());

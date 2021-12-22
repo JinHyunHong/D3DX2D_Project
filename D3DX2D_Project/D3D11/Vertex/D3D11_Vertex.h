@@ -9,11 +9,14 @@ struct D3D11_VertexColor
 
 	static D3D11_INPUT_ELEMENT_DESC descs[];
 
+	D3D11_VertexColor() :
+		position(0, 0, 0),
+		color(0, 0, 0, 0)
+	{}
+
 	D3D11_VertexColor(const D3DXVECTOR3& position, const D3DXCOLOR& color)
 		: position(position), color(color)
-	{
-		{}
-	}
+	{}
 };
 
 struct D3D11_VertexTexture

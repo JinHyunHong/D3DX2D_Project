@@ -16,4 +16,5 @@ private:
 	std::vector<std::shared_ptr<class Actor>> actors;
 	class Renderer* renderer = nullptr;
 	bool is_active = true;
+	bool is_update = true;
 };

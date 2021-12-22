@@ -1,7 +1,7 @@
 #pragma once
 
 class SceneManager final :
-	public IManager
+	public ISubsystem
 {
 public:
 	SceneManager(class Tool* const tool);
@@ -9,6 +9,7 @@ public:
 
 	bool Initialize() override;
 	void Update() override;
+	void Destroy() override;
 
 	auto GetCurrentScene_Raw() -> class Scene* const;
 	auto GetCurrentScene() const -> std::shared_ptr<class Scene>;

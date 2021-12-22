@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 
 template<typename T>
 class D3D11_Geometry

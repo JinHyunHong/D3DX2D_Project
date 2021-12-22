@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Animation Name="Idle" Type="1" TexturePath="../../_Assets/Texture/metalslug.png" TextureSizeX="600" TextureSizeY="800">
+<Animation Name="Idle" Type="1" TexturePath="Assets/Sprite/metalslug.png" TextureSizeX="600" TextureSizeY="800">
     <Keyframe OffsetX="4" OffsetY="2" SizeX="33" SizeY="53" Time="200"/>
     <Keyframe OffsetX="48" OffsetY="2" SizeX="33" SizeY="53" Time="200"/>
     <Keyframe OffsetX="94" OffsetY="2" SizeX="33" SizeY="53" Time="200"/>

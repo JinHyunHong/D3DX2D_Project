@@ -25,5 +25,5 @@ private:
 	IDXGISwapChain* swap_chain = nullptr;
 	D3D11_VIEWPORT viewport = D3D11_VIEWPORT();
 	ID3D11RenderTargetView* render_target_view = nullptr;
-	D3DXCOLOR clear_color = D3DXCOLOR(0.0f, 0.0f, 0.5f, 1.0f);
+	D3DXCOLOR clear_color = 0xff555566;
 };

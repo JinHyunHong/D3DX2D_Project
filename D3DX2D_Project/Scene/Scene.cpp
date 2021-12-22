@@ -11,6 +11,8 @@
 Scene::Scene(Tool* const tool) :
 	tool(tool)
 {
+	renderer = tool->GetManager<SubsystemManager>()->GetSubsystem<Renderer>();
+
 	auto camera = CreateActor();
 	camera->SetName("MainCamera");
 	camera->AddComponent<CameraComponent>();
@@ -45,10 +47,13 @@ void Scene::Update()
 	
 	for (const auto& actor : actors)
 	{
-		if (!actor->IsActive())
-			continue;
-
 		actor->Update();
+	}
+
+	if (is_update)
+	{
+		renderer->UpdateRenderables(this);
+		is_update = false;
 	}
 }
 

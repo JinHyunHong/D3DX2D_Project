@@ -13,7 +13,7 @@ D3D11_InputLayout::~D3D11_InputLayout()
 
 void D3D11_InputLayout::Create(D3D11_INPUT_ELEMENT_DESC* descs, const uint& count, ID3DBlob* blob)
 {
-	if (descs || !count || !blob)
+	if (!descs || !count || !blob)
 		assert(false);
 
 	auto h_result = device->CreateInputLayout(descs, count, blob->GetBufferPointer(), blob->GetBufferSize(), &input_layout);

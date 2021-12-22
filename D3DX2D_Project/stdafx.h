@@ -50,13 +50,13 @@
 
 // Manager
 #include "Manager/SubsystemManager.h"
-#include "Manager/SceneManager.h"
 #include "Manager/ResourceManager.h"
 
 // Subsystem
 #include "Manager/Subsystem/Timer.h"
 #include "Manager/Subsystem/D3D11_Base.h"
 #include "Manager/Subsystem/Renderer/Renderer.h"
+#include "Manager/Subsystem/SceneManager.h"
 
 // D3D11Wrapper Class
 #include "D3D11/Object.h"

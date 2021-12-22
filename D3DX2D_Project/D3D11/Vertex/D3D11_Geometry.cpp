@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "D3D11_Geometry.h"
 
 void Geometry_Generator::CreateQuad(D3D11_Geometry<struct D3D11_VertexTexture>& geometry)
 {

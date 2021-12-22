@@ -206,7 +206,7 @@ void TransformComponent::UpdateTransform()
 	if (HasParent())
 		world = local * parent->GetWorldMatrix();
 	else
-		world = world;
+		world = local;
 
 	for (const auto& child : childs)
 		child->UpdateTransform();

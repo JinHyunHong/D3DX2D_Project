@@ -14,8 +14,8 @@ D3D11_Shader::~D3D11_Shader()
 auto D3D11_Shader::GetEntryPoint() const -> const char*
 {
 	static const char* empty = nullptr;
-	static const char* vs = "VertexShader";
-	static const char* ps = "PixelShader";
+	static const char* vs = "VS";
+	static const char* ps = "PS";
 
 	switch (type)
 	{
@@ -67,8 +67,6 @@ void D3D11_Shader::Create(const Shader_Type& type, const std::string& shader_pat
 	state = CompilationState::Compiling;
 	resource = Compile(type, shader_path);
 	state = HasResource() ? CompilationState::Succeeded : CompilationState::Failed;
-
-	assert(state != CompilationState::Succeeded);
 }
 
 void D3D11_Shader::Clear()

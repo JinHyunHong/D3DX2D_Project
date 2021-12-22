@@ -38,7 +38,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\ResourceManager.cpp" />
-    <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Manager\Subsystem\SceneManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
     <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
     <ClCompile Include="Resource\Animation.cpp" />
@@ -85,7 +85,7 @@
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
     <ClInclude Include="Manager\ResourceManager.h" />
-    <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Manager\Subsystem\SceneManager.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer_ConstantBuffers.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer_Types.h" />

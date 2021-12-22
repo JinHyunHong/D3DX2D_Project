@@ -73,7 +73,7 @@ auto AnimatorComponent::GetCurrentKeyFrame() const -> const Keyframe* const
 
 void AnimatorComponent::AddAnimation(const std::string& animation_name, const std::shared_ptr<class Animation>& animation)
 {
-	assert(animations.find(animation_name) != animations.end());
+	assert(animations.find(animation_name) == animations.end());
 
 	animations[animation_name] = animation;
 }

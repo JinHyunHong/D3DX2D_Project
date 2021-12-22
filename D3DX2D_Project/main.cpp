@@ -7,7 +7,7 @@ int APIENTRY WinMain(HINSTANCE Inst, HINSTANCE PrevInst, LPSTR lpszCmdParam, int
 
 	while (Core::GetInst().Update())
 	{
-		
+		Core::GetInst().Render();
 	}
 
 	Core::GetInst().Destroy();

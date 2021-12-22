@@ -4,7 +4,7 @@
 
 
 SceneManager::SceneManager(class Tool* const tool) :
-	IManager(tool)
+	ISubsystem(tool)
 {
 }
 
@@ -25,6 +25,10 @@ void SceneManager::Update()
 {
 	if (!current_scene.expired())
 		current_scene.lock()->Update();
+}
+
+void SceneManager::Destroy()
+{
 }
 
 auto SceneManager::GetCurrentScene_Raw() -> class Scene* const
