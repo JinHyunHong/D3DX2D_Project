@@ -2,7 +2,7 @@
 
 #define NOMINMAX
 
-//D3DLibrary
+// D3DLibrary
 #include <d3dcompiler.h>
 #include <d3d11.h>
 #include <D3DX10math.h>
@@ -14,7 +14,7 @@
 #pragma comment(lib, "d3d10.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
-//Base
+// Base
 #include <iostream>
 #include <Windows.h>
 #include <assert.h>
@@ -22,41 +22,46 @@
 #include <typeinfo>
 #include <filesystem>
 #include <vector>
+#include <map>
 #include <unordered_map>
 #include <guiddef.h>
 #include <iomanip>
 #include <sstream>
 #include <random>
 #include <chrono>
+#include <mutex>
 
-//Utillity
+// Utillity
 #include "Utillity/defines.h"
+#include "Utillity/Xml.h"
 #include "Utillity/GUID_Creator.h"
 #include "Utillity/Math/Math.h"
 
-//Core
+// Core
 #include "Core/Core.h"
 
-//Tool
+// Tool
 #include "Core/Tool.h"
 
-//Manager
+// Manager
 #include "Manager/SubsystemManager.h"
+#include "Manager/SceneManager.h"
+#include "Manager/ResourceManager.h"
 
-//Settings
+// Settings
 #include "Setting/Window.h"
 
-//Subsystem
+// Subsystem
 #include "Manager/Subsystem/D3D11_Base.h"
 #include "Manager/Subsystem/Timer.h"
 #include "Manager/Subsystem/Renderer/Renderer.h"
 
-//D3D11Wrapper Class
+// D3D11Wrapper Class
 #include "D3D11/Object.h"
 #include "D3D11/D3D11.h"
 
 #include "D3D11/Vertex/D3D11_Vertex.h"
-#include "D3D11/Vertex/D3D11_Vertex.h"
+#include "D3D11/Vertex/D3D11_Geometry.h"
 
 #include "D3D11/InputAssembler/D3D11_VertexBuffer.h"
 #include "D3D11/InputAssembler/D3D11_IndexBuffer.h"
@@ -73,4 +78,8 @@
 #include "D3D11/OutputMerger/D3D11_BlendState.h"
 
 #include "D3D11/D3D11_Pipeline.h"
+
+
+// Resource
+#include "Resource/Animation.h"
 

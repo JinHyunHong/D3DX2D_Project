@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "MoveScriptComponent.h"
 #include "TransformComponent.h"
 

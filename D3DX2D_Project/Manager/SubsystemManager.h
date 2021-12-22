@@ -15,10 +15,7 @@ public:
 	void AddSubsystem(const std::shared_ptr<class ISubsystem>& subsystem);
 
 	template<typename T>
-	auto GetSubsystem() const -> std::shared_ptr<T>;
-
-	template<typename T>
-	auto GetSubsystem_raw() const -> T*;
+	auto GetSubsystem() -> T* const;
 
 	auto GetSubsystems() const -> const std::vector<std::shared_ptr<class ISubsystem>>& { return subsystems; }
 
@@ -27,29 +24,15 @@ private:
 };
 
 template<typename T>
-inline auto SubsystemManager::GetSubsystem() const-> std::shared_ptr<T>
+inline auto SubsystemManager::GetSubsystem() -> T* const
 {
 	static_assert(std::is_base_of<ISubsystem, T>::value, "Type T has no is-a relationship with ISubsystem.");
 	
-	for (const auto& subsystem : subsystems)
-	{
-		if (typeid(*subsystem) == typeid(T))
-			return std::static_pointer_cast<T>(subsystem);
-	}
-	
-	return nullptr;
-}
-
-template<typename T>
-inline auto SubsystemManager::GetSubsystem_raw() const -> T*
-{
-	static_assert(std::is_base_of<ISubsystem, T>::value, "Type T has no is-a relationship with ISubsystem.");
-
 	for (const auto& subsystem : subsystems)
 	{
 		if (typeid(*subsystem) == typeid(T))
 			return std::static_pointer_cast<T>(subsystem).get();
 	}
-
+	
 	return nullptr;
 }

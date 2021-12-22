@@ -8,7 +8,7 @@ public:
 	D3D11_IndexBuffer(class D3D11_Base* const base);
 	~D3D11_IndexBuffer();
 
-	auto Create(const std::vector<uint> indices, const D3D11_USAGE& usage = D3D11_USAGE_IMMUTABLE);
+	void Create(const std::vector<uint> indices, const D3D11_USAGE& usage = D3D11_USAGE_IMMUTABLE);
 	void Clear();
 
 	auto GetResource() const -> ID3D11Buffer* { return buffer; }

@@ -1,25 +1,40 @@
 #include "Actor.h"
+#include "Component/TransformComponent.h"
 
 template<typename T>
-inline auto Actor::GetComponent() const -> std::shared_ptr<T>
+inline auto Actor::GetComponent() -> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<IComponent, T>::value, "Type T is not a derived class of IComponent");
 
 	for (const auto& component : components)
 	{
 		if (typeid(*component) == typeid(T))
-			return component;
+			return std::static_pointer_cast<T>(component);
 	}
 
 	return nullptr;
 }
 
 template<typename T>
-inline auto Actor::AddComponent() const -> std::shared_ptr<T*>
+inline auto Actor::AddComponent() -> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<IComponent, T>::value, "Type T is not a derived class of IComponent");
 
-	auto new_component = std::make_shared<T>(tool);
+	if (HasComponent<T>())
+		return GetComponent<T>();
+
+	components.emplace_back
+	(
+		std::make_shared<T>
+		(
+			tool ,
+			this,
+			transform.get()
+		)
+	);
+
+	auto new_component = std::static_pointer_cast<T>(components.back());
+
 
 	if (!new_component->Initialize())
 	{
@@ -27,7 +42,8 @@ inline auto Actor::AddComponent() const -> std::shared_ptr<T*>
 		return nullptr;
 	}
 
-	components.emplace_back(new_component);
+	if constexpr (std::is_same<T, class TransformComponent>::value)
+		transform = new_component;
 
 	return new_component;
 }

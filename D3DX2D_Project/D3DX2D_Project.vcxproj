@@ -33,15 +33,21 @@
     <ClCompile Include="D3D11\Shader\D3D11_SamplerState.cpp" />
     <ClCompile Include="D3D11\Shader\D3D11_Shader.cpp" />
     <ClCompile Include="D3D11\Shader\D3D11_Texture.cpp" />
+    <ClCompile Include="D3D11\Vertex\D3D11_Geometry.cpp" />
     <ClCompile Include="D3D11\Vertex\D3D11_Vertex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
+    <ClCompile Include="Manager\ResourceManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
     <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
+    <ClCompile Include="Resource\Animation.cpp" />
+    <ClCompile Include="Resource\IResource.cpp" />
     <ClCompile Include="Scene\Actor.cpp" />
     <ClCompile Include="Scene\Component\AIScriptComponent.cpp" />
+    <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
     <ClCompile Include="Scene\Component\CameraComponent.cpp" />
+    <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -55,6 +61,9 @@
     <ClCompile Include="Manager\Subsystem\ISubsystem.cpp" />
     <ClCompile Include="Manager\Subsystem\Timer.cpp" />
     <ClCompile Include="Utillity\GUID_Creator.cpp" />
+    <ClCompile Include="Utillity\Xml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h" />
@@ -74,12 +83,19 @@
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.h" />
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h" />
     <ClInclude Include="D3D11\Vertex\D3D11_Vertex.h" />
+    <ClInclude Include="Manager\ResourceManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h" />
+    <ClInclude Include="Manager\Subsystem\Renderer\Renderer_ConstantBuffers.h" />
+    <ClInclude Include="Manager\Subsystem\Renderer\Renderer_Types.h" />
+    <ClInclude Include="Resource\Animation.h" />
+    <ClInclude Include="Resource\IResource.h" />
     <ClInclude Include="Scene\Actor.h" />
     <ClInclude Include="Scene\Component\AIScriptComponent.h" />
+    <ClInclude Include="Scene\Component\AnimatorComponent.h" />
     <ClInclude Include="Scene\Component\CameraComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
+    <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\Scene.h" />
@@ -93,6 +109,7 @@
     <ClInclude Include="Manager\Subsystem\ISubsystem.h" />
     <ClInclude Include="Utillity\GUID_Creator.h" />
     <ClInclude Include="Utillity\Math\Math.h" />
+    <ClInclude Include="Utillity\Xml.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D3D11\Vertex\D3D11_Geometry.inl">
@@ -101,7 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="Scene\Actor.inl" />
+    <None Include="ClassDiagram1.cd" />
+    <ClInclude Include="Manager\ResourceManager.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Scene\Actor.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -177,7 +200,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DIRECTX_VER_11;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>

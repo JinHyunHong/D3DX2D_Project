@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "AIScriptComponent.h"
 #include "TransformComponent.h"
 

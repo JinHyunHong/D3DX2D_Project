@@ -7,7 +7,7 @@ class TransformComponent :
 public:
 	TransformComponent(class Tool* const tool, class Actor* const actor,
 		class TransformComponent* const transform);
-	~TransformComponent();
+	~TransformComponent() = default;
 
 	bool Initialize() override;
 	void Update() override;

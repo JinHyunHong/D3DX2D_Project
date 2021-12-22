@@ -5,6 +5,7 @@
 Actor::Actor(Tool* const tool) :
 	tool(tool)
 {
+	AddComponent<TransformComponent>();
 }
 
 Actor::~Actor()

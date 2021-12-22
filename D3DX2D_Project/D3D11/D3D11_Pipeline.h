@@ -1,6 +1,6 @@
 #pragma once
 
-struct D3D11_PipelineState final : public D3D11
+struct D3D11_PipelineState final : public Object
 {
 	D3D11_InputLayout* input_layout = nullptr;
 	D3D11_PRIMITIVE_TOPOLOGY primitive_topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;

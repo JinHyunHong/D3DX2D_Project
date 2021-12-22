@@ -19,10 +19,10 @@ public:
 	auto GetComponents() const -> const std::vector<std::shared_ptr<class IComponent>>& { return components; }
 	
 	template<typename T>
-	auto GetComponent() const -> std::shared_ptr<T>;
+	auto GetComponent() -> const std::shared_ptr<T>;
 
 	template<typename T>
-	auto AddComponent() const->std::shared_ptr <T*>;
+	auto AddComponent() -> const std::shared_ptr <T>;
 
 	template<typename T>
 	bool EraseComponent();

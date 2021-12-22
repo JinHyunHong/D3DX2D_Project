@@ -15,6 +15,8 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 	tool = new Tool();
 
 	// Managers Initialize
+	tool->AddManager(std::make_shared<ResourceManager>(tool));
+
 	auto sub_manager = std::make_shared<SubsystemManager>(tool);
 	tool->AddManager(sub_manager);
 
