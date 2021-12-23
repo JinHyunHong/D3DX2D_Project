@@ -49,10 +49,16 @@ public:
 	void AddKeyFrame(const Keyframe& keyframe);
 	void AddKeyFrame(const D3DXVECTOR2& offset, const D3DXVECTOR2& size, const double& time);
 
+	auto GetColorKey() const -> const D3DXCOLOR& { return color_key; }
+	void SetColorkey(const D3DXCOLOR& color_key) { this->color_key = color_key; }
+	void SetColorkey(const uint& color_key) { this->color_key = color_key; }
+
+
 private:
 	RepeatType repeat_type = RepeatType::Loop;
 	std::shared_ptr<class D3D11_Texture> sprite_texture;
 	D3DXVECTOR2 sprite_texture_size = D3DXVECTOR2(1.0f, 1.0f);
 	std::string sprite_texture_path = "";
 	std::vector<Keyframe> keyframes;
+	D3DXCOLOR color_key = D3DXCOLOR(0, 0, 0, 0);
 };

@@ -22,7 +22,11 @@ bool Animation::SaveToFile(const std::string& path)
 	root->SetAttribute("Type", static_cast<uint>(repeat_type));
 	root->SetAttribute("TexturePath", sprite_texture_path.c_str());	
 	root->SetAttribute("TextureSizeX", sprite_texture_size.x);
-	root->SetAttribute("TextureSizeY", sprite_texture_size.y);	
+	root->SetAttribute("TextureSizeY", sprite_texture_size.y);
+	root->SetAttribute("ColorKeyR", color_key.r);
+	root->SetAttribute("ColorKeyG", color_key.g);
+	root->SetAttribute("ColorKeyB", color_key.b);
+	root->SetAttribute("ColorKeyA", color_key.a);
 	
 	for (const auto& keyframe : keyframes)
 	{
@@ -53,6 +57,11 @@ bool Animation::LoadFromFile(const std::string& path)
 	sprite_texture_path = root->Attribute("TexturePath");
 	sprite_texture_size.x = root->FloatAttribute("TextureSizeX");
 	sprite_texture_size.y = root->FloatAttribute("TextureSizeY");
+	color_key.r = root->FloatAttribute("ColorKeyR");
+	color_key.g = root->FloatAttribute("ColorKeyG");
+	color_key.b = root->FloatAttribute("ColorKeyB");
+	color_key.a = root->FloatAttribute("ColorKeyA");
+
 	SetSpriteTexture(sprite_texture_path);
 
 	Xml::XMLElement* first_element = root->FirstChildElement();

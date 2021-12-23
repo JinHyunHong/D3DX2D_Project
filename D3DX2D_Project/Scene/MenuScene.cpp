@@ -8,9 +8,6 @@
 MenuScene::MenuScene(class Tool* const tool) :
 	Scene(tool)
 {
-	auto graphics = tool->GetManager<SubsystemManager>()->GetSubsystem<D3D11_Base>();
-	graphics->SetBackClearColor(0xff38385e);
-
 	auto select_character = CreateActor();
 	select_character->SetName("Background");
 	select_character->AddComponent<MeshRendererComponent>();
@@ -34,6 +31,13 @@ MenuScene::MenuScene(class Tool* const tool) :
 
 MenuScene::~MenuScene()
 {
+}
+
+void MenuScene::Initialize()
+{
+	Scene::Initialize();
+
+	graphics->SetBackClearColor(0xff38385e);
 }
 
 void MenuScene::Input()
@@ -83,6 +87,26 @@ void MenuScene::Input()
 				position.y += 40;
 		}
 
+
+		if (GetAsyncKeyState('X') & 0x8000)
+		{
+			switch (static_cast<Slot_Type>(slot_index))
+			{
+			case Slot_Type::One:
+			case Slot_Type::Two:
+			case Slot_Type::Three:
+			{
+				auto scene_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<SceneManager>();
+				scene_manager->SetCurrentScene("NameSelect");
+				break;
+			}
+			case Slot_Type::Copy_Player:
+				break;
+			case Slot_Type::Erase_Player:
+				break;
+			}
+		}
+
 		transform->SetPosition(position);
 		frame_counter = 0.0f;
 	}
@@ -99,6 +123,7 @@ void MenuScene::Destroy()
 {
 	Scene::Destroy();
 
+	//TODO :
 	//auto graphics = tool->GetManager<SubsystemManager>()->GetSubsystem<D3D11_Base>();
 	//graphics->ClearColor();
 }

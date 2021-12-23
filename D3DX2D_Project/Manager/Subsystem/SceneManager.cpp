@@ -2,6 +2,7 @@
 #include "SceneManager.h"
 #include "Scene/Scene.h"
 #include "Scene/MenuScene.h"
+#include "Scene/NameSelectScene.h"
 
 
 SceneManager::SceneManager(class Tool* const tool) :
@@ -17,6 +18,8 @@ SceneManager::~SceneManager()
 bool SceneManager::Initialize()
 {
 	CreateScene<MenuScene>("Menu");
+	CreateScene<NameSelectScene>("NameSelect");
+
 	SetCurrentScene("Menu");
 
 	return true;
@@ -49,6 +52,10 @@ void SceneManager::SetCurrentScene(const std::string& scene_name)
 		assert(false);
 		return;
 	}
+	
+	if(!current_scene.expired())
+		current_scene.lock().get()->Destroy();
 
 	current_scene = scenes[scene_name];
+	current_scene.lock().get()->Initialize();
 }

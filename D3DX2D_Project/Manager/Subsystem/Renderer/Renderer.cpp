@@ -64,6 +64,11 @@ void Renderer::UpdateRenderables(Scene* const scene)
 	}
 }
 
+void Renderer::ClearRenderables()
+{
+	renderables.clear();
+}
+
 void Renderer::CreateConstantBuffers()
 {
 	gpu_camera_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
@@ -165,8 +170,10 @@ void Renderer::PassMain()
 			if (auto animator = actor->GetComponent<AnimatorComponent>())
 			{
 				auto current_keyframe = animator->GetCurrentKeyFrame();
+				auto current_animation = animator->GetCurrentAnimation();
 				cpu_animation_buffer.sprite_offset = current_keyframe->offset;
 				cpu_animation_buffer.sprite_size = current_keyframe->size;
+				cpu_animation_buffer.color_key = current_animation->GetColorKey();
 				cpu_animation_buffer.texture_size = animator->GetCurrentAnimation()->GetSpriteTextureSize();
 				cpu_animation_buffer.is_animated = 1.0f;
 				UpdateAnimationBuffer();
@@ -196,5 +203,4 @@ void Renderer::PassMain()
 			pipeline->End();
 		}
 	}
-
 }

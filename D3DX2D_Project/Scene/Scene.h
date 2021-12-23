@@ -6,6 +6,7 @@ public:
 	Scene(class Tool* const tool);
 	virtual ~Scene();
 
+	virtual void Initialize();
 	virtual void Input();
 	virtual void Update();
 	virtual void Destroy();
@@ -16,6 +17,7 @@ public:
 protected:
 	class Tool* tool = nullptr;
 	class Timer* timer = nullptr;
+	class D3D11_Base* graphics = nullptr;
 	std::vector<std::shared_ptr<class Actor>> actors;
 	class Renderer* renderer = nullptr;
 	bool is_active = true;

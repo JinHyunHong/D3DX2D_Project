@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Scope" Type="1" TexturePath="Assets/Sprite/Menu/Input_Name Screen.png" TextureSizeX="964" TextureSizeY="517" ColorKeyR = "0" ColorKeyG = "0" ColorKeyB = "0" ColorKeyA = "1">
+    <Keyframe OffsetX="199" OffsetY="17" SizeX="218" SizeY="2" Time="200"/>
+</Animation>

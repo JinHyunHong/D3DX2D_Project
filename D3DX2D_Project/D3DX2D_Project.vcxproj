@@ -53,6 +53,7 @@
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\LogoScene.cpp" />
     <ClCompile Include="Scene\MenuScene.cpp" />
+    <ClCompile Include="Scene\NameSelectScene.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Setting\Window.cpp" />
     <ClCompile Include="Setting\Window_Proc.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\LogoScene.h" />
     <ClInclude Include="Scene\MenuScene.h" />
+    <ClInclude Include="Scene\NameSelectScene.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Manager\Subsystem\Timer.h" />
     <ClInclude Include="Utillity\defines.h" />

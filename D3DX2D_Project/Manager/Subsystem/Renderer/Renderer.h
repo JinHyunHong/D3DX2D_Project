@@ -14,6 +14,7 @@ public:
 	void Destroy() override {};
 
 	void UpdateRenderables(class Scene* const scene);
+	void ClearRenderables();
 
 private:
 	void CreateConstantBuffers();

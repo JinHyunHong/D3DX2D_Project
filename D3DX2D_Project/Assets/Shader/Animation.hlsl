@@ -29,6 +29,8 @@ cbuffer AnimationBuffer : register(b2)
     float2 sprite_size; //keyframe이 가지고 있는 size 
     float2 texture_size; //텍스쳐의 최종 크기
     float is_animated; // 애니메이션이 없는지 있는지
+    float padding;
+    float4 color_key;
 }
 
 PixelInput VS(VertexInput input)
@@ -79,10 +81,24 @@ SamplerState samp        : register(s0); //16 -> 0 ~ 15
 
 float4 PS(PixelInput input) : SV_Target
 {
-    // any : 내부에 들어가 있는 값이 전부 0인지 체크해주는 함수
-    // 알파가 0인지 아닌지 체크
     if(is_animated)
-        return source_texture.Sample(samp, input.uv);
+    {
+        float4 color = 0.0f;
+
+        color = source_texture.Sample(samp, input.uv);
+        
+        if (any(color_key))
+        {
+            float4 color_key_normal = color_key / 255;
+            if (abs(color_key_normal.r - color.r) < 0.01)
+                   discard;
+            
+            return color;
+        }
+        
+        else
+            return color;
+    }
     
     // Shader가 작동하고 있는지 확인하고 싶은 경우 특정 색이 찍히도록 코드르 작성하고
     // 실행시켜 확인한다. - visualstudio의 GPU profiling 기능을 사용해도 좋다.

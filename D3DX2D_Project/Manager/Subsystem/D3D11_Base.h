@@ -21,7 +21,6 @@ public:
 
 	void SetBackClearColor(const D3DXCOLOR& clear_color) { this->clear_color = clear_color; }
 	void SetBackClearColor(const uint& clear_color) { this->clear_color = clear_color; }
-	auto ClearColor() { this->clear_color = 0xff555566; }
 
 private:
 	ID3D11Device* device = nullptr;

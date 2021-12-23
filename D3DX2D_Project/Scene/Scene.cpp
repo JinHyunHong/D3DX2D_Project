@@ -13,32 +13,20 @@ Scene::Scene(Tool* const tool) :
 {
 	renderer = tool->GetManager<SubsystemManager>()->GetSubsystem<Renderer>();
 	timer = tool->GetManager<SubsystemManager>()->GetSubsystem<Timer>();
+	graphics = tool->GetManager<SubsystemManager>()->GetSubsystem<D3D11_Base>();
 
 	auto camera = CreateActor();
 	camera->SetName("MainCamera");
 	camera->AddComponent<CameraComponent>();
-
-	//auto player = CreateActor();
-	//player->SetName("Player");
-	//player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ +100.0f, 0.0f, 0.0f });
-	//player->AddComponent<MeshRendererComponent>();
-	//player->AddComponent<MoveScriptComponent>();
-	//auto animator = player->AddComponent<AnimatorComponent>();
-	//animator->AddAnimation("Assets/Animation/Idle.xml");
-	//animator->SetAnimationMode(AnimationMode::Play);
-	//animator->SetCurrentAnimation("Idle");
-	//
-	//auto monster = CreateActor();
-	//monster->SetName("Monster");
-	//monster->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3{ 100.0f, 100.0f, 1.0f });
-	//monster->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ -100.0f, 0.0f, 0.0f });
-	//monster->AddComponent<MeshRendererComponent>();
-	//monster->AddComponent<AIScriptComponent>();
 }
 
 Scene::~Scene()
 {
 	CLEAR_VECTOR(actors);
+}
+
+void Scene::Initialize()
+{
 }
 
 void Scene::Input()
@@ -66,6 +54,7 @@ void Scene::Update()
 
 void Scene::Destroy()
 {
+	renderer->ClearRenderables();
 }
 
 auto Scene::CreateActor(bool is_active) -> std::shared_ptr<Actor>
