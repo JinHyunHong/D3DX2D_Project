@@ -41,8 +41,9 @@ void AnimatorComponent::Update()
 			current_frame_number %= current_animation.lock()->GetKeyFrameCount();
 			break;
 		}
-		frame_counter = 0.0f;
 		}
+
+		frame_counter = 0.0f;
 	}
 }
 

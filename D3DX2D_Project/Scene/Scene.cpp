@@ -12,27 +12,28 @@ Scene::Scene(Tool* const tool) :
 	tool(tool)
 {
 	renderer = tool->GetManager<SubsystemManager>()->GetSubsystem<Renderer>();
+	timer = tool->GetManager<SubsystemManager>()->GetSubsystem<Timer>();
 
 	auto camera = CreateActor();
 	camera->SetName("MainCamera");
 	camera->AddComponent<CameraComponent>();
 
-	auto player = CreateActor();
-	player->SetName("Player");
-	player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ +100.0f, 0.0f, 0.0f });
-	player->AddComponent<MeshRendererComponent>();
-	player->AddComponent<MoveScriptComponent>();
-	auto animator = player->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Animation/Idle.xml");
-	animator->SetAnimationMode(AnimationMode::Play);
-	animator->SetCurrentAnimation("Idle");
-
-	auto monster = CreateActor();
-	monster->SetName("Monster");
-	monster->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3{ 100.0f, 100.0f, 1.0f });
-	monster->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ -100.0f, 0.0f, 0.0f });
-	monster->AddComponent<MeshRendererComponent>();
-	monster->AddComponent<AIScriptComponent>();
+	//auto player = CreateActor();
+	//player->SetName("Player");
+	//player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ +100.0f, 0.0f, 0.0f });
+	//player->AddComponent<MeshRendererComponent>();
+	//player->AddComponent<MoveScriptComponent>();
+	//auto animator = player->AddComponent<AnimatorComponent>();
+	//animator->AddAnimation("Assets/Animation/Idle.xml");
+	//animator->SetAnimationMode(AnimationMode::Play);
+	//animator->SetCurrentAnimation("Idle");
+	//
+	//auto monster = CreateActor();
+	//monster->SetName("Monster");
+	//monster->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3{ 100.0f, 100.0f, 1.0f });
+	//monster->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3{ -100.0f, 0.0f, 0.0f });
+	//monster->AddComponent<MeshRendererComponent>();
+	//monster->AddComponent<AIScriptComponent>();
 }
 
 Scene::~Scene()
@@ -40,11 +41,17 @@ Scene::~Scene()
 	CLEAR_VECTOR(actors);
 }
 
+void Scene::Input()
+{
+}
+
 void Scene::Update()
 {
 	if (!is_active)
 		return;
-	
+
+	Input();
+
 	for (const auto& actor : actors)
 	{
 		actor->Update();
@@ -55,6 +62,10 @@ void Scene::Update()
 		renderer->UpdateRenderables(this);
 		is_update = false;
 	}
+}
+
+void Scene::Destroy()
+{
 }
 
 auto Scene::CreateActor(bool is_active) -> std::shared_ptr<Actor>

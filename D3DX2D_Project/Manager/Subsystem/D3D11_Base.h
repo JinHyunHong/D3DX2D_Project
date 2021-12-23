@@ -19,6 +19,10 @@ public:
 	auto GetDevice() -> ID3D11Device* { return device; }
 	auto GetDeviceContext() -> ID3D11DeviceContext* { return device_context; }
 
+	void SetBackClearColor(const D3DXCOLOR& clear_color) { this->clear_color = clear_color; }
+	void SetBackClearColor(const uint& clear_color) { this->clear_color = clear_color; }
+	auto ClearColor() { this->clear_color = 0xff555566; }
+
 private:
 	ID3D11Device* device = nullptr;
 	ID3D11DeviceContext* device_context = nullptr;

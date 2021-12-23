@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="SelectCharacter" Type="1" TexturePath="Assets/Sprite/Menu/Input_Name Screen.png" TextureSizeX="964" TextureSizeY="517">
+    <Keyframe OffsetX="3" OffsetY="253" SizeX="175" SizeY="226" Time="200"/>
+</Animation>

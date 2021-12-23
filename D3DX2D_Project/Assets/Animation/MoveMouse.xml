@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="MoveMouse" Type="1" TexturePath="Assets/Sprite/Menu/Input_Name Screen.png" TextureSizeX="964" TextureSizeY="517">
+    <Keyframe OffsetX="210" OffsetY="485" SizeX="15" SizeY="15" Time="500"/>    
+	<Keyframe OffsetX="229" OffsetY="485" SizeX="15" SizeY="15" Time="500"/>
+</Animation>
