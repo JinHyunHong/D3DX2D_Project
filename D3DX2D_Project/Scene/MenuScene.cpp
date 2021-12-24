@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MenuScene.h"
 #include "Scene/Actor.h"
+#include "Layer/Layer.h"
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/AnimatorComponent.h"
@@ -8,7 +9,8 @@
 MenuScene::MenuScene(class Tool* const tool) :
 	Scene(tool)
 {
-	auto select_character = CreateActor();
+	auto back_layer = CreateLayer("Background");
+	auto select_character = back_layer->CreateActor();
 	select_character->SetName("Background");
 	select_character->AddComponent<MeshRendererComponent>();
 	select_character->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(3.0f, 2.3f, 1.0f));
@@ -18,7 +20,8 @@ MenuScene::MenuScene(class Tool* const tool) :
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("SelectCharacter");
 
-	move_mouse = CreateActor();
+	auto mouse_layer = CreateLayer("Mouse");
+	move_mouse = mouse_layer->CreateActor();
 	move_mouse->SetName("MoveMouse");
 	move_mouse->AddComponent<MeshRendererComponent>();
 	move_mouse->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.5f, 2.5f, 1.0f));
@@ -106,7 +109,6 @@ void MenuScene::Input()
 				break;
 			}
 		}
-
 		transform->SetPosition(position);
 		frame_counter = 0.0f;
 	}

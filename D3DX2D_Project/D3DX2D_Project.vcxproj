@@ -51,6 +51,8 @@
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
+    <ClCompile Include="Scene\InGameScene.cpp" />
+    <ClCompile Include="Scene\Layer\Layer.cpp" />
     <ClCompile Include="Scene\LogoScene.cpp" />
     <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Scene\NameSelectScene.cpp" />
@@ -102,6 +104,8 @@
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
+    <ClInclude Include="Scene\InGameScene.h" />
+    <ClInclude Include="Scene\Layer\Layer.h" />
     <ClInclude Include="Scene\LogoScene.h" />
     <ClInclude Include="Scene\MenuScene.h" />
     <ClInclude Include="Scene\NameSelectScene.h" />

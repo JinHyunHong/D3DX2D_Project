@@ -1,13 +1,14 @@
 #pragma once
 #include "Scene.h"
 
-class LogoScene final :
+class InGameScene final :
 	public Scene
 {
 public:
-	LogoScene(class Tool* const tool);
-	~LogoScene();
+	InGameScene(class Tool* const tool);
+	~InGameScene();
 
+	void Initialize() override;
 	void Input() override;
 	void Update() override;
 	void Destroy() override;

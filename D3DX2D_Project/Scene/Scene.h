@@ -11,15 +11,14 @@ public:
 	virtual void Update();
 	virtual void Destroy();
 
-	auto CreateActor(bool is_active = true) -> std::shared_ptr<class Actor>;
-	auto GetActors() const -> const std::vector<std::shared_ptr<class Actor>>& { return actors; }
+	auto CreateLayer(const std::string& name, bool is_active = true)->std::shared_ptr<class Layer>;
+	auto GetLayers() const -> const std::vector<std::shared_ptr<class Layer>>& { return layers; }
 
 protected:
 	class Tool* tool = nullptr;
 	class Timer* timer = nullptr;
 	class D3D11_Base* graphics = nullptr;
-	std::vector<std::shared_ptr<class Actor>> actors;
+	std::vector<std::shared_ptr<class Layer>> layers;
 	class Renderer* renderer = nullptr;
 	bool is_active = true;
-	bool is_update = true;
 };

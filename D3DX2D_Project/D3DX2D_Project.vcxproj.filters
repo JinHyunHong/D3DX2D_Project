@@ -147,6 +147,12 @@
     <ClCompile Include="Scene\NameSelectScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Layer\Layer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\InGameScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -297,6 +303,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Scene\NameSelectScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Layer\Layer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\InGameScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Idle_Down" Type="1" TexturePath="Assets/Sprite/Zelda/Zelda.png" TextureSizeX="665" TextureSizeY="365" ColorKeyR = "0" ColorKeyG = "64" ColorKeyB = "64" ColorKeyA = "1">
+    <Keyframe OffsetX="2" OffsetY="3" SizeX="14" SizeY="22"  Time="200"/>
+</Animation>

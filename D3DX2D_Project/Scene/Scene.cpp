@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
+#include "Layer/Layer.h"
 #include "Scene/Actor.h"
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/CameraComponent.h"
@@ -15,14 +16,15 @@ Scene::Scene(Tool* const tool) :
 	timer = tool->GetManager<SubsystemManager>()->GetSubsystem<Timer>();
 	graphics = tool->GetManager<SubsystemManager>()->GetSubsystem<D3D11_Base>();
 
-	auto camera = CreateActor();
+	auto camera_layer = CreateLayer("MainCamera");
+
+	auto camera = camera_layer->CreateActor();
 	camera->SetName("MainCamera");
 	camera->AddComponent<CameraComponent>();
 }
 
 Scene::~Scene()
 {
-	CLEAR_VECTOR(actors);
 }
 
 void Scene::Initialize()
@@ -40,15 +42,9 @@ void Scene::Update()
 
 	Input();
 
-	for (const auto& actor : actors)
+	for (const auto& layer : layers)
 	{
-		actor->Update();
-	}
-
-	if (is_update)
-	{
-		renderer->UpdateRenderables(this);
-		is_update = false;
+		layer->Update(renderer);
 	}
 }
 
@@ -57,17 +53,18 @@ void Scene::Destroy()
 	renderer->ClearRenderables();
 }
 
-auto Scene::CreateActor(bool is_active) -> std::shared_ptr<Actor>
+auto Scene::CreateLayer(const std::string& name, bool is_active) -> std::shared_ptr<class Layer>
 {
-	auto new_actor = std::make_shared<Actor>(tool);
+	auto new_layer = std::make_shared<Layer>(tool);
 
-	if (!new_actor->Initialize())
+	if (!new_layer->Initialize())
 	{
 		assert(false);
 		return nullptr;
 	}
 
-	new_actor->SetActive(is_active);
+	new_layer->SetName(name);
+	new_layer->SetActive(is_active);
 
-	return actors.emplace_back(new_actor);
+	return layers.emplace_back(new_layer);
 }

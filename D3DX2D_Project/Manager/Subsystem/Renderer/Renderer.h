@@ -13,7 +13,7 @@ public:
 	void Update() override;
 	void Destroy() override {};
 
-	void UpdateRenderables(class Scene* const scene);
+	void UpdateRenderables(class Layer* const layer);
 	void ClearRenderables();
 
 private:

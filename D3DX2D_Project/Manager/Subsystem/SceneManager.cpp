@@ -3,6 +3,7 @@
 #include "Scene/Scene.h"
 #include "Scene/MenuScene.h"
 #include "Scene/NameSelectScene.h"
+#include "Scene/InGameScene.h"
 
 
 SceneManager::SceneManager(class Tool* const tool) :
@@ -19,6 +20,7 @@ bool SceneManager::Initialize()
 {
 	CreateScene<MenuScene>("Menu");
 	CreateScene<NameSelectScene>("NameSelect");
+	CreateScene<InGameScene>("InGame");
 
 	SetCurrentScene("Menu");
 

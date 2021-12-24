@@ -5,7 +5,7 @@
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/AnimatorComponent.h"
-#include "Scene/Scene.h"
+#include "Scene/Layer/Layer.h"
 
 Renderer::Renderer(Tool* const tool) :
 	ISubsystem(tool)
@@ -39,9 +39,9 @@ void Renderer::Update()
 	base->End();
 }
 
-void Renderer::UpdateRenderables(Scene* const scene)
+void Renderer::UpdateRenderables(Layer* const layer)
 {
-	auto actors = scene->GetActors();
+	auto actors = layer->GetActors();
 
 	if (actors.empty())
 		return;

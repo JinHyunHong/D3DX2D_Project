@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Animation Name="NameBoard" Type="1" TexturePath="Assets/Sprite/Menu/Input_Name Screen.png" TextureSizeX="964" TextureSizeY="517" ColorKeyR = "56" ColorKeyG = "56" ColorKeyB = "94" ColorKeyA = "1">
-    <Keyframe OffsetX="15" OffsetY="103" SizeX="156" SizeY="86" Time="200"/>
+    <Keyframe OffsetX="14" OffsetY="105" SizeX="152" SizeY="80" Time="200"/>
 </Animation>
