@@ -21,15 +21,31 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("RegisterName");
 
-	auto board_layer = CreateLayer("board");	
-	name_board = board_layer->CreateActor();
-	auto board_transform = name_board->GetComponent<TransformComponent>();
-	board_transform->SetPosition(D3DXVECTOR3(100.0f, 270.0f, 0.0f));
+	board_layer = CreateLayer("board");	
 
 	auto A = board_layer->CreateActor();
-	auto text_renderer = A->AddComponent<TextRendererComponent>();
-	text_renderer->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 270.0f));
-	A->GetComponent<TransformComponent>()->SetParent(board_transform.get());
+	auto A_text = A->AddComponent<TextRendererComponent>();
+	A_text->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 270.0f));
+
+	auto B = board_layer->CreateActor();
+	auto B_text = B->AddComponent<TextRendererComponent>();
+	B_text->AddText("B", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(130.0f, 270.0f));
+
+	auto C = board_layer->CreateActor();
+	auto C_text = C->AddComponent<TextRendererComponent>();
+	C_text->AddText("C", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(160.0f, 270.0f));
+
+	auto D = board_layer->CreateActor();
+	auto D_text = D->AddComponent<TextRendererComponent>();
+	D_text->AddText("D", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(190.0f, 270.0f));
+	
+	auto E = board_layer->CreateActor();
+	auto E_text = E->AddComponent<TextRendererComponent>();
+	E_text->AddText("E", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(220.0f, 270.0f));
+	
+	auto F = board_layer->CreateActor();
+	auto F_text = F->AddComponent<TextRendererComponent>();
+	F_text->AddText("F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 270.0f));
 	
 	auto scope_layer = CreateLayer("Scope");
 	scope = scope_layer->CreateActor();
@@ -68,20 +84,18 @@ void NameSelectScene::Initialize()
 void NameSelectScene::Input()
 {
 	frame_counter += timer->GetDeltaTimeSec();
-	auto board_transform = name_board->GetComponent<TransformComponent>();
 	auto scope_transform = scope->GetComponent<TransformComponent>();
-	auto board_position = board_transform->GetPosition();
 	auto scope_position = scope_transform->GetPosition();
 	
 	if (frame_counter > 0.05)
 	{
-		if ((GetAsyncKeyState('A') & 0x8000))
+		if (GetAsyncKeyState('A') & 0x8000)
 		{
-			board_position.x += 10;
+			board_layer->SetOffsetPosition(10.0f, 0.0f, 0.0f);
 		}
-		else if ((GetAsyncKeyState('D') & 0x8000))
+		else if (GetAsyncKeyState('D') & 0x8000)
 		{
-			board_position.x -= 10;
+			board_layer->SetOffsetPosition(-10.0f, 0.0f, 0.0f);
 		}
 	
 		if ((GetAsyncKeyState('W') & 0x8000) && scope_position.y < -20.0f)
@@ -93,7 +107,6 @@ void NameSelectScene::Input()
 			scope_position.y -= 3;
 		}
 	
-		board_transform->SetPosition(board_position);
 		scope_transform->SetPosition(scope_position);
 		frame_counter = 0.0f;
 	}

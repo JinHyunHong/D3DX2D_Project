@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Layer.h"
 #include "Scene/Actor.h"
+#include "Scene/Component/TransformComponent.h"
 
 
 Layer::Layer(class Tool* const tool) :
@@ -25,6 +26,12 @@ void Layer::Update(class Renderer* renderer)
 
 	for (const auto& actor : actors)
 	{
+		if (offset_position != D3DXVECTOR3(0.0f, 0.0f, 0.0f))
+		{
+			auto transform = actor->GetComponent<TransformComponent>();
+			transform->SetPosition(transform->GetPosition() + offset_position);
+		}
+		
 		actor->Update();
 	}
 
@@ -33,6 +40,8 @@ void Layer::Update(class Renderer* renderer)
 		renderer->UpdateRenderables(this);
 		is_update = false;
 	}
+
+	offset_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 }
 
 void Layer::Destroy()

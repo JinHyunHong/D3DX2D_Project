@@ -14,7 +14,7 @@ public:
 	void Destroy() override;
 
 private:
-	std::shared_ptr<class Actor> name_board = nullptr;
+	std::shared_ptr<class Layer> board_layer = nullptr;
 	std::shared_ptr<class Actor> scope = nullptr;
 	float frame_counter = 0.0f;
 };
