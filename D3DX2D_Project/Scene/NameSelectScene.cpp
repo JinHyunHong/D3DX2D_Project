@@ -5,6 +5,7 @@
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/AnimatorComponent.h"
+#include "Scene/Component/TextRendererComponent.h"
 
 NameSelectScene::NameSelectScene(Tool* const tool) :
 	Scene(tool)
@@ -20,27 +21,15 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("RegisterName");
 
-	auto board_layer = CreateLayer("board");
-
+	auto board_layer = CreateLayer("board");	
 	name_board = board_layer->CreateActor();
-	name_board->SetName("NameBoard");
-	name_board->AddComponent<MeshRendererComponent>();
-	name_board->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.3f, 1.0f));
-	name_board->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-170.0f, -110.0f, 0.0f));
-	animator = name_board->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Animation/NameBoard.xml");
-	animator->SetAnimationMode(AnimationMode::Play);
-	animator->SetCurrentAnimation("NameBoard");
-	
-	name_board_small = board_layer->CreateActor();
-	name_board_small->SetName("NameBoard_Small");
-	name_board_small->AddComponent<MeshRendererComponent>();
-	name_board_small->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.3f, 1.0f));
-	name_board_small->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(+170.0f, -80.0f, 0.0f));
-	animator = name_board_small->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Animation/NameBoard_Small.xml");
-	animator->SetAnimationMode(AnimationMode::Play);
-	animator->SetCurrentAnimation("NameBoard_Small");
+	auto board_transform = name_board->GetComponent<TransformComponent>();
+	board_transform->SetPosition(D3DXVECTOR3(100.0f, 270.0f, 0.0f));
+
+	auto A = board_layer->CreateActor();
+	auto text_renderer = A->AddComponent<TextRendererComponent>();
+	text_renderer->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 270.0f));
+	A->GetComponent<TransformComponent>()->SetParent(board_transform.get());
 	
 	auto scope_layer = CreateLayer("Scope");
 	scope = scope_layer->CreateActor();
@@ -80,10 +69,8 @@ void NameSelectScene::Input()
 {
 	frame_counter += timer->GetDeltaTimeSec();
 	auto board_transform = name_board->GetComponent<TransformComponent>();
-	auto small_transform = name_board_small->GetComponent<TransformComponent>();
 	auto scope_transform = scope->GetComponent<TransformComponent>();
 	auto board_position = board_transform->GetPosition();
-	auto small_position = small_transform->GetPosition();
 	auto scope_position = scope_transform->GetPosition();
 	
 	if (frame_counter > 0.05)
@@ -91,12 +78,10 @@ void NameSelectScene::Input()
 		if ((GetAsyncKeyState('A') & 0x8000))
 		{
 			board_position.x += 10;
-			small_position.x += 10;
 		}
 		else if ((GetAsyncKeyState('D') & 0x8000))
 		{
 			board_position.x -= 10;
-			small_position.x -= 10;
 		}
 	
 		if ((GetAsyncKeyState('W') & 0x8000) && scope_position.y < -20.0f)
@@ -109,7 +94,6 @@ void NameSelectScene::Input()
 		}
 	
 		board_transform->SetPosition(board_position);
-		small_transform->SetPosition(small_position);
 		scope_transform->SetPosition(scope_position);
 		frame_counter = 0.0f;
 	}

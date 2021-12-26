@@ -15,7 +15,6 @@ public:
 
 private:
 	std::shared_ptr<class Actor> name_board = nullptr;
-	std::shared_ptr<class Actor> name_board_small = nullptr;
 	std::shared_ptr<class Actor> scope = nullptr;
 	float frame_counter = 0.0f;
 };

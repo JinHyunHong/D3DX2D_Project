@@ -33,10 +33,17 @@
 #pragma comment(lib, "d3dcompiler.lib")
 
 
+// DirectX XTK
+#include <SpriteBatch.h>
+#include <SpriteFont.h>
+#include <SimpleMath.h>
+
+// TinyXML
+#include "Assets/Source/Tiny_XML/Xml.h"
+
 // Utillity
 #include "Utillity/defines.h"
 #include "Utillity/Math/Math.h"
-#include "Utillity/Xml.h"
 #include "Utillity/GUID_Creator.h"
 
 // Core

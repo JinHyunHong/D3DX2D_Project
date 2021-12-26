@@ -45,9 +45,6 @@
     <ClCompile Include="Manager\Subsystem\D3D11_Base.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Utillity\GUID_Creator.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="D3D11\InputAssembler\D3D11_VertexBuffer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -126,9 +123,6 @@
     <ClCompile Include="Resource\Animation.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Utillity\Xml.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\ResourceManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -153,6 +147,15 @@
     <ClCompile Include="Scene\InGameScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Component\TextRendererComponent.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Utillity\GUID_Creator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Assets\Source\Tiny_XML\Xml.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -165,9 +168,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Utillity\defines.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Subsystem\ISubsystem.h">
@@ -183,9 +183,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="D3D11\D3D11.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Utillity\GUID_Creator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="D3D11\InputAssembler\D3D11_VertexBuffer.h">
@@ -233,9 +230,6 @@
     <ClInclude Include="D3D11\D3D11_Pipeline.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Utillity\Math\Math.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\Subsystem\Timer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -278,9 +272,6 @@
     <ClInclude Include="Resource\IResource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Utillity\Xml.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\ResourceManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -311,8 +302,20 @@
     <ClInclude Include="Scene\InGameScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="Scene\Component\TextRendererComponent.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utillity\Math\Math.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utillity\GUID_Creator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utillity\defines.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Assets\Source\Tiny_XML\Xml.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

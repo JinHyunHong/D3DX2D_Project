@@ -27,6 +27,7 @@ private:
 
 private:
 	void PassMain();
+	void RenderText(class Actor* const actor);
 
 
 private:
@@ -47,4 +48,8 @@ private:
 	std::map<RenderableType, std::vector<class Actor*>> renderables;
 	std::map<RasterizerStateType, std::shared_ptr<class D3D11_RasterizerState>> rasterizers;
 	std::map<BlendStateType, std::shared_ptr<class D3D11_BlendState>> blend_states;
+
+private:
+	std::unique_ptr<DirectX::SpriteBatch> sprite_batch;
+	std::unique_ptr<DirectX::SpriteFont> sprite_font;
 };

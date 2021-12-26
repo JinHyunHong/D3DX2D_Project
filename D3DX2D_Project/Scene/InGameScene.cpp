@@ -15,7 +15,7 @@ InGameScene::InGameScene(Tool* const tool) :
 	player->SetName("Player");
 	player->AddComponent<MeshRendererComponent>();
 	player->AddComponent<MoveScriptComponent>();
-	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(1.5f, 1.5f, 1.0f));
+	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
 	player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	auto animator = player->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Animation/Player_Idle_Down.xml");
