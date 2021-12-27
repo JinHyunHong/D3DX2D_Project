@@ -156,6 +156,9 @@
     <ClCompile Include="Assets\Source\Tiny_XML\Xml.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Component\ColliderComponent.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Core.h">
@@ -315,6 +318,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Assets\Source\Tiny_XML\Xml.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Component\ColliderComponent.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

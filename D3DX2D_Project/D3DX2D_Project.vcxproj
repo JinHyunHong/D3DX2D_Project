@@ -50,6 +50,7 @@
     <ClCompile Include="Scene\Component\AIScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
     <ClCompile Include="Scene\Component\CameraComponent.cpp" />
+    <ClCompile Include="Scene\Component\ColliderComponent.cpp" />
     <ClCompile Include="Scene\Component\IComponent.cpp" />
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="Scene\Component\AIScriptComponent.h" />
     <ClInclude Include="Scene\Component\AnimatorComponent.h" />
     <ClInclude Include="Scene\Component\CameraComponent.h" />
+    <ClInclude Include="Scene\Component\ColliderComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />

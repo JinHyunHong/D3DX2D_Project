@@ -46,7 +46,263 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	auto F = board_layer->CreateActor();
 	auto F_text = F->AddComponent<TextRendererComponent>();
 	F_text->AddText("F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 270.0f));
+
+	auto G = board_layer->CreateActor();
+	auto G_text = G->AddComponent<TextRendererComponent>();
+	G_text->AddText("G", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(280.0f, 270.0f));
+
+	auto H = board_layer->CreateActor();
+	auto H_text = H->AddComponent<TextRendererComponent>();
+	H_text->AddText("H", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(310.0f, 270.0f));
+
+	auto I = board_layer->CreateActor();
+	auto I_text = I->AddComponent<TextRendererComponent>();
+	I_text->AddText("I", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(340.0f, 270.0f));
+
+	auto J = board_layer->CreateActor();
+	auto J_text = J->AddComponent<TextRendererComponent>();
+	J_text->AddText("J", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(370.0f, 270.0f));
+
+	auto K = board_layer->CreateActor();
+	auto K_text = K->AddComponent<TextRendererComponent>();
+	K_text->AddText("K", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 310.0f));
+
+	auto L = board_layer->CreateActor();
+	auto L_text = L->AddComponent<TextRendererComponent>();
+	L_text->AddText("L", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(130.0f, 310.0f));
+
+	auto M = board_layer->CreateActor();
+	auto M_text = M->AddComponent<TextRendererComponent>();
+	M_text->AddText("M", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(160.0f, 310.0f));
+
+	auto N = board_layer->CreateActor();
+	auto N_text = N->AddComponent<TextRendererComponent>();
+	N_text->AddText("N", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(190.0f, 310.0f));
+
+	auto O = board_layer->CreateActor();
+	auto O_text = O->AddComponent<TextRendererComponent>();
+	O_text->AddText("O", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(220.0f, 310.0f));
+
+	auto P = board_layer->CreateActor();
+	auto P_text = P->AddComponent<TextRendererComponent>();
+	P_text->AddText("P", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 310.0f));
+
+	auto Q = board_layer->CreateActor();
+	auto Q_text = Q->AddComponent<TextRendererComponent>();
+	Q_text->AddText("Q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(280.0f, 310.0f));
+
+	auto R = board_layer->CreateActor();
+	auto R_text = R->AddComponent<TextRendererComponent>();
+	R_text->AddText("R", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(310.0f, 310.0f));
+
+	auto S = board_layer->CreateActor();
+	auto S_text = S->AddComponent<TextRendererComponent>();
+	S_text->AddText("S", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(340.0f, 310.0f));
+
+	auto T = board_layer->CreateActor();
+	auto T_text = T->AddComponent<TextRendererComponent>();
+	T_text->AddText("T", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(370.0f, 310.0f));
+
+	auto U = board_layer->CreateActor();
+	auto U_text = U->AddComponent<TextRendererComponent>();
+	U_text->AddText("U", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 350.0f));
+
+	auto V = board_layer->CreateActor();
+	auto V_text = V->AddComponent<TextRendererComponent>();
+	V_text->AddText("V", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(130.0f, 350.0f));
+
+	auto W = board_layer->CreateActor();
+	auto W_text = W->AddComponent<TextRendererComponent>();
+	W_text->AddText("W", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(160.0f, 350.0f));
+
+	auto X = board_layer->CreateActor();
+	auto X_text = X->AddComponent<TextRendererComponent>();
+	X_text->AddText("X", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(190.0f, 350.0f));
+
+	auto Y = board_layer->CreateActor();
+	auto Y_text = Y->AddComponent<TextRendererComponent>();
+	Y_text->AddText("Y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(220.0f, 350.0f));
+
+	auto Z = board_layer->CreateActor();
+	auto Z_text = Z->AddComponent<TextRendererComponent>();
+	Z_text->AddText("Z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 350.0f));
 	
+	auto minus = board_layer->CreateActor();
+	auto minus_text = minus->AddComponent<TextRendererComponent>();
+	minus_text->AddText("-", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(280.0f, 350.0f));
+	
+	auto period = board_layer->CreateActor();
+	auto period_text = period->AddComponent<TextRendererComponent>();
+	period_text->AddText(".", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(310.0f, 350.0f));
+	
+	auto comma = board_layer->CreateActor();
+	auto comma_text = comma->AddComponent<TextRendererComponent>();
+	comma_text->AddText(",", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(340.0f, 350.0f));
+
+	auto zero = board_layer->CreateActor();
+	auto zero_text = zero->AddComponent<TextRendererComponent>();
+	zero_text->AddText("0", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(220.0f, 390.0f));
+
+	auto one = board_layer->CreateActor();
+	auto one_text = one->AddComponent<TextRendererComponent>();
+	one_text->AddText("1", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 390.0f));
+
+	auto two = board_layer->CreateActor();
+	auto two_text = two->AddComponent<TextRendererComponent>();
+	two_text->AddText("2", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(280.0f, 390.0f));
+
+	auto three = board_layer->CreateActor();
+	auto three_text = three->AddComponent<TextRendererComponent>();
+	three_text->AddText("3", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(310.0f, 390.0f));
+
+	auto four = board_layer->CreateActor();
+	auto four_text = four->AddComponent<TextRendererComponent>();
+	four_text->AddText("4", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(340.0f, 390.0f));
+
+	auto five = board_layer->CreateActor();
+	auto five_text = five->AddComponent<TextRendererComponent>();
+	five_text->AddText("5", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(500.0f, 270.0f));
+
+	auto six = board_layer->CreateActor();
+	auto six_text = six->AddComponent<TextRendererComponent>();
+	six_text->AddText("6", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(530.0f, 270.0f));
+
+	auto seven = board_layer->CreateActor();
+	auto seven_text = seven->AddComponent<TextRendererComponent>();
+	seven_text->AddText("7", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(560.0f, 270.0f));
+
+	auto eight = board_layer->CreateActor();
+	auto eight_text = eight->AddComponent<TextRendererComponent>();
+	eight_text->AddText("8", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(590.0f, 270.0f));
+
+	auto nine = board_layer->CreateActor();
+	auto nine_text = nine->AddComponent<TextRendererComponent>();
+	nine_text->AddText("9", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(620.0f, 270.0f));
+
+	auto excharm = board_layer->CreateActor();
+	auto excharm_text = excharm->AddComponent<TextRendererComponent>();
+	excharm_text->AddText("!", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(500.0f, 310.0f));
+
+	auto question = board_layer->CreateActor();
+	auto question_text = question->AddComponent<TextRendererComponent>();
+	question_text->AddText("?", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(530.0f, 310.0f));
+
+	auto left = board_layer->CreateActor();
+	auto left_text = left->AddComponent<TextRendererComponent>();
+	left_text->AddText("(", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(560.0f, 310.0f));
+
+	auto right = board_layer->CreateActor();
+	auto right_text = right->AddComponent<TextRendererComponent>();
+	right_text->AddText(")", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(590.0f, 310.0f));
+
+	auto a = board_layer->CreateActor();
+	auto a_text = a->AddComponent<TextRendererComponent>();
+	a_text->AddText("a", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(500.0f, 350.0f));
+
+	auto b = board_layer->CreateActor();
+	auto b_text = b->AddComponent<TextRendererComponent>();
+	b_text->AddText("b", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(530.0f, 350.0f));
+
+	auto c = board_layer->CreateActor();
+	auto c_text = c->AddComponent<TextRendererComponent>();
+	c_text->AddText("c", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(560.0f, 350.0f));
+
+	auto d = board_layer->CreateActor();
+	auto d_text = d->AddComponent<TextRendererComponent>();
+	d_text->AddText("d", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(590.0f, 350.0f));
+
+	auto e = board_layer->CreateActor();
+	auto e_text = e->AddComponent<TextRendererComponent>();
+	e_text->AddText("e", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(620.0f, 350.0f));
+
+	auto f = board_layer->CreateActor();
+	auto f_text = f->AddComponent<TextRendererComponent>();
+	f_text->AddText("f", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(650.0f, 350.0f));
+
+	auto g = board_layer->CreateActor();
+	auto g_text = g->AddComponent<TextRendererComponent>();
+	g_text->AddText("g", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(680.0f, 350.0f));
+
+	auto h = board_layer->CreateActor();
+	auto h_text = h->AddComponent<TextRendererComponent>();
+	h_text->AddText("h", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(710.0f, 350.0f));
+
+	auto i = board_layer->CreateActor();
+	auto i_text = i->AddComponent<TextRendererComponent>();
+	i_text->AddText("i", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(740.0f, 350.0f));
+
+	auto j = board_layer->CreateActor();
+	auto j_text = j->AddComponent<TextRendererComponent>();
+	j_text->AddText("j", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(770.0f, 350.0f));
+
+	auto k = board_layer->CreateActor();
+	auto k_text = k->AddComponent<TextRendererComponent>();
+	k_text->AddText("k", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(500.0f, 390.0f));
+
+	auto l = board_layer->CreateActor();
+	auto l_text = l->AddComponent<TextRendererComponent>();
+	l_text->AddText("l", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(530.0f, 390.0f));
+
+	auto m = board_layer->CreateActor();
+	auto m_text = m->AddComponent<TextRendererComponent>();
+	m_text->AddText("m", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(560.0f, 390.0f));
+
+	auto n = board_layer->CreateActor();
+	auto n_text = n->AddComponent<TextRendererComponent>();
+	n_text->AddText("n", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(590.0f, 390.0f));
+
+	auto o = board_layer->CreateActor();
+	auto o_text = o->AddComponent<TextRendererComponent>();
+	o_text->AddText("o", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(620.0f, 390.0f));
+
+	auto p = board_layer->CreateActor();
+	auto p_text = p->AddComponent<TextRendererComponent>();
+	p_text->AddText("p", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(650.0f, 390.0f));
+
+	auto q = board_layer->CreateActor();
+	auto q_text = q->AddComponent<TextRendererComponent>();
+	q_text->AddText("q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(680.0f, 390.0f));
+
+	auto r = board_layer->CreateActor();
+	auto r_text = r->AddComponent<TextRendererComponent>();
+	r_text->AddText("r", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(710.0f, 390.0f));
+
+	auto s = board_layer->CreateActor();
+	auto s_text = s->AddComponent<TextRendererComponent>();
+	s_text->AddText("s", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(740.0f, 390.0f));
+
+	auto t = board_layer->CreateActor();
+	auto t_text = t->AddComponent<TextRendererComponent>();
+	t_text->AddText("t", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(770.0f, 390.0f));
+
+	auto u = board_layer->CreateActor();
+	auto u_text = u->AddComponent<TextRendererComponent>();
+	u_text->AddText("u", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(900.0f, 270.0f));
+
+	auto v = board_layer->CreateActor();
+	auto v_text = v->AddComponent<TextRendererComponent>();
+	v_text->AddText("v", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(930.0f, 270.0f));
+
+	auto w = board_layer->CreateActor();
+	auto w_text = w->AddComponent<TextRendererComponent>();
+	w_text->AddText("w", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(960.0f, 270.0f));
+
+	auto x = board_layer->CreateActor();
+	auto x_text = x->AddComponent<TextRendererComponent>();
+	x_text->AddText("x", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(990.0f, 270.0f));
+
+	auto y = board_layer->CreateActor();
+	auto y_text = y->AddComponent<TextRendererComponent>();
+	y_text->AddText("y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(1020.0f, 270.0f));
+
+	auto z = board_layer->CreateActor();
+	auto z_text = z->AddComponent<TextRendererComponent>();
+	z_text->AddText("z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(1050.0f, 270.0f));
+
+	auto end = board_layer->CreateActor();
+	auto end_text = end->AddComponent<TextRendererComponent>();
+	end_text->AddText("< END >", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(900.0f, 310.0f));
+
 	auto scope_layer = CreateLayer("Scope");
 	scope = scope_layer->CreateActor();
 	scope->SetName("Scope");
