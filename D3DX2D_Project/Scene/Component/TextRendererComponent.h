@@ -24,8 +24,8 @@ public:
 	void Update() override;
 	void Destroy() override;
 
-	void AddText(const std::string& text, const D3DXCOLOR& color, const D3DXVECTOR2& offset);
-	bool HasText(const std::string& text);
+	void AddText(const std::string& text, const D3DXCOLOR& color, const D3DXVECTOR2& offset = D3DXVECTOR2(0.0f, 0.0f));
+	auto GetText(const std::string& text) -> const std::shared_ptr<TextRenderInfo>;
 	auto GetTexts() const -> const std::vector<std::shared_ptr<TextRenderInfo>>& { return texts; }
 
 private:

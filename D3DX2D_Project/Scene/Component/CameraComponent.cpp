@@ -39,6 +39,8 @@ void CameraComponent::UpdateViewMatrix()
 
 void CameraComponent::UpdateProjectionMatrix()
 {
-	D3DXMatrixOrthoLH(&proj, static_cast<float>(Core::GetInst().GetWidth()),
-		static_cast<float>(Core::GetInst().GetHeight()), 0, 1);
+	D3DXMatrixOrthoOffCenterLH(&proj, 0.0f, static_cast<float>(Core::GetInst().GetWidth()),
+		 static_cast<float>(Core::GetInst().GetHeight()), 0.0f, 0, 1);
+	//D3DXMatrixOrthoLH(&proj, static_cast<float>(Core::GetInst().GetWidth()),
+	//	static_cast<float>(Core::GetInst().GetHeight()), 0, 1);
 }

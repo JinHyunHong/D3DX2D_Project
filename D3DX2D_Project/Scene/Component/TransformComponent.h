@@ -30,7 +30,7 @@ public:
 	auto GetScale() -> const D3DXVECTOR3;
 	void SetScale(const D3DXVECTOR3& world_scale);
 
-	auto GetPosition() -> const D3DXVECTOR3;
+	auto GetPosition() ->const D3DXVECTOR3;
 	void SetPosition(const D3DXVECTOR3& world_position);
 
 	auto GetRotation() -> const D3DXVECTOR3;

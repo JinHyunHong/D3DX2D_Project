@@ -28,6 +28,7 @@ public:
 
 	void SetConstantBuffer_clear(const uint& slot, const uint& scope);
 	void SetShaderResource_clear(const uint& slot, const uint& scope);
+	void SetRasterizer_clear() { this->bind_rasterizer_state_id = 0; }
 
 	void Draw(const uint& vertex_count, const uint& vertex_offset = 0);
 	void Draw_Indexed(const uint& index_count, const uint& index_offset = 0, const uint& vertex_offset = 0);

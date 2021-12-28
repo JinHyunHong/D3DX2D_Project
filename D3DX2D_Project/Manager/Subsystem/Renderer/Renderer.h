@@ -27,6 +27,8 @@ private:
 
 private:
 	void PassMain();
+	void RenderMain(class Actor* const actor, class IRendererComponent* component, 
+		const RenderableType& type);
 	void RenderText(class Actor* const actor);
 
 

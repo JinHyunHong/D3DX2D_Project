@@ -22,22 +22,19 @@ void TextRendererComponent::Destroy()
 
 void TextRendererComponent::AddText(const std::string& text, const D3DXCOLOR& color, const D3DXVECTOR2& offset)
 {
-	if (text.empty() || HasText(text))
-	{
-		assert(false);
+	if (text.empty() || GetText(text))
 		return;
-	}
 
 	texts.emplace_back(std::make_shared<TextRenderInfo>(text, color, offset));
 }
 
-bool TextRendererComponent::HasText(const std::string& text)
+auto TextRendererComponent::GetText(const std::string& text) -> const std::shared_ptr<TextRenderInfo>
 {
 	for (auto iter = texts.begin(); iter != texts.end(); ++iter)
 	{
 		if ((*iter)->text == text)
-			return true;
+			return (*iter);
 	}
 
-	return false;
+	return nullptr;
 }

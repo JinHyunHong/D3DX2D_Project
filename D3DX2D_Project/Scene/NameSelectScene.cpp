@@ -6,50 +6,95 @@
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/AnimatorComponent.h"
 #include "Scene/Component/TextRendererComponent.h"
+#include "Scene/Component/ColliderComponent.h"
 
 NameSelectScene::NameSelectScene(Tool* const tool) :
 	Scene(tool)
 {
-	auto text_layer = CreateLayer("Select_Text");
+	auto text_layer = CreateLayer("Text");
 	auto register_name = text_layer->CreateActor();
 	register_name->SetName("RegisterName");
 	register_name->AddComponent<MeshRendererComponent>();
 	register_name->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.3f, 1.0f));
-	register_name->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-20.0f, 150.0f, 0.0f));
+	register_name->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(75.0f, 85.0f, 0.0f));
 	auto animator = register_name->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Animation/RegisterName.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("RegisterName");
 
-	board_layer = CreateLayer("board");	
+	/*
+		Selected_text
+	*/
+	select = text_layer->CreateActor();
+	auto select_text = select->AddComponent<TextRendererComponent>();
+	auto select_transfrom = select->GetComponent<TransformComponent>();
+	select_transfrom->SetPosition(D3DXVECTOR3(85.0f, 205.0f, 0.0f));
+	select_text->AddText(" ", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
+	/*
+		TextBoard
+	*/
+	board_layer = CreateLayer("board");
 	auto A = board_layer->CreateActor();
+	A->SetName("A");
 	auto A_text = A->AddComponent<TextRendererComponent>();
-	A_text->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(100.0f, 270.0f));
+	auto A_transfrom = A->GetComponent<TransformComponent>();
+	A_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	A_transfrom->SetPosition(D3DXVECTOR3(100.0f, 270.0f, 0.0f));
+	A_text->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	A->AddComponent<ColliderComponent>();
 
 	auto B = board_layer->CreateActor();
+	B->SetName("B");
 	auto B_text = B->AddComponent<TextRendererComponent>();
-	B_text->AddText("B", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(130.0f, 270.0f));
+	auto B_transfrom = B->GetComponent<TransformComponent>();
+	B_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	B_transfrom->SetPosition(D3DXVECTOR3(130.0f, 270.0f, 0.0f));
+	B_text->AddText("B", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	B->AddComponent<ColliderComponent>();
 
 	auto C = board_layer->CreateActor();
+	C->SetName("C");
+	auto C_transfrom = C->GetComponent<TransformComponent>();
+	C_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	C_transfrom->SetPosition(D3DXVECTOR3(160.0f, 270.0f, 0.0f));
 	auto C_text = C->AddComponent<TextRendererComponent>();
-	C_text->AddText("C", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(160.0f, 270.0f));
+	C_text->AddText("C", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	C->AddComponent<ColliderComponent>();
 
 	auto D = board_layer->CreateActor();
-	auto D_text = D->AddComponent<TextRendererComponent>();
-	D_text->AddText("D", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(190.0f, 270.0f));
+	auto D_text = D->AddComponent<TextRendererComponent>(); 
+	auto D_transfrom = D->GetComponent<TransformComponent>();
+	D_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	D_transfrom->SetPosition(D3DXVECTOR3(190.0f, 270.0f, 0.0f));
+	D->AddComponent<ColliderComponent>();
+	D_text->AddText("D", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto E = board_layer->CreateActor();
+	E->SetName("E");
 	auto E_text = E->AddComponent<TextRendererComponent>();
-	E_text->AddText("E", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(220.0f, 270.0f));
+	auto E_transfrom = E->GetComponent<TransformComponent>();
+	E_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	E_transfrom->SetPosition(D3DXVECTOR3(220.0f, 270.0f, 0.0f));
+	E->AddComponent<ColliderComponent>();
+	E_text->AddText("E", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto F = board_layer->CreateActor();
+	F->SetName("F");
 	auto F_text = F->AddComponent<TextRendererComponent>();
-	F_text->AddText("F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(250.0f, 270.0f));
+	auto F_transfrom = F->GetComponent<TransformComponent>();
+	F_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	F_transfrom->SetPosition(D3DXVECTOR3(250.0f, 270.0f, 0.0f));
+	F->AddComponent<ColliderComponent>();
+	F_text->AddText("F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto G = board_layer->CreateActor();
 	auto G_text = G->AddComponent<TextRendererComponent>();
-	G_text->AddText("G", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(280.0f, 270.0f));
+	auto G_transfrom = G->GetComponent<TransformComponent>();
+	G_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
+	G_transfrom->SetPosition(D3DXVECTOR3(280.0f, 270.0f, 0.0f));
+	G->AddComponent<ColliderComponent>();
+	G_text->AddText("G", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto H = board_layer->CreateActor();
 	auto H_text = H->AddComponent<TextRendererComponent>();
@@ -300,19 +345,30 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	z_text->AddText("z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(1050.0f, 270.0f));
 
 	auto end = board_layer->CreateActor();
-	auto end_text = end->AddComponent<TextRendererComponent>();
-	end_text->AddText("< END >", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(900.0f, 310.0f));
+	end->SetName("End");
+	auto end_text = end->AddComponent<TextRendererComponent>(); 
+	auto end_transfrom = end->GetComponent<TransformComponent>();
+	end_transfrom->SetScale(D3DXVECTOR3(80.0f, 45.0f, 1.0f));
+	end_transfrom->SetPosition(D3DXVECTOR3(900.0f, 310.0f, 0.0f));
+	end->AddComponent<ColliderComponent>();
+	end_text->AddText("< END >", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
-	auto scope_layer = CreateLayer("Scope");
-	scope = scope_layer->CreateActor();
+	//auto scope_layer = CreateLayer("Scope");
+	scope = board_layer->CreateActor();
 	scope->SetName("Scope");
+	scope->SetUpdate(false);
+	scope->AddComponent<ColliderComponent>()->SetOffsetPosition(D3DXVECTOR3(212.f, 0.0f ,0.0f));
 	scope->AddComponent<MeshRendererComponent>();
 	scope->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(1.91f, 2.0f, 1.0f));
-	scope->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-5.0f, -100.0f, 0.0f));
+	scope->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(50.0f, 350.0f, 0.0f));
 	animator = scope->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Animation/Scope.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("Scope");
+
+	/*
+	BackGround
+	*/
 
 	auto back_layer = CreateLayer("Background");
 	auto select_name = back_layer->CreateActor();
@@ -354,23 +410,37 @@ void NameSelectScene::Input()
 			board_layer->SetOffsetPosition(-10.0f, 0.0f, 0.0f);
 		}
 	
-		if ((GetAsyncKeyState('W') & 0x8000) && scope_position.y < -20.0f)
+		if ((GetAsyncKeyState('W') & 0x8000) && scope_position.y > 275.0f)
+		{
+			scope_position.y -= 3;
+		}
+		else if ((GetAsyncKeyState('S') & 0x8000) && scope_position.y < 450.0f)
 		{
 			scope_position.y += 3;
 		}
-		else if ((GetAsyncKeyState('S') & 0x8000) && scope_position.y > -200.0f)
+
+		if (GetAsyncKeyState('X') & 0x8000)
 		{
-			scope_position.y -= 3;
+			auto collider = scope->GetComponent<ColliderComponent>();
+			auto text_renderer = select->GetComponent<TextRendererComponent>();
+
+			if (auto actor = collider->GetOverlapActor("End"))
+			{
+				auto scene_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<SceneManager>();
+				scene_manager->SetCurrentScene("InGame");
+			}
+
+			auto actor = collider->GetOverlapActor_back();
+			if (actor && static_cast<uint>(player_name.size()) < name_size)
+			{
+				auto name = text_renderer->GetText(player_name);
+				player_name = name->text + actor->GetName();
+				name->text = player_name;
+			}
 		}
 	
 		scope_transform->SetPosition(scope_position);
 		frame_counter = 0.0f;
-	}
-
-	if (GetAsyncKeyState('V') & 0x8000)
-	{
-		auto scene_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<SceneManager>();
-		scene_manager->SetCurrentScene("InGame");
 	}
 }
 

@@ -13,8 +13,8 @@ MenuScene::MenuScene(class Tool* const tool) :
 	auto select_character = back_layer->CreateActor();
 	select_character->SetName("Background");
 	select_character->AddComponent<MeshRendererComponent>();
-	select_character->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(3.0f, 2.3f, 1.0f));
-	select_character->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-70.0f, 0.0f, 0.0f));
+	select_character->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.4f, 2.0f, 1.0f));
+	select_character->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	auto animator = select_character->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Animation/SelectCharacter.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
@@ -25,7 +25,7 @@ MenuScene::MenuScene(class Tool* const tool) :
 	move_mouse->SetName("MoveMouse");
 	move_mouse->AddComponent<MeshRendererComponent>();
 	move_mouse->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.5f, 2.5f, 1.0f));
-	move_mouse->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-120.0f, 75.0f, 0.0f));
+	move_mouse->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(150.0f, 140.0f, 0.0f));
 	animator = move_mouse->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Animation/MoveMouse.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
@@ -57,18 +57,18 @@ void MenuScene::Input()
 
 			if (slot_index < SLOT_NUM - 2)
 			{
-				position.y -= 70;
+				position.y += 65;
 			}
 
 			else if (slot_index < SLOT_NUM - 1)
 			{
-				position.x -= 60;
-				position.y -= 90;
+				position.x -= 50;
+				position.y += 80;
 			}
 
 			else
 			{
-				position.y -= 40;
+				position.y += 30;
 			}
 		}
 		else if ((GetAsyncKeyState(VK_UP) & 0x8000) && slot_index > 0)
@@ -77,17 +77,17 @@ void MenuScene::Input()
 
 			if (slot_index < SLOT_NUM - 3)
 			{
-				position.y += 70;
+				position.y -= 65;
 			}
 
 			else if (slot_index < SLOT_NUM - 2)
 			{
-				position.x += 60;
-				position.y += 90;
+				position.x += 50;
+				position.y -= 80;
 			}
 
 			else
-				position.y += 40;
+				position.y -= 30;
 		}
 
 

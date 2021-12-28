@@ -4,8 +4,8 @@
 #include "Scene/Component/CameraComponent.h"
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/TransformComponent.h"
-#include "Scene/Component/AnimatorComponent.h"
 #include "Scene/Component/TextRendererComponent.h"
+#include "Scene/Component/ColliderComponent.h"
 #include "Scene/Layer/Layer.h"
 
 Renderer::Renderer(Tool* const tool) :
@@ -26,8 +26,6 @@ bool Renderer::Initialize()
 	// D3DX XTK Initialize
 	sprite_batch.reset(new DirectX::SpriteBatch(base->GetDeviceContext()));
 	sprite_font.reset(new DirectX::SpriteFont(base->GetDevice(), L"zelda2.spritefont"));
-
-
 
 	return true;
 }
@@ -148,72 +146,20 @@ void Renderer::PassMain()
 
 	for (const auto& actor : actors)
 	{
-		auto transform = actor->GetComponent<TransformComponent>();
-		
-		if (!transform)
-			return;
+		auto render_component = actor->GetComponent<MeshRendererComponent>();
+		auto collider_component = actor->GetComponent<ColliderComponent>();
 
-		auto renderable = actor->GetComponent<MeshRendererComponent>();
-
-		if (renderable)
-		{
-			D3D11_PipelineState pipeline_state;
-			pipeline_state.input_layout = renderable->GetInputLayout().get();
-			pipeline_state.primitive_topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-			pipeline_state.vertex_shader = renderable->GetVertexShader().get();
-			pipeline_state.pixel_shader = renderable->GetPixelShader().get();
-			pipeline_state.rasterizer_state = rasterizers[RasterizerStateType::Cull_Back_Solid].get();
-			pipeline_state.blend_state = blend_states[BlendStateType::Alpha].get();
-
-			if (pipeline->Begin(pipeline_state))
-			{
-				auto vertex_shader_scope = static_cast<uint>(Shader_Type::VertexShader);
-				auto pixel_shader_scope = static_cast<uint>(Shader_Type::PixelShader);
-
-				pipeline->SetVertexBuffer(renderable->GetVertexBuffer().get());
-				pipeline->SetIndexBuffer(renderable->GetIndexBuffer().get());
-
-				D3DXMatrixTranspose(&cpu_object_buffer.world, &transform->GetWorldMatrix());
-				UpdateObjectBuffer();
-
-				if (auto animator = actor->GetComponent<AnimatorComponent>())
-				{
-					auto current_keyframe = animator->GetCurrentKeyFrame();
-					auto current_animation = animator->GetCurrentAnimation();
-					cpu_animation_buffer.sprite_offset = current_keyframe->offset;
-					cpu_animation_buffer.sprite_size = current_keyframe->size;
-					cpu_animation_buffer.color_key = current_animation->GetColorKey();
-					cpu_animation_buffer.texture_size = animator->GetCurrentAnimation()->GetSpriteTextureSize();
-					cpu_animation_buffer.is_animated = 1.0f;
-					UpdateAnimationBuffer();
-
-					pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
-					pipeline->SetShaderResource(0, pixel_shader_scope,
-						animator->GetCurrentAnimation()->GetSpriteTexture().get());
-				}
-
-				else
-				{
-					cpu_animation_buffer.sprite_offset = D3DXVECTOR2(0, 0);
-					cpu_animation_buffer.sprite_size = D3DXVECTOR2(1, 1);
-					cpu_animation_buffer.texture_size = D3DXVECTOR2(1, 1);
-					cpu_animation_buffer.is_animated = 0.0f;
-					UpdateAnimationBuffer();
-
-					pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
-					pipeline->SetShaderResource_clear(0, pixel_shader_scope);
-				}
-
-				pipeline->SetConstantBuffer(0, vertex_shader_scope, gpu_camera_buffer.get());
-				pipeline->SetConstantBuffer(1, vertex_shader_scope, gpu_object_buffer.get());
-				pipeline->Draw_Indexed(renderable->GetIndexBuffer()->GetCount(),
-					renderable->GetIndexBuffer()->GetOffset(), renderable->GetVertexBuffer()->GetOffset());
-
-				pipeline->End();
-			}
-		}
+		if (render_component)
+			RenderMain(actor, render_component.get(), RenderableType::Opaque);
 
 		RenderText(actor);
+		pipeline->SetRasterizer_clear();
+
+#if defined _DEBUG
+	// 디버그 모드시에만 충돌체를 렌더링한다.
+		if (collider_component)
+			RenderMain(actor, collider_component.get(), RenderableType::Collision);
+#endif
 	}
 }
 
@@ -227,16 +173,16 @@ void Renderer::RenderText(class Actor* const actor)
 	auto texts = render_text->GetTexts();
 	auto transform = actor->GetComponent<TransformComponent>();
 	auto position = transform->GetPosition();
+	auto scale = transform->GetScale();
 
 	for (const auto& text : texts)
 	{
 		sprite_batch->Begin();
-		
 		sprite_font->DrawString(sprite_batch.get(), text->text.c_str(),
 			DirectX::SimpleMath::Vector2(position.x + text->offset.x, position.y + text->offset.y),
-			DirectX::SimpleMath::Color(text->color));
+			DirectX::SimpleMath::Color(text->color), 0.0f, DirectX::SimpleMath::Vector2(), 
+			DirectX::SimpleMath::Vector2(1.0f, 1.0f));
 
 		sprite_batch->End();
 	}
-	
 }

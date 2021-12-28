@@ -15,6 +15,9 @@ public:
 
 private:
 	std::shared_ptr<class Layer> board_layer = nullptr;
+	std::shared_ptr<class Actor> select = nullptr;
 	std::shared_ptr<class Actor> scope = nullptr;
+	std::string player_name = " ";
+	const uint name_size = 8;
 	float frame_counter = 0.0f;
 };

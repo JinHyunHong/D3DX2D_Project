@@ -22,12 +22,12 @@ void MoveScriptComponent::Update()
 
 	if (GetAsyncKeyState('W') & 0x8000)
 	{
-		position.y++;
+		position.y--;
 		animator->SetCurrentAnimation("Idle_Up");
 	}
 	else if (GetAsyncKeyState('S') & 0x8000)
 	{
-		position.y--;
+		position.y++;
 		animator->SetCurrentAnimation("Idle_Down");
 	}
 	if (GetAsyncKeyState('D') & 0x8000)

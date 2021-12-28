@@ -4,7 +4,8 @@
 enum class RenderableType : uint
 {
 	Opaque,
-	Camera
+	Camera,
+	Collision
 };
 
 enum class RasterizerStateType : uint

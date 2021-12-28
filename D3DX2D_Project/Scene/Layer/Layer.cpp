@@ -2,6 +2,7 @@
 #include "Layer.h"
 #include "Scene/Actor.h"
 #include "Scene/Component/TransformComponent.h"
+#include "Scene/Component/ColliderComponent.h"
 
 
 Layer::Layer(class Tool* const tool) :
@@ -24,15 +25,34 @@ void Layer::Update(class Renderer* renderer)
 	if (!is_active)
 		return;
 
-	for (const auto& actor : actors)
+	for (auto iter = actors.begin(); iter != actors.end(); ++iter)
+	{
+		if (auto collider = (*iter)->GetComponent<ColliderComponent>())
+			collider->Destroy();
+	}
+
+	for (auto iter = actors.begin(); iter != actors.end(); ++iter)
 	{
 		if (offset_position != D3DXVECTOR3(0.0f, 0.0f, 0.0f))
 		{
-			auto transform = actor->GetComponent<TransformComponent>();
+			if (!(*iter)->IsUpdate())
+				continue;
+			auto transform = (*iter)->GetComponent<TransformComponent>();
 			transform->SetPosition(transform->GetPosition() + offset_position);
 		}
 		
-		actor->Update();
+		for (auto iter1 = iter; iter1 != actors.end();)
+		{
+			if (iter1 + 1 == actors.end())
+			{
+				(*iter)->Update();
+				iter1++;
+				break;
+			}
+
+			iter1++;
+			(*iter)->Update((*iter1));
+		}
 	}
 
 	if (is_update)

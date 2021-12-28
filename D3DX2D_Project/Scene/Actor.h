@@ -8,11 +8,14 @@ public:
 	~Actor();
 
 	bool Initialize();
-	void Update();
+	void Update(const std::shared_ptr<Actor>& dest = nullptr);
 	void Destroy();
 
 	auto GetName() const -> const std::string& { return name; }
 	void SetName(const std::string& name) { this->name = name; }
+
+	auto IsUpdate() { return is_update; }
+	void SetUpdate(const bool& is_update) { this->is_update = is_update; }
 
 	auto IsActive() { return is_active; }
 	void SetActive(const bool& is_active) { this->is_active = is_active; }
@@ -23,7 +26,7 @@ public:
 	auto GetComponent() -> const std::shared_ptr<T>;
 
 	template<typename T>
-	auto AddComponent() -> const std::shared_ptr <T>;
+	auto AddComponent() -> const std::shared_ptr<T>;
 
 	template<typename T>
 	bool EraseComponent();
@@ -36,7 +39,9 @@ private:
 	Tool* tool = nullptr;
 	std::string name = "";
 	bool is_active = true;
+	bool is_update = true;
 	std::shared_ptr<class TransformComponent> transform;
+	std::vector<std::shared_ptr<class ColliderComponent>> colliders;
 	std::vector<std::shared_ptr<class IComponent>> components;
 }; 
 
@@ -83,6 +88,9 @@ inline auto Actor::AddComponent() -> const std::shared_ptr<T>
 
 	if constexpr (std::is_same<T, class TransformComponent>::value)
 		transform = new_component;
+
+	if constexpr (std::is_same<T, class ColliderComponent>::value)
+		colliders.push_back(new_component);
 
 	return new_component;
 }

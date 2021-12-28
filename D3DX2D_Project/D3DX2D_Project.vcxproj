@@ -41,6 +41,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\IManager.cpp" />
     <ClCompile Include="Manager\ResourceManager.cpp" />
+    <ClCompile Include="Manager\Subsystem\Renderer\Renderer_Main.cpp" />
     <ClCompile Include="Manager\Subsystem\SceneManager.cpp" />
     <ClCompile Include="Manager\SubsystemManager.cpp" />
     <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
@@ -52,6 +53,7 @@
     <ClCompile Include="Scene\Component\CameraComponent.cpp" />
     <ClCompile Include="Scene\Component\ColliderComponent.cpp" />
     <ClCompile Include="Scene\Component\IComponent.cpp" />
+    <ClCompile Include="Scene\Component\IRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\TextRendererComponent.cpp" />
@@ -105,6 +107,7 @@
     <ClInclude Include="Scene\Component\CameraComponent.h" />
     <ClInclude Include="Scene\Component\ColliderComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
+    <ClInclude Include="Scene\Component\IRendererComponent.h" />
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\TextRendererComponent.h" />
