@@ -7,6 +7,7 @@
 #include "Scene/Component/AnimatorComponent.h"
 #include "Scene/Component/TextRendererComponent.h"
 #include "Scene/Component/ColliderComponent.h"
+#include "Scene/Component/TileRendererComponent.h"
 #include "Scene/Layer/Layer.h"
 
 void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* component, const RenderableType& type)
@@ -55,9 +56,26 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 		D3DXMatrixTranspose(&cpu_object_buffer.world, &transform->GetWorldMatrix());
 		UpdateObjectBuffer();
 
+
+		auto tile = actor->GetComponent<TileRendererComponent>();
 		auto animator = actor->GetComponent<AnimatorComponent>();
+
+		if (tile)
+		{
+			auto current_tile = tile->GetTile();
+			cpu_animation_buffer.sprite_offset = current_tile->GetOffset();
+			cpu_animation_buffer.sprite_size = current_tile->GetSize();
+			cpu_animation_buffer.color_key = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
+			cpu_animation_buffer.texture_size = current_tile->GetTextureSize();
+			cpu_animation_buffer.is_animated = 1.0f;
+			UpdateAnimationBuffer();
+
+			pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
+			pipeline->SetShaderResource(0, pixel_shader_scope,
+				current_tile->GetTileTexture().get());
+		}
 		
-		if (animator && type == RenderableType::Opaque)
+		else if (animator && type == RenderableType::Opaque)
 		{
 			auto current_keyframe = animator->GetCurrentKeyFrame();
 			auto current_animation = animator->GetCurrentAnimation();

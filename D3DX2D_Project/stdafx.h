@@ -91,4 +91,5 @@
 
 // Resource
 #include "Resource/Animation.h"
+#include "Resource/Tile.h"
 

@@ -20,4 +20,5 @@ private:
 	std::string player_name = " ";
 	const uint name_size = 8;
 	float frame_counter = 0.0f;
+	float frame_counter_text = 0.0f;
 };

@@ -18,7 +18,7 @@ Scene::Scene(Tool* const tool) :
 
 	auto camera_layer = CreateLayer("MainCamera");
 
-	auto camera = camera_layer->CreateActor();
+	camera = camera_layer->CreateActor();
 	camera->SetName("MainCamera");
 	camera->AddComponent<CameraComponent>();
 }

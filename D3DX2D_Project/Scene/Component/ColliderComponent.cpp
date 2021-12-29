@@ -35,17 +35,14 @@ bool ColliderComponent::IsCollision(Actor* const dest)
 	if (!dest_collision)
 		return false;
 
-	if (actor->GetName() == "Scope")
-		printf("s");
-
 	auto src_transform = actor->GetComponent<TransformComponent>();
 	auto dest_transform = dest->GetComponent<TransformComponent>();
 
-	auto src_min = (src_transform->GetPosition() + offset_position) - ((src_transform->GetScale() + offset_scale) * 0.5f);
-	auto src_max = (src_transform->GetPosition() + offset_position) + ((src_transform->GetScale() + offset_scale) * 0.5f);
+	auto src_min = (src_transform->GetPosition() + offset_position);
+	auto src_max = (src_transform->GetPosition() + offset_position) + ((src_transform->GetScale() + offset_scale));
 
-	auto dest_min = (dest_transform->GetPosition() + dest_collision->GetOffsetPosition()) - ((dest_transform->GetScale() + dest_collision->GetOffsetScale()) * 0.5f);
-	auto dest_max = (dest_transform->GetPosition() + dest_collision->GetOffsetPosition()) + ((dest_transform->GetScale() + dest_collision->GetOffsetScale()) * 0.5f);
+	auto dest_min = (dest_transform->GetPosition() + dest_collision->GetOffsetPosition());
+	auto dest_max = (dest_transform->GetPosition() + dest_collision->GetOffsetPosition()) + ((dest_transform->GetScale() + dest_collision->GetOffsetScale()));
 
 	if (src_max.x < dest_min.x || src_min.x > dest_max.x ||
 		src_max.y < dest_min.y || src_min.y > dest_max.y)

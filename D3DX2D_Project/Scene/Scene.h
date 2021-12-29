@@ -4,7 +4,7 @@ class Scene
 {
 public:
 	Scene(class Tool* const tool);
-	virtual ~Scene();
+	virtual ~Scene() = 0;
 
 	virtual void Initialize();
 	virtual void Input();
@@ -19,6 +19,7 @@ protected:
 	class Timer* timer = nullptr;
 	class D3D11_Base* graphics = nullptr;
 	std::vector<std::shared_ptr<class Layer>> layers;
+	std::shared_ptr<class Actor> camera;
 	class Renderer* renderer = nullptr;
 	bool is_active = true;
 };

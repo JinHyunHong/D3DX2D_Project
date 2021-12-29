@@ -35,6 +35,42 @@ inline auto ResourceManager::Load(const std::string& path) -> const std::shared_
 }
 
 template<typename T>
+inline bool ResourceManager::Load(const std::string& path, std::shared_ptr<T> resource)
+{
+	static_assert(std::is_base_of<IResource, T>::value, "Provided type does not implement IResource");
+
+	if (!std::filesystem::exists(path))
+	{
+		assert(false);
+		return false;
+	}
+
+	auto last_index = path.find_last_of("\\/");
+	auto file_name = path.substr(last_index + 1, path.length());
+	last_index = file_name.find_last_of(".");
+	auto resource_name = file_name.substr(0, last_index);
+
+	if (HasResource(resource_name, IResource::DeduceResourceType<T>()))
+	{
+		assert(false);
+		return false;
+	}
+
+	resource->SetResourceName(resource_name);
+	resource->SetResourcePath(path);
+
+	if (!resource->LoadFromFile(path))
+	{
+		assert(false);
+		return false;
+	}
+
+	RegisterResource<T>(resource);
+
+	return true;
+}
+
+template<typename T>
 inline auto ResourceManager::GetResourceFromName(const std::string& name) -> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<IResource, T>::value, "Provided type does not implement IResource");

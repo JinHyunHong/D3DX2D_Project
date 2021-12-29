@@ -16,7 +16,7 @@ MenuScene::MenuScene(class Tool* const tool) :
 	select_character->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.4f, 2.0f, 1.0f));
 	select_character->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	auto animator = select_character->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Animation/SelectCharacter.xml");
+	animator->AddAnimation("Assets/Xml/Animation/SelectCharacter.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("SelectCharacter");
 
@@ -27,7 +27,7 @@ MenuScene::MenuScene(class Tool* const tool) :
 	move_mouse->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.5f, 2.5f, 1.0f));
 	move_mouse->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(150.0f, 140.0f, 0.0f));
 	animator = move_mouse->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Animation/MoveMouse.xml");
+	animator->AddAnimation("Assets/Xml/Animation/MoveMouse.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("MoveMouse");
 }

@@ -6,6 +6,7 @@
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/TextRendererComponent.h"
 #include "Scene/Component/ColliderComponent.h"
+#include "Scene/Component/TileRendererComponent.h"
 #include "Scene/Layer/Layer.h"
 
 Renderer::Renderer(Tool* const tool) :
@@ -56,6 +57,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 		auto camera_component = actor->GetComponent<CameraComponent>();
 		auto mesh_renderer_component = actor->GetComponent<MeshRendererComponent>();
 		auto text_renderer_component = actor->GetComponent<TextRendererComponent>();
+		auto tile_renderer_component = actor->GetComponent<TileRendererComponent>();
 
 		if (camera_component)
 		{
@@ -63,7 +65,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 			camera = camera_component.get();
 		}
 
-		if (mesh_renderer_component || text_renderer_component)
+		if (mesh_renderer_component || text_renderer_component || tile_renderer_component)
 		{
 			renderables[RenderableType::Opaque].emplace_back(actor.get());
 		}
@@ -147,7 +149,11 @@ void Renderer::PassMain()
 	for (const auto& actor : actors)
 	{
 		auto render_component = actor->GetComponent<MeshRendererComponent>();
+		auto tile_component = actor->GetComponent<TileRendererComponent>();
 		auto collider_component = actor->GetComponent<ColliderComponent>();
+
+		if (tile_component)
+			RenderMain(actor, tile_component.get(), RenderableType::Opaque);
 
 		if (render_component)
 			RenderMain(actor, render_component.get(), RenderableType::Opaque);

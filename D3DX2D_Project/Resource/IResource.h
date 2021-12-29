@@ -5,6 +5,7 @@ enum class ResourceType : uint
 	Unknown,
 	Animation,
 	Texture2D,
+	Tile,
 	Mesh,
 	Material
 };

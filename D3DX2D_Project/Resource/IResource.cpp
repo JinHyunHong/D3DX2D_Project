@@ -14,3 +14,4 @@ constexpr ResourceType IResource::DeduceResourceType()
 
 #define REGISTER_RESOURCE_TYPE(T, enum_type) template<> ResourceType IResource::DeduceResourceType<T>() { return enum_type; }
 REGISTER_RESOURCE_TYPE(Animation, ResourceType::Animation)
+REGISTER_RESOURCE_TYPE(Tile, ResourceType::Tile)

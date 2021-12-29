@@ -57,10 +57,12 @@
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\TextRendererComponent.cpp" />
+    <ClCompile Include="Scene\Component\TileRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\InGameScene.cpp" />
     <ClCompile Include="Scene\Layer\Layer.cpp" />
     <ClCompile Include="Scene\LogoScene.cpp" />
+    <ClCompile Include="Resource\Tile.cpp" />
     <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Scene\NameSelectScene.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -111,10 +113,12 @@
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\TextRendererComponent.h" />
+    <ClInclude Include="Scene\Component\TileRendererComponent.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\InGameScene.h" />
     <ClInclude Include="Scene\Layer\Layer.h" />
     <ClInclude Include="Scene\LogoScene.h" />
+    <ClInclude Include="Resource\Tile.h" />
     <ClInclude Include="Scene\MenuScene.h" />
     <ClInclude Include="Scene\NameSelectScene.h" />
     <ClInclude Include="Scene\Scene.h" />
