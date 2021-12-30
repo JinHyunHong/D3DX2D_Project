@@ -32,6 +32,8 @@ void AnimatorComponent::Update()
 			{
 				current_frame_number = current_animation.lock()->GetKeyFrameCount() - 1;
 				Pause();
+
+				SetCurrentAnimation(prev_animation_name);
 			}
 
 			break;
@@ -62,8 +64,13 @@ void AnimatorComponent::SetCurrentAnimation(const std::string& animation_name)
 	assert(animations.find(animation_name) != animations.end());
 
 	current_animation = animations[animation_name];
+	
+	if(current_animation.lock()->GetRepeatType() == RepeatType::Loop)
+		prev_animation_name = animation_name;
+
 	current_frame_number = 0;
 	frame_counter = 0.0f;
+	animation_mode = AnimationMode::Play;
 }
 
 auto AnimatorComponent::GetCurrentKeyFrame() const -> const Keyframe* const
@@ -88,6 +95,11 @@ void AnimatorComponent::AddAnimation(const std::string& path)
 		assert(false);
 
 	AddAnimation(animation->GetResourceName(), animation);
+}
+
+auto AnimatorComponent::MotionEnd() const -> const bool
+{
+	return current_frame_number == current_animation.lock()->GetKeyFrameCount() - 1;
 }
 
 void AnimatorComponent::Play()

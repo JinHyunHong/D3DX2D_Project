@@ -5,6 +5,7 @@
 #include "Scene/Component/TransformComponent.h"
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/AnimatorComponent.h"
+#include "Scene/Component/TextRendererComponent.h"
 
 MenuScene::MenuScene(class Tool* const tool) :
 	Scene(tool)
@@ -30,6 +31,12 @@ MenuScene::MenuScene(class Tool* const tool) :
 	animator->AddAnimation("Assets/Xml/Animation/MoveMouse.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("MoveMouse");
+
+	auto map_editor = mouse_layer->CreateActor();
+	map_editor->SetName("map_editor_text");
+	map_editor->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(10.0f, 450.0f, 0.0f));
+	map_editor->AddComponent<TextRendererComponent>()->AddText("F1 : MapEditor", 
+		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(0.8f, 0.8f));
 }
 
 MenuScene::~MenuScene()
@@ -113,6 +120,12 @@ void MenuScene::Input()
 		frame_counter = 0.0f;
 	}
 
+	// ¸Ê ¿¡µðÅÍ ¾À Àå¸é ÀüÈ¯
+	if (GetAsyncKeyState(VK_F1) & 0x8000)
+	{
+		auto scene_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<SceneManager>();
+		scene_manager->SetCurrentScene("MapEditor");
+	}
 }
 
 void MenuScene::Update()

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Run_Up" Type="0" TexturePath="Assets/Sprite/Zelda/Zelda.png" TextureSizeX="665" TextureSizeY="365" ColorKeyR = "0" ColorKeyG = "64" ColorKeyB = "64" ColorKeyA = "1">
+    <Keyframe OffsetX="1" OffsetY="111" SizeX="15" SizeY="22"  Time="5"/>    
+	<Keyframe OffsetX="19" OffsetY="111" SizeX="15" SizeY="22"  Time="10"/>
+	<Keyframe OffsetX="36" OffsetY="111" SizeX="15" SizeY="22"  Time="10"/>
+	<Keyframe OffsetX="54" OffsetY="109" SizeX="14" SizeY="24"  Time="10"/>    
+	<Keyframe OffsetX="70" OffsetY="111" SizeX="15" SizeY="22"  Time="10"/>    
+	<Keyframe OffsetX="87" OffsetY="111" SizeX="15" SizeY="22"  Time="10"/>
+	<Keyframe OffsetX="104" OffsetY="110" SizeX="15" SizeY="23"  Time="10"/>
+	<Keyframe OffsetX="121" OffsetY="109" SizeX="15" SizeY="25"  Time="10"/>
+	<Keyframe OffsetX="138" OffsetY="111" SizeX="15" SizeY="22"  Time="10"/>
+</Animation>

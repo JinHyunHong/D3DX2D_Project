@@ -23,12 +23,12 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 	// Managers Initialize
 	tool->AddManager(std::make_shared<ResourceManager>(tool));
 
-
 	auto sub_manager = std::make_shared<SubsystemManager>(tool);
 	tool->AddManager(sub_manager);
 
 	// Subsystem Create
 	sub_manager->AddSubsystem(std::make_shared<Timer>(tool));
+	sub_manager->AddSubsystem(std::make_shared<InputManager>(tool));
 	sub_manager->AddSubsystem(std::make_shared<D3D11_Base>(tool));
 	sub_manager->AddSubsystem(std::make_shared<Renderer>(tool));
 	sub_manager->AddSubsystem(std::make_shared<SceneManager>(tool));

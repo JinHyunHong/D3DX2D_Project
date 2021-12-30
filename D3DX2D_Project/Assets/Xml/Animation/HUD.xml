@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="HUD" Type="1" TexturePath="Assets/Sprite/HUD.png" TextureSizeX="320" TextureSizeY="320" ColorKeyR = "0" ColorKeyG = "162" ColorKeyB = "232" ColorKeyA = "1">
+    <Keyframe OffsetX="0" OffsetY="0" SizeX="255" SizeY="66" Time="200"/>
+</Animation>

@@ -35,6 +35,8 @@ public:
 	void AddAnimation(const std::string& animation_name, const std::shared_ptr<class Animation>& animation);
 	void AddAnimation(const std::string& path);
 
+	auto MotionEnd() const-> const bool;
+
 	void Play();
 	void Stop();
 	void Pause();
@@ -47,6 +49,7 @@ private:
 	uint current_frame_number = 0;
 	float frame_counter = 0.0f;
 
+	std::string prev_animation_name = "";
 	std::weak_ptr<class Animation> current_animation;
 	std::map<std::string, std::shared_ptr<class Animation>> animations;
 };

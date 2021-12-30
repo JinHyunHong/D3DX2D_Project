@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Run_Down" Type="0" TexturePath="Assets/Sprite/Zelda/Zelda.png" TextureSizeX="665" TextureSizeY="365" ColorKeyR = "0" ColorKeyG = "64" ColorKeyB = "64" ColorKeyA = "1">
+    <Keyframe OffsetX="2" OffsetY="3" SizeX="14" SizeY="22"  Time="10"/>    
+	<Keyframe OffsetX="19" OffsetY="2" SizeX="14" SizeY="24"  Time="30"/>
+	<Keyframe OffsetX="36" OffsetY="2" SizeX="15" SizeY="24"  Time="30"/>
+	<Keyframe OffsetX="53" OffsetY="1" SizeX="15" SizeY="25"  Time="30"/>
+	<Keyframe OffsetX="70" OffsetY="3" SizeX="15" SizeY="23"  Time="30"/>
+	<Keyframe OffsetX="87" OffsetY="3" SizeX="15" SizeY="22"  Time="30"/>
+	<Keyframe OffsetX="105" OffsetY="3" SizeX="14" SizeY="23"  Time="30"/>
+	<Keyframe OffsetX="121" OffsetY="1" SizeX="15" SizeY="25"  Time="30"/>
+	<Keyframe OffsetX="138" OffsetY="3" SizeX="15" SizeY="23"  Time="30"/>
+</Animation>

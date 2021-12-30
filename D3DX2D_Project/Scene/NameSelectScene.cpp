@@ -754,7 +754,6 @@ void NameSelectScene::Input()
 				frame_counter_text = 0.0f;
 			}
 		}
-	
 		scope_transform->SetPosition(scope_position);
 		frame_counter = 0.0f;
 	}

@@ -19,28 +19,59 @@ void MoveScriptComponent::Update()
 {
 	auto position = transform->GetPosition();
 	auto animator = actor->GetComponent<AnimatorComponent>();
+	auto input_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<InputManager>();
 
-	if (GetAsyncKeyState('W') & 0x8000)
+	if (input_manager->GetKeyDown("MoveUp"))
 	{
 		position.y--;
 		animator->SetCurrentAnimation("Idle_Up");
 	}
-	else if (GetAsyncKeyState('S') & 0x8000)
+
+	else if (input_manager->GetKeyPress("MoveUp"))
+	{
+		position.y--;
+		if (animator->MotionEnd())
+			animator->SetCurrentAnimation("Run_Up");
+	}
+	if (input_manager->GetKeyDown("MoveDown"))
 	{
 		position.y++;
 		animator->SetCurrentAnimation("Idle_Down");
 	}
-	if (GetAsyncKeyState('D') & 0x8000)
+
+	else if (input_manager->GetKeyPress("MoveDown"))
+	{
+		position.y++;
+		if (animator->MotionEnd())
+			animator->SetCurrentAnimation("Run_Down");
+	}
+
+	if (input_manager->GetKeyDown("MoveRight"))
 	{
 		position.x++;
 		animator->SetCurrentAnimation("Idle_Right");
 	}
-	else if (GetAsyncKeyState('A') & 0x8000)
+
+	else if (input_manager->GetKeyPress("MoveRight"))
+	{
+		position.x++;
+		if(animator->MotionEnd())
+			animator->SetCurrentAnimation("Run_Right");
+	}
+	
+	if (input_manager->GetKeyDown("MoveLeft"))
 	{
 		position.x--;
 		animator->SetCurrentAnimation("Idle_Left");
 	}
 
+	else if (input_manager->GetKeyPress("MoveLeft"))
+	{
+		position.x--;
+		if (animator->MotionEnd())
+			animator->SetCurrentAnimation("Run_Left");
+	}
+	
 	transform->SetPosition(position);
 }
 

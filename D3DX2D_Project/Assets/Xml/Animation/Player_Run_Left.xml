@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Run_Left" Type="0" TexturePath="Assets/Sprite/Zelda/Zelda_Left.png" TextureSizeX="665" TextureSizeY="365" ColorKeyR = "0" ColorKeyG = "64" ColorKeyB = "64" ColorKeyA = "1">
+    <Keyframe OffsetX="648" OffsetY="58" SizeX="14" SizeY="22"  Time="10"/>    
+	<Keyframe OffsetX="629" OffsetY="57" SizeX="15" SizeY="23"  Time="60"/>
+	<Keyframe OffsetX="611" OffsetY="57" SizeX="15" SizeY="23"  Time="60"/>
+	<Keyframe OffsetX="594" OffsetY="58" SizeX="15" SizeY="22"  Time="60"/>
+</Animation>

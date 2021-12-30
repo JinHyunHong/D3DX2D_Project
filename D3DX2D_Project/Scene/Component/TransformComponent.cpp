@@ -175,6 +175,8 @@ void TransformComponent::SetParent(TransformComponent* const new_parent)
 {
 	parent = new_parent;
 
+	SetLocalPosition(GetLocalPosition() - new_parent->GetLocalPosition() / 2);
+
 	new_parent->AddChild(this);
 }
 
@@ -199,12 +201,13 @@ void TransformComponent::UpdateTransform()
 	D3DXMATRIX S, R, T;
 	D3DXMatrixScaling(&S, local_scale.x, local_scale.y, local_scale.z);
 	D3DXMatrixRotationYawPitchRoll(&R, local_rotation.y, local_rotation.x, local_rotation.z);
-	D3DXMatrixTranslation(&T, local_position.x, local_position.y, local_position.z);
 
+	D3DXMatrixTranslation(&T, local_position.x, local_position.y, local_position.z);
 	local = S * R * T;
 
 	if (HasParent())
 		world = local * parent->GetWorldMatrix();
+	
 	else
 		world = local;
 

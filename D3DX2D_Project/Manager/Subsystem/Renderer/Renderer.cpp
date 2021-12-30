@@ -185,9 +185,9 @@ void Renderer::RenderText(class Actor* const actor)
 	{
 		sprite_batch->Begin();
 		sprite_font->DrawString(sprite_batch.get(), text->text.c_str(),
-			DirectX::SimpleMath::Vector2(position.x + text->offset.x, position.y + text->offset.y),
+			DirectX::SimpleMath::Vector2(position.x + text->offset_position.x, position.y + text->offset_position.y),
 			DirectX::SimpleMath::Color(text->color), 0.0f, DirectX::SimpleMath::Vector2(), 
-			DirectX::SimpleMath::Vector2(1.0f, 1.0f));
+			DirectX::SimpleMath::Vector2(text->scale.x, text->scale.y));
 
 		sprite_batch->End();
 	}

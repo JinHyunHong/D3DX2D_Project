@@ -90,7 +90,7 @@ float4 PS(PixelInput input) : SV_Target
         if (any(color_key))
         {
             float4 color_key_normal = color_key / 255;
-            if (abs(color_key_normal.r - color.r) < 0.01)
+            if (abs(color_key_normal.r - color.r) < 0.05)
                    discard;
             
             return color;

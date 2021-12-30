@@ -61,6 +61,7 @@
 
 // Subsystem
 #include "Manager/Subsystem/Timer.h"
+#include "Manager/Subsystem/InputManager.h"
 #include "Manager/Subsystem/D3D11_Base.h"
 #include "Manager/Subsystem/Renderer/Renderer.h"
 #include "Manager/Subsystem/SceneManager.h"
