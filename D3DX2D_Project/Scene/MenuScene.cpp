@@ -35,7 +35,7 @@ MenuScene::MenuScene(class Tool* const tool) :
 	auto map_editor = mouse_layer->CreateActor();
 	map_editor->SetName("map_editor_text");
 	map_editor->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(10.0f, 450.0f, 0.0f));
-	map_editor->AddComponent<TextRendererComponent>()->AddText("F1 : MapEditor", 
+	map_editor->AddComponent<TextRendererComponent>()->AddText("F 1 : MapEditor", 
 		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f), D3DXVECTOR2(0.8f, 0.8f));
 }
 

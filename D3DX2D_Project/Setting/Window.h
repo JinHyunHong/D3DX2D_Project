@@ -1,10 +1,9 @@
 #pragma once
 
-enum class Dialog_type
+enum class Dialog_type : uint
 {
 	Unknown,
-	AddElement,
-	AddAttribute
+	MapEditorInit,
 };
 
 
@@ -34,6 +33,15 @@ public:
 	void DrawTextWindow(const std::string& text);
 	void EraseTextsWindow();
 
+	auto GetDialog(const Dialog_type& type);
+	auto GetDialog(const HWND& handle) const -> const std::shared_ptr<class Dialog>;
+	auto GetDialogEmptyHandle() const->const Dialog_type;
+
+	void CreateInDialog(const Dialog_type& type, const int& resource_id);
+	void AddDialogHandle(const Dialog_type& type, const HWND& handle);
+
+	auto GetDialogType(const std::shared_ptr<class Dialog>& dialog) const -> const Dialog_type;
+
 
 public:
 	const bool Create(const wchar_t* class_name, const wchar_t* window_name);
@@ -46,6 +54,7 @@ private:
 	uint width = 0;
 	uint height = 0;
 	HWND handle = nullptr;
+	std::unordered_map<Dialog_type, std::shared_ptr<class Dialog>> dialogs;
 
 public:
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam);

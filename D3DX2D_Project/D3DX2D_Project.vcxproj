@@ -69,6 +69,8 @@
     <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Scene\NameSelectScene.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Setting\Dialog.cpp" />
+    <ClCompile Include="Setting\Dialog_Proc.cpp" />
     <ClCompile Include="Setting\Window.cpp" />
     <ClCompile Include="Setting\Window_Proc.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -106,6 +108,7 @@
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer_ConstantBuffers.h" />
     <ClInclude Include="Manager\Subsystem\Renderer\Renderer_Types.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Resource\Animation.h" />
     <ClInclude Include="Resource\IResource.h" />
     <ClInclude Include="Scene\Actor.h" />
@@ -131,6 +134,7 @@
     <ClInclude Include="Manager\Subsystem\Timer.h" />
     <ClInclude Include="Manager\IManager.h" />
     <ClInclude Include="Manager\SubsystemManager.h" />
+    <ClInclude Include="Setting\Dialog.h" />
     <ClInclude Include="Setting\Window.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Manager\Subsystem\D3D11_Base.h" />
@@ -156,6 +160,9 @@
     <ProjectReference Include="..\DirectXTK-main\DirectXTK_Desktop_2019.vcxproj">
       <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D3DX2D_Project.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

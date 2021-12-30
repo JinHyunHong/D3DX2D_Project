@@ -18,6 +18,8 @@
 #include <random>
 #include <chrono>
 #include <mutex>
+#include <string>
+#include "resource.h"
 
 
 // D3DLibrary

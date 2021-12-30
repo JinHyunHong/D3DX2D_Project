@@ -51,11 +51,7 @@ auto SceneManager::GetCurrentScene() const -> std::shared_ptr<class Scene>
 
 void SceneManager::SetCurrentScene(const std::string& scene_name)
 {
-	if (scenes.find(scene_name) == scenes.end())
-	{
-		assert(false);
-		return;
-	}
+	assert(scenes.find(scene_name) != scenes.end());
 	
 	if(!current_scene.expired())
 		current_scene.lock().get()->Destroy();

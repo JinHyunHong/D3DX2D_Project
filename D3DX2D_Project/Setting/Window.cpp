@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "window.h"
+#include "Dialog.h"
 
 window::window(Tool* const tool, 
 	const HINSTANCE& instance,
@@ -95,4 +96,61 @@ void window::Destroy()
 {
 	DestroyWindow(handle);
 	UnregisterClass(L"XML_Editor", instance);
+}
+
+auto window::GetDialog(const Dialog_type& type)
+{
+	assert(dialogs.find(type) != dialogs.end());
+
+	return dialogs[type];
+}
+
+auto window::GetDialog(const HWND& handle) const -> const std::shared_ptr<class Dialog>
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (dialog.second->GetHandle() == handle)
+			return dialog.second;
+	}
+
+	return nullptr;
+}
+
+void window::CreateInDialog(const Dialog_type& type, const int& resource_id)
+{
+	std::shared_ptr<Dialog> dialog = std::make_shared<Dialog>(tool);
+	dialogs[type] = dialog;
+	dialog->Initialize(instance, handle, resource_id);
+}
+
+void window::AddDialogHandle(const Dialog_type& type, const HWND& handle)
+{
+	if (type == Dialog_type::Unknown || !handle)
+	{
+		assert(false);
+		return;
+	}
+
+	dialogs[type]->SetHandle(handle);
+}
+
+
+auto window::GetDialogEmptyHandle() const -> const Dialog_type
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (!dialog.second->GetHandle())
+			return dialog.first;
+	}
+	return Dialog_type::Unknown;
+}
+
+auto window::GetDialogType(const std::shared_ptr<class Dialog>& ref_dialog) const -> const Dialog_type
+{
+	for (const auto& dialog : dialogs)
+	{
+		if (dialog.second == ref_dialog)
+			return dialog.first;
+	}
+	return Dialog_type::Unknown;
 }

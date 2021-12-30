@@ -39,7 +39,4 @@ void TileRendererComponent::AddTile(const std::string& path, const uint& tile_in
 		if (!resource_manager->Load<Tile>(path, tile))
 			return;
 	}
-
-	if (!tile)
-		assert(false);
 }

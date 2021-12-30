@@ -16,6 +16,8 @@ bool InputManager::Initialize()
 	CreateKey("MoveDown", 'S');
 	CreateKey("MoveLeft", 'A');
 	CreateKey("MoveRight", 'D');
+	CreateKey("Num1", '1');
+	CreateKey("Num2", '2');
 	return true;
 }
 

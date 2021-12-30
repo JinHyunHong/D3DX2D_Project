@@ -17,7 +17,10 @@ public:
 	void SetCurrentScene(const std::string& scene_name);
 
 	template<typename T>
-	auto CreateScene(const std::string& scene_name) -> std::shared_ptr<T>;
+	auto GetScene(const std::string& scene_name) -> const std::shared_ptr<T>;
+
+	template<typename T>
+	auto CreateScene(const std::string& scene_name) -> const std::shared_ptr<T>;
 
 	auto GetAllScene() const -> const std::unordered_map<std::string, std::shared_ptr<class Scene>>& { return scenes; }
 
@@ -27,15 +30,27 @@ private:
 };
 
 template<typename T>
-inline auto SceneManager::CreateScene(const std::string& scene_name) -> std::shared_ptr<T>
+inline auto SceneManager::GetScene(const std::string& scene_name) -> const std::shared_ptr<T>
+{
+	static_assert(std::is_base_of<Scene, T>::value, "Type T is not a derived class of Scene");
+	
+	assert(scenes.find(scene_name) != scenes.end());
+
+	for (auto iter = scenes.begin(); iter != scenes.end(); ++iter)
+	{
+		if (typeid(*iter->second) == typeid(T) && iter->first == scene_name)
+			return std::static_pointer_cast<T>(iter->second);
+	}
+
+	return nullptr;
+}
+
+template<typename T>
+inline auto SceneManager::CreateScene(const std::string& scene_name) -> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<Scene, T>::value, "Type T is not a derived class of Scene");
 
-	if (scenes.find(scene_name) != scenes.end())
-	{
-		assert(false);
-		return nullptr;
-	}
+	assert(scenes.find(scene_name) == scenes.end());
 
 	auto new_scene = std::make_shared<T>(tool);
 

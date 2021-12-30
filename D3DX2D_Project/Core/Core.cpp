@@ -12,13 +12,12 @@ bool Core::Initialize(HINSTANCE instance, const uint& width, const uint& height)
 	this->width = width;
 	this->height = height;
 
+	tool = new Tool();
 
 	// Create Window
 	current_window = std::make_shared<window>(tool, instance, width, height);
 	current_window->Create(L"D3DX2D_Project", L"D3DX2D_Project");
 	current_window->Show();
-
-	tool = new Tool();
 
 	// Managers Initialize
 	tool->AddManager(std::make_shared<ResourceManager>(tool));
