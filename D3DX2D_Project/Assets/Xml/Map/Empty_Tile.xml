@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Tile Texture_Size_X = "582" Texture_Size_Y = "922">
-    <tile1 Name="tile1" Texture_Path ="Assets/Sprite/Ciff_Water.png" Offset_X = "12" Offset_Y = "153" Size_X = "7" Size_Y = "7" Potal_Tile_Name="" Is_Move="true"/>
+<Tile>
+    <tile1 Name="tile1" Potal_Tile_Name="" Is_Move="true"/>
 </Tile>

@@ -24,6 +24,7 @@ private:
 	void UpdateCameraBuffer();
 	void UpdateObjectBuffer();
 	void UpdateAnimationBuffer();
+	void UpdateColorBuffer();
 
 private:
 	void PassMain();
@@ -45,6 +46,9 @@ private:
 
 	ANIMATION_DATA cpu_animation_buffer;
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_animation_buffer;
+
+	COLOR_DATA cpu_color_buffer;
+	std::shared_ptr<class D3D11_ConstantBuffer> gpu_color_buffer;
 
 private:
 	std::map<RenderableType, std::vector<class Actor*>> renderables;

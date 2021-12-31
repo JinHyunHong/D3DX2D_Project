@@ -15,14 +15,10 @@ bool TileRendererComponent::Initialize()
 
 void TileRendererComponent::Update()
 {
-	if(tile)
-		tile->Update();
 }
 
 void TileRendererComponent::Destroy()
 {
-	if (tile)
-		tile->Destroy();
 }
 
 void TileRendererComponent::AddTile(const std::string& path, const uint& tile_index)

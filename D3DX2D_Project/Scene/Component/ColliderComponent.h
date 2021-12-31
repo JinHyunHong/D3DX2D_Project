@@ -21,6 +21,9 @@ public:
 	auto GetOffsetPosition() -> const D3DXVECTOR3 { return offset_position; }
 	void SetOffsetPosition(const D3DXVECTOR3& offset_position) { this->offset_position = offset_position; }
 
+	auto GetColor() const -> const D3DXCOLOR& { return color; }
+	void SetColor(const D3DXCOLOR& color) { this->color = color; }
+
 	bool GetOverlapActor(const std::string& name);
 	auto GetOverlapActor_back() -> class Actor* const;
 	void ClearOverlapActors();
@@ -31,4 +34,5 @@ private:
 	std::vector<class Actor*> overlap_actors;
 	D3DXVECTOR3 offset_scale = D3DXVECTOR3{ 0.0f, 0.0f, 0.0f };
 	D3DXVECTOR3 offset_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	D3DXCOLOR color = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 };

@@ -82,3 +82,13 @@ auto Layer::CreateActor(bool is_active) -> std::shared_ptr<class Actor>
 
 	return actors.emplace_back(new_actor);
 }
+
+auto Layer::GetActor(const uint& index) -> std::shared_ptr<class Actor>
+{
+	if (index < 0 || index > actors.size())
+	{
+		return nullptr;
+	}
+
+	return actors[index];
+}

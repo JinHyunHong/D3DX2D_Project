@@ -21,3 +21,8 @@ struct ANIMATION_DATA
 	float padding;
 	D3DXCOLOR color_key;
 };
+
+struct COLOR_DATA
+{
+	D3DXCOLOR color;
+};

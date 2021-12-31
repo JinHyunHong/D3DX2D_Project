@@ -18,6 +18,9 @@ bool InputManager::Initialize()
 	CreateKey("MoveRight", 'D');
 	CreateKey("Num1", '1');
 	CreateKey("Num2", '2');
+	CreateKey("Num3", '3');
+	CreateKey("Num4", '4');
+	CreateKey("LButton", VK_LBUTTON);
 	return true;
 }
 

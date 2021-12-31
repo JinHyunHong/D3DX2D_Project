@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Animation Name="World_Map" Type="1" TexturePath="Assets/Sprite/world_map.png" TextureSizeX="4096" TextureSizeY="4096" ColorKeyR = "0" ColorKeyG = "0" ColorKeyB = "0" ColorKeyA = "0" >
-    <Keyframe OffsetX="0" OffsetY="0" SizeX="4096" SizeY="4096" Time="500"/>    
+    <Keyframe OffsetX="2050" OffsetY="2600" SizeX="510" SizeY="450" Time="500"/>    
 </Animation>

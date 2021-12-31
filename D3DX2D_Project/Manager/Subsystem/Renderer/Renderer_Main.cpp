@@ -56,26 +56,10 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 		D3DXMatrixTranspose(&cpu_object_buffer.world, &transform->GetWorldMatrix());
 		UpdateObjectBuffer();
 
-
-		auto tile = actor->GetComponent<TileRendererComponent>();
 		auto animator = actor->GetComponent<AnimatorComponent>();
+		auto collider = actor->GetComponent<ColliderComponent>();
 
-		if (tile)
-		{
-			auto current_tile = tile->GetTile();
-			cpu_animation_buffer.sprite_offset = current_tile->GetOffset();
-			cpu_animation_buffer.sprite_size = current_tile->GetSize();
-			cpu_animation_buffer.color_key = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
-			cpu_animation_buffer.texture_size = current_tile->GetTextureSize();
-			cpu_animation_buffer.is_animated = 1.0f;
-			UpdateAnimationBuffer();
-
-			pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
-			pipeline->SetShaderResource(0, pixel_shader_scope,
-				current_tile->GetTileTexture().get());
-		}
-		
-		else if (animator && type == RenderableType::Opaque)
+		if (animator && type == RenderableType::Opaque)
 		{
 			auto current_keyframe = animator->GetCurrentKeyFrame();
 			auto current_animation = animator->GetCurrentAnimation();
@@ -91,6 +75,22 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 				animator->GetCurrentAnimation()->GetSpriteTexture().get());
 		}
 
+		else if (collider)
+		{
+			cpu_animation_buffer.sprite_offset = D3DXVECTOR2(0, 0);
+			cpu_animation_buffer.sprite_size = D3DXVECTOR2(1, 1);
+			cpu_animation_buffer.texture_size = D3DXVECTOR2(1, 1);
+			cpu_animation_buffer.is_animated = 0.0f;
+			UpdateAnimationBuffer();
+
+			cpu_color_buffer.color = collider->GetColor();
+			UpdateColorBuffer();
+
+			pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
+			pipeline->SetConstantBuffer(3, vertex_shader_scope | pixel_shader_scope, gpu_color_buffer.get());
+			pipeline->SetShaderResource_clear(0, pixel_shader_scope);
+		}
+
 		else
 		{
 			cpu_animation_buffer.sprite_offset = D3DXVECTOR2(0, 0);
@@ -99,7 +99,11 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 			cpu_animation_buffer.is_animated = 0.0f;
 			UpdateAnimationBuffer();
 
+			cpu_color_buffer.color = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
+			UpdateColorBuffer();
+
 			pipeline->SetConstantBuffer(2, vertex_shader_scope | pixel_shader_scope, gpu_animation_buffer.get());
+			pipeline->SetConstantBuffer(3, vertex_shader_scope | pixel_shader_scope, gpu_color_buffer.get());
 			pipeline->SetShaderResource_clear(0, pixel_shader_scope);
 		}
 

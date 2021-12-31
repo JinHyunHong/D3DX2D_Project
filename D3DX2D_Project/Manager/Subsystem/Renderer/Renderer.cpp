@@ -57,7 +57,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 		auto camera_component = actor->GetComponent<CameraComponent>();
 		auto mesh_renderer_component = actor->GetComponent<MeshRendererComponent>();
 		auto text_renderer_component = actor->GetComponent<TextRendererComponent>();
-		auto tile_renderer_component = actor->GetComponent<TileRendererComponent>();
+		auto collider_component = actor->GetComponent<ColliderComponent>();
 
 		if (camera_component)
 		{
@@ -65,7 +65,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 			camera = camera_component.get();
 		}
 
-		if (mesh_renderer_component || text_renderer_component || tile_renderer_component)
+		if (mesh_renderer_component || text_renderer_component || collider_component)
 		{
 			renderables[RenderableType::Opaque].emplace_back(actor.get());
 		}
@@ -87,6 +87,9 @@ void Renderer::CreateConstantBuffers()
 
 	gpu_animation_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
 	gpu_animation_buffer->Create<ANIMATION_DATA>();
+
+	gpu_color_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
+	gpu_color_buffer->Create<COLOR_DATA>();
 }
 
 void Renderer::CreateRasterizerStates()
@@ -140,6 +143,13 @@ void Renderer::UpdateAnimationBuffer()
 	gpu_animation_buffer->Unmap();
 }
 
+void Renderer::UpdateColorBuffer()
+{
+	auto buffer = gpu_color_buffer->Map<COLOR_DATA>();
+	*buffer = cpu_color_buffer;
+	gpu_color_buffer->Unmap();
+}
+
 void Renderer::PassMain()
 {
 	auto actors = renderables[RenderableType::Opaque];
@@ -149,11 +159,7 @@ void Renderer::PassMain()
 	for (const auto& actor : actors)
 	{
 		auto render_component = actor->GetComponent<MeshRendererComponent>();
-		auto tile_component = actor->GetComponent<TileRendererComponent>();
 		auto collider_component = actor->GetComponent<ColliderComponent>();
-
-		if (tile_component)
-			RenderMain(actor, tile_component.get(), RenderableType::Opaque);
 
 		if (render_component)
 			RenderMain(actor, render_component.get(), RenderableType::Opaque);

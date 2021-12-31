@@ -21,25 +21,11 @@ InGameScene::InGameScene(Tool* const tool) :
 	auto map = map_layer->CreateActor();
 	map->SetName("Map");
 	map->AddComponent<MeshRendererComponent>();
-	map->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.1f, 2.1f, 1.0f));
+	map->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(1.9f, 1.9f, 1.0f));
 	map->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	auto animator = map->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Xml/Map/World_Map.xml");
 	animator->SetCurrentAnimation("World_Map");
-
-
-
-	//for (int i = 0; i < 100; i++)
-	//{
-	//	auto base_map = CreateLayer("Tile");
-	//	auto tile1 = base_map->CreateActor();
-	//	tile1->SetName("tile" + i);
-	//	tile1->AddComponent<ColliderComponent>();
-	//	tile1->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(5.5f, 5.5f, 1.0f));
-	//	tile1->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(i * 45.0f, 0.0f, 0.0f));
-	//	tile1->AddComponent<TileRendererComponent>()->AddTile("Assets/Xml/Map/Tile.xml", 0);
-	//	tile1->AddComponent<TextRendererComponent>();
-	//}
 
 	auto player_layer = CreateLayer("Player");
 	auto player = player_layer->CreateActor();

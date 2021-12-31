@@ -85,6 +85,10 @@ const bool window::Update()
 
 void window::Show()
 {
+	RECT rc = { 0, 0, static_cast<long>(width), static_cast<long>(height) };
+	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
+	SetWindowPos(handle, HWND_TOPMOST, 100, 100, rc.right - rc.left,
+		rc.bottom - rc.top, SWP_NOMOVE | SWP_NOZORDER);
 	SetForegroundWindow(handle);
 	SetFocus(handle);
 	ShowCursor(TRUE);

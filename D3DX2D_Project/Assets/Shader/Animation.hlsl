@@ -33,6 +33,11 @@ cbuffer AnimationBuffer : register(b2)
     float4 color_key;
 }
 
+cbuffer ColorBuffer : register(b3)
+{
+    float4 color;
+}
+
 PixelInput VS(VertexInput input)
 {
     // 1 x 4            4 x 4  -----> 1 x 4
@@ -83,25 +88,31 @@ float4 PS(PixelInput input) : SV_Target
 {
     if(is_animated)
     {
-        float4 color = 0.0f;
+        float4 texture_color = 0.0f;
 
-        color = source_texture.Sample(samp, input.uv);
+        texture_color = source_texture.Sample(samp, input.uv);
         
         if (any(color_key))
         {
             float4 color_key_normal = color_key / 255;
-            if (abs(color_key_normal.r - color.r) < 0.05)
+            if (abs(color_key_normal.r - texture_color.r) < 0.05)
                    discard;
             
+            return texture_color;
+        }
+        
+        else
+            return texture_color;
+    }
+    
+    else
+    {
+        if (any(color))
+        {
             return color;
         }
         
         else
-            return color;
+            return float4(1, 0, 0, 1);
     }
-    
-    // Shader가 작동하고 있는지 확인하고 싶은 경우 특정 색이 찍히도록 코드르 작성하고
-    // 실행시켜 확인한다. - visualstudio의 GPU profiling 기능을 사용해도 좋다.
-    else
-        return float4(1, 0, 0, 1);
 }
