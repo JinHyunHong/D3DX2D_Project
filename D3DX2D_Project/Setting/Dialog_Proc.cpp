@@ -60,10 +60,10 @@ BOOL Dialog::Dlg_WndProc_MapEditor_Init(window* const base_win, HWND hDlg, UINT 
 		case IDC_MAP_EDITOR_INIT_OK:
 		{
 			std::string width_text = GetText(IDC_MAP_EDITOR_INIT_WIDTH);
-			std::string height_text = GetText(IDC_MAP_EDITOR_INIT_HEIGHT);
+			std::string height_text = GetText(IDC_MAP_EDITOR_INIT_HEIGHT); 
 
 			auto map_editor = tool->GetManager<SubsystemManager>()->GetSubsystem<SceneManager>()->GetScene<MapEditorScene>("MapEditor");
-			map_editor->CreateTiles(std::stof(width_text), std::stof(height_text));
+			map_editor->CreateTiles("", nullptr, std::stof(width_text), std::stof(height_text));
 			
 			base_win->EraseTextsWindow();
 

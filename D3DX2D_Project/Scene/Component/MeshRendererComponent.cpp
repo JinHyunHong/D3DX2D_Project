@@ -15,7 +15,6 @@ bool MeshRendererComponent::Initialize()
 
 void MeshRendererComponent::Update()
 {
-
 }
 
 void MeshRendererComponent::Destroy()

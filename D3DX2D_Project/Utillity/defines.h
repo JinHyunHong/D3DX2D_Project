@@ -8,3 +8,11 @@ typedef unsigned int uint;
 #define SAFE_RELEASE(p)			{ if (p) { (p)->Release(); (p) = nullptr; } }
 
 #define CLEAR_VECTOR(p)			{ p.clear(); p.shrink_to_fit(); }
+
+enum class Direction
+{
+	Up,
+	Right,
+	Down,
+	Left
+};

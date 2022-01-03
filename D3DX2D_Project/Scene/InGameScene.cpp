@@ -17,25 +17,17 @@ InGameScene::InGameScene(Tool* const tool) :
 	// 2200.0f, 2600.0f
 	camera->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	auto map_layer = CreateLayer("Map");
-	auto map = map_layer->CreateActor();
-	map->SetName("Map");
-	map->AddComponent<MeshRendererComponent>();
-	map->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(1.9f, 1.9f, 1.0f));
-	map->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	auto animator = map->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Xml/Map/World_Map.xml");
-	animator->SetCurrentAnimation("World_Map");
+	LoadFromFile("Assets/Xml/Map/New_Map.xml", "World_Map", true);
 
 	auto player_layer = CreateLayer("Player");
-	auto player = player_layer->CreateActor();
+	player = player_layer->CreateActor();
 	player->SetName("Player");
 	player->AddComponent<ColliderComponent>()->SetOffsetScale(D3DXVECTOR3(30.0f, 50.0f, 0.0f));
 	player->AddComponent<MeshRendererComponent>();
 	player->AddComponent<MoveScriptComponent>();
 	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
 	player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(225.0f, 225.0f, 0.0f));
-	animator = player->AddComponent<AnimatorComponent>();
+	auto animator = player->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Xml/Animation/Player_Idle_Down.xml");
 	animator->AddAnimation("Assets/Xml/Animation/Player_Idle_Up.xml");
 	animator->AddAnimation("Assets/Xml/Animation/Player_Idle_Left.xml");
@@ -72,12 +64,47 @@ void InGameScene::Initialize()
 
 void InGameScene::Input()
 {
+	auto transform = player->GetComponent<TransformComponent>();
+	auto position = transform->GetPosition();
+	auto tile_actor = tile_layer->GetActor(GetTileIndex(D3DXVECTOR2(position.x, position.y)));
+	auto tile_transform = tile_actor->GetComponent<TransformComponent>();
+	if (!tile_actor->GetComponent<TileRendererComponent>()->GetTile()->IsMove())
+	{
+		if (auto move_component = player->GetComponent<MoveScriptComponent>())
+		{
+			switch (move_component->GetDirection())
+			{
+			case Direction::Up:
+			{
+				transform->SetPosition(D3DXVECTOR3(position.x, position.y + 1, position.z));
+				break;
+			}
+			case Direction::Right:
+			{
+				transform->SetPosition(D3DXVECTOR3(position.x - 1, position.y, position.z));
+				break;
+			}
+			case Direction::Down:
+			{
+				transform->SetPosition(D3DXVECTOR3(position.x, position.y - 1, position.z));
+				break;
+			}
+			case Direction::Left:
+			{
+				transform->SetPosition(D3DXVECTOR3(position.x + 1, position.y, position.z));
+				break;
+			}
+			}
+		}
+	}
+
 }
 
 void InGameScene::Update()
 {
 	Input();
 	Scene::Update();
+	tile_layer->SetActive(false);
 }
 
 void InGameScene::Destroy()

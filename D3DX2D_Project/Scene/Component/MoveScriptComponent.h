@@ -12,5 +12,10 @@ public:
 	bool Initialize() override;
 	void Update() override;
 	void Destroy() override;
+
+	auto GetDirection() const -> const Direction& { return direction; }
+
+private:
+	Direction direction = Direction::Down;
 };
 

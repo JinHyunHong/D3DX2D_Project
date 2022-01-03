@@ -97,6 +97,20 @@ void AnimatorComponent::AddAnimation(const std::string& path)
 	AddAnimation(animation->GetResourceName(), animation);
 }
 
+void AnimatorComponent::AddAnimation_Continue(const std::string& path, Xml::XMLElement* root_element)
+{
+	// Element가 없다면 처음타일을 생성하는 것이다.
+	if (!root_element)
+	{
+		AddAnimation(path);
+		return;
+	}
+
+	auto resource_manager = tool->GetManager<ResourceManager>();
+	auto animation = resource_manager->Load_Continue<Animation>(path, root_element);
+	AddAnimation(animation->GetResourceName(), animation);
+}
+
 auto AnimatorComponent::MotionEnd() const -> const bool
 {
 	return current_frame_number == current_animation.lock()->GetKeyFrameCount() - 1;

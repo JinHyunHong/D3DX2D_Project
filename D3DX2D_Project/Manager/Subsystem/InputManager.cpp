@@ -21,6 +21,8 @@ bool InputManager::Initialize()
 	CreateKey("Num3", '3');
 	CreateKey("Num4", '4');
 	CreateKey("LButton", VK_LBUTTON);
+	CreateKey("Save", VK_CONTROL, 'S');
+	CreateKey("Load", VK_CONTROL, 'O');
 	return true;
 }
 

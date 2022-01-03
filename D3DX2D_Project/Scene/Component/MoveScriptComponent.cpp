@@ -17,6 +17,9 @@ bool MoveScriptComponent::Initialize()
 
 void MoveScriptComponent::Update()
 {
+	if (!actor->IsActive())
+		return;
+
 	auto position = transform->GetPosition();
 	auto animator = actor->GetComponent<AnimatorComponent>();
 	auto input_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<InputManager>();
@@ -25,6 +28,7 @@ void MoveScriptComponent::Update()
 	{
 		position.y--;
 		animator->SetCurrentAnimation("Idle_Up");
+		direction = Direction::Up;
 	}
 
 	else if (input_manager->GetKeyPress("MoveUp"))
@@ -32,11 +36,13 @@ void MoveScriptComponent::Update()
 		position.y--;
 		if (animator->MotionEnd())
 			animator->SetCurrentAnimation("Run_Up");
+		direction = Direction::Up;
 	}
 	if (input_manager->GetKeyDown("MoveDown"))
 	{
 		position.y++;
 		animator->SetCurrentAnimation("Idle_Down");
+		direction = Direction::Down;
 	}
 
 	else if (input_manager->GetKeyPress("MoveDown"))
@@ -44,12 +50,14 @@ void MoveScriptComponent::Update()
 		position.y++;
 		if (animator->MotionEnd())
 			animator->SetCurrentAnimation("Run_Down");
+		direction = Direction::Down;
 	}
 
 	if (input_manager->GetKeyDown("MoveRight"))
 	{
 		position.x++;
 		animator->SetCurrentAnimation("Idle_Right");
+		direction = Direction::Right;
 	}
 
 	else if (input_manager->GetKeyPress("MoveRight"))
@@ -57,12 +65,14 @@ void MoveScriptComponent::Update()
 		position.x++;
 		if(animator->MotionEnd())
 			animator->SetCurrentAnimation("Run_Right");
+		direction = Direction::Right;
 	}
 	
 	if (input_manager->GetKeyDown("MoveLeft"))
 	{
 		position.x--;
 		animator->SetCurrentAnimation("Idle_Left");
+		direction = Direction::Left;
 	}
 
 	else if (input_manager->GetKeyPress("MoveLeft"))
@@ -70,6 +80,7 @@ void MoveScriptComponent::Update()
 		position.x--;
 		if (animator->MotionEnd())
 			animator->SetCurrentAnimation("Run_Left");
+		direction = Direction::Left;
 	}
 	
 	transform->SetPosition(position);

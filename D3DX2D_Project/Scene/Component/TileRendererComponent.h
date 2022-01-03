@@ -14,7 +14,12 @@ public:
 	void Destroy() override;
 
 	auto GetTile() -> const std::shared_ptr<class Tile> { return tile; }
-	void AddTile(const std::string& path, const uint& tile_index);
+
+	auto CreateTile(const std::string& path = "", Xml::XMLElement* root_element = nullptr) -> const std::shared_ptr<Tile>;
+	
+private:
+	auto LoadTile(const std::string& path) -> const std::shared_ptr<Tile>;
+	auto LoadTile_Continue(const std::string& path, Xml::XMLElement* root_element = nullptr) -> const std::shared_ptr<Tile>;
 
 private:
 	std::shared_ptr<class Tile> tile;

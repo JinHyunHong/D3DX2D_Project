@@ -14,15 +14,6 @@ public:
 	void Destroy() override;
 
 private:
-	enum class Direction
-	{
-		Up,
-		Right,
-		Down,
-		Left
-	};
-
-private:
 	Stopwatch stopwatch;
 	Direction direction = Direction::Left;
 };

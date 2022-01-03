@@ -35,14 +35,14 @@ inline auto ResourceManager::Load(const std::string& path) -> const std::shared_
 }
 
 template<typename T>
-inline bool ResourceManager::Load(const std::string& path, std::shared_ptr<T> resource)
+inline auto ResourceManager::Load_Continue(const std::string& path, Xml::XMLElement* root_element)-> const std::shared_ptr<T>
 {
 	static_assert(std::is_base_of<IResource, T>::value, "Provided type does not implement IResource");
 
 	if (!std::filesystem::exists(path))
 	{
 		assert(false);
-		return false;
+		return nullptr;
 	}
 
 	auto last_index = path.find_last_of("\\/");
@@ -50,24 +50,22 @@ inline bool ResourceManager::Load(const std::string& path, std::shared_ptr<T> re
 	last_index = file_name.find_last_of(".");
 	auto resource_name = file_name.substr(0, last_index);
 
-	if (HasResource(resource_name, IResource::DeduceResourceType<T>()))
-	{
-		assert(false);
-		return false;
-	}
+	std::shared_ptr<T> resource;
 
+	if (HasResource(resource_name, IResource::DeduceResourceType<T>()))
+		 resource = GetResourceFromName<T>(resource_name);
+
+	resource = std::make_shared<T>(tool);
 	resource->SetResourceName(resource_name);
 	resource->SetResourcePath(path);
 
-	if (!resource->LoadFromFile(path))
+	if (!resource->LoadFromFile_Continue(root_element))
 	{
 		assert(false);
-		return false;
+		return nullptr;
 	}
 
-	RegisterResource<T>(resource);
-
-	return true;
+	return resource;
 }
 
 template<typename T>

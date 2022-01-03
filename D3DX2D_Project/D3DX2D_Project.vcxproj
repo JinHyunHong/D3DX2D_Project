@@ -49,6 +49,7 @@
     <ClCompile Include="Manager\Subsystem\Renderer\Renderer.cpp" />
     <ClCompile Include="Resource\Animation.cpp" />
     <ClCompile Include="Resource\IResource.cpp" />
+    <ClCompile Include="Resource\Texture.cpp" />
     <ClCompile Include="Scene\Actor.cpp" />
     <ClCompile Include="Scene\Component\AIScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resource\Animation.h" />
     <ClInclude Include="Resource\IResource.h" />
+    <ClInclude Include="Resource\Texture.h" />
     <ClInclude Include="Scene\Actor.h" />
     <ClInclude Include="Scene\Component\AIScriptComponent.h" />
     <ClInclude Include="Scene\Component\AnimatorComponent.h" />
@@ -247,6 +249,7 @@
       <AdditionalIncludeDirectories>./;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

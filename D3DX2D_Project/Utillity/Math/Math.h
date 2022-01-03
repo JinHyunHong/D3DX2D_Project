@@ -6,6 +6,7 @@ namespace Math
 	static std::random_device rd;
 	static std::mt19937 mt(rd());
 
+	
 	static constexpr float PI = 3.14159265359f; // PI
 	static constexpr float PI_2 = 6.28318530718f; // PI * 2
 	static constexpr float PI_DIV_2 = 1.57079632679f; // PI / 2
@@ -21,5 +22,10 @@ namespace Math
 	inline auto Random(const float& min, const float& max) -> const float
 	{
 		return std::uniform_real_distribution<float>{min, max}(mt);
+	}
+
+	inline auto Vec3_Abs(const D3DXVECTOR3& lhs, const D3DXVECTOR3& rhs) -> const D3DXVECTOR3
+	{
+		return D3DXVECTOR3(abs(lhs.x - rhs.x), abs(lhs.y - rhs.y), abs(lhs.z - rhs.z));
 	}
 }

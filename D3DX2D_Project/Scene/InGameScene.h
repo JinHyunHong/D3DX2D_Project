@@ -14,4 +14,5 @@ public:
 	void Destroy() override;
 private:
 	std::shared_ptr<class Actor> hud = nullptr;
+	std::shared_ptr<class Actor> player = nullptr;
 };

@@ -22,9 +22,9 @@ public:
 
 	template<typename T>
 	auto Load(const std::string& path) -> const std::shared_ptr<T>;
-	
+
 	template<typename T>
-	bool Load(const std::string& path, std::shared_ptr<T> resource);
+	auto Load_Continue(const std::string& path, Xml::XMLElement* root_element) -> const std::shared_ptr<T>;
 
 	template<typename T>
 	auto GetResourceFromName(const std::string& name) -> const std::shared_ptr<T>;

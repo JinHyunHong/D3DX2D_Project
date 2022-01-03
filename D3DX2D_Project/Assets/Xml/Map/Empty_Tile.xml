@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Tile>
-    <tile1 Name="tile1" Potal_Tile_Name="" Is_Move="true"/>
-</Tile>
+<tile1 Name="tile1" Potal_Tile_Name="" Is_Move="true"/>

@@ -6,8 +6,8 @@
 #define IDC_MAP_EDITOR_INIT_WIDTH       1001
 #define IDC_MAP_EDITOR_INIT_HEIGHT      1002
 #define IDC_MAP_EDITOR_INIT_OK          1003
-#define IDC_MAP_EDITOR_CANCLE           1004
 #define IDC_MAP_EDITOR_INIT_CANCLE      1004
+#define IDC_MAP_EDITOR_INIT_MAP_ADDRESS 1005
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

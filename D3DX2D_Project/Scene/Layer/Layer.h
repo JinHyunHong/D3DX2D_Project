@@ -13,6 +13,8 @@ public:
 	auto CreateActor(bool is_active = true)->std::shared_ptr<class Actor>;
 	auto GetActor(const uint& index)->std::shared_ptr<class Actor>;
 	auto GetActors() const -> const std::vector<std::shared_ptr<class Actor>>& { return actors; }
+	void EraseActors();
+	bool EraseActor(const std::string& name);
 
 	auto IsActive() const { return is_active; }
 	void SetActive(const bool& is_active) { this->is_active = is_active; }

@@ -12,7 +12,7 @@ Layer::Layer(class Tool* const tool) :
 
 Layer::~Layer()
 {
-	CLEAR_VECTOR(actors);
+	EraseActors();
 }
 
 bool Layer::Initialize()
@@ -91,4 +91,30 @@ auto Layer::GetActor(const uint& index) -> std::shared_ptr<class Actor>
 	}
 
 	return actors[index];
+}
+
+void Layer::EraseActors()
+{
+	for (auto iter = actors.begin(); iter != actors.end();)
+	{
+		(*iter).reset();
+		iter = actors.erase(iter);
+	}
+
+	CLEAR_VECTOR(actors);
+}
+
+bool Layer::EraseActor(const std::string& name)
+{
+	for (auto iter = actors.begin(); iter != actors.end(); ++iter)
+	{
+		if ((*iter)->GetName() == name)
+		{
+			(*iter).reset();
+			actors.erase(iter);
+			return true;
+		}
+	}
+
+	return false;
 }
