@@ -7,6 +7,7 @@
 #include "Scene/Component/TextRendererComponent.h"
 #include "Scene/Component/ColliderComponent.h"
 #include "Scene/Component/TileRendererComponent.h"
+#include "Scene/Component/TextureComponent.h"
 #include "Scene/Layer/Layer.h"
 
 Renderer::Renderer(Tool* const tool) :
@@ -26,7 +27,7 @@ bool Renderer::Initialize()
 
 	// D3DX XTK Initialize
 	sprite_batch.reset(new DirectX::SpriteBatch(base->GetDeviceContext()));
-	sprite_font.reset(new DirectX::SpriteFont(base->GetDevice(), L"zelda2.spritefont"));
+	sprite_font.reset(new DirectX::SpriteFont(base->GetDevice(), L"zelda.spritefont"));
 
 	return true;
 }
@@ -58,6 +59,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 		auto mesh_renderer_component = actor->GetComponent<MeshRendererComponent>();
 		auto text_renderer_component = actor->GetComponent<TextRendererComponent>();
 		auto collider_component = actor->GetComponent<ColliderComponent>();
+		auto texture_component = actor->GetComponent<TextureComponent>();
 
 		if (camera_component)
 		{
@@ -65,7 +67,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 			camera = camera_component.get();
 		}
 
-		if (mesh_renderer_component || text_renderer_component || collider_component)
+		if (mesh_renderer_component || text_renderer_component || collider_component || texture_component)
 		{
 			renderables[RenderableType::Opaque].emplace_back(actor.get());
 		}
@@ -85,8 +87,8 @@ void Renderer::CreateConstantBuffers()
 	gpu_object_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
 	gpu_object_buffer->Create<TRANSFORM_DATA>();
 
-	gpu_animation_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
-	gpu_animation_buffer->Create<ANIMATION_DATA>();
+	gpu_texture_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
+	gpu_texture_buffer->Create<TEXTURE_DATA>();
 
 	gpu_color_buffer = std::make_shared<D3D11_ConstantBuffer>(base);
 	gpu_color_buffer->Create<COLOR_DATA>();
@@ -136,11 +138,11 @@ void Renderer::UpdateObjectBuffer()
 	gpu_object_buffer->Unmap();
 }
 
-void Renderer::UpdateAnimationBuffer()
+void Renderer::UpdateTextureBuffer()
 {
-	auto buffer = gpu_animation_buffer->Map<ANIMATION_DATA>();
-	*buffer = cpu_animation_buffer;
-	gpu_animation_buffer->Unmap();
+	auto buffer = gpu_texture_buffer->Map<TEXTURE_DATA>();
+	*buffer = cpu_texture_buffer;
+	gpu_texture_buffer->Unmap();
 }
 
 void Renderer::UpdateColorBuffer()

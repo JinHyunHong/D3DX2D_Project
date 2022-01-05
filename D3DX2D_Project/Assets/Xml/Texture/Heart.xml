@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+	<Texture Name="Heart_Full" TexturePath="Assets/Sprite/HUD.png" TextureSizeX="320" TextureSizeY="320" ColorKeyR = "63" ColorKeyG = "72" ColorKeyB = "204" ColorKeyA = "1" OffsetX="259" OffsetY="55" SizeX="8" SizeY="8"/>
+	<Texture Name="Heart_Half" TexturePath="Assets/Sprite/HUD.png" TextureSizeX="320" TextureSizeY="320" ColorKeyR = "63" ColorKeyG = "72" ColorKeyB = "204" ColorKeyA = "1" OffsetX="275" OffsetY="56" SizeX="8" SizeY="8"/>
+	<Texture Name="Heart_Die" TexturePath="Assets/Sprite/HUD.png" TextureSizeX="320" TextureSizeY="320" ColorKeyR = "63" ColorKeyG = "72" ColorKeyB = "204" ColorKeyA = "1" OffsetX="291" OffsetY="55" SizeX="8" SizeY="8"/>
+</Textures>

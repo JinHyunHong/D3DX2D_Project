@@ -25,7 +25,7 @@ public:
 	virtual bool LoadFromFile(const std::string& path) = 0;
 	virtual void SaveToFile_Continue(Xml::XMLDocument& doc) = 0;
 	virtual void SaveToFile_Continue(Xml::XMLDocument& doc, Xml::XMLElement* root_element) = 0;
-	virtual bool LoadFromFile_Continue(Xml::XMLElement* element) = 0;
+	virtual bool LoadFromFile_Continue(Xml::XMLElement* sib_element) = 0;
 
 	auto GetResourceType() const { return resource_type; }
 	auto GetResourceName() const { return resource_name; }

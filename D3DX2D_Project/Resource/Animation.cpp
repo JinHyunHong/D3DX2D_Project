@@ -85,9 +85,9 @@ bool Animation::LoadFromFile(const std::string& path)
 	return true;
 }
 
-bool Animation::LoadFromFile_Continue(Xml::XMLElement* element)
+bool Animation::LoadFromFile_Continue(Xml::XMLElement* sib_element)
 {
-	Xml::XMLElement* root = element;
+	Xml::XMLElement* root = sib_element;
 	resource_name = root->Attribute("Name");
 	repeat_type = static_cast<RepeatType>(root->UnsignedAttribute("Type"));
 	sprite_texture_path = root->Attribute("TexturePath");

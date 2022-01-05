@@ -23,7 +23,7 @@ private:
 
 	void UpdateCameraBuffer();
 	void UpdateObjectBuffer();
-	void UpdateAnimationBuffer();
+	void UpdateTextureBuffer();
 	void UpdateColorBuffer();
 
 private:
@@ -44,8 +44,8 @@ private:
 	TRANSFORM_DATA cpu_object_buffer;
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_object_buffer;
 
-	ANIMATION_DATA cpu_animation_buffer;
-	std::shared_ptr<class D3D11_ConstantBuffer> gpu_animation_buffer;
+	TEXTURE_DATA cpu_texture_buffer;
+	std::shared_ptr<class D3D11_ConstantBuffer> gpu_texture_buffer;
 
 	COLOR_DATA cpu_color_buffer;
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_color_buffer;

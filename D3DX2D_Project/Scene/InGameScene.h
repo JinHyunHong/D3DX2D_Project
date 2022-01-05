@@ -12,9 +12,14 @@ public:
 	void Input() override;
 	void Update() override;
 	void Destroy() override;
+
 private:
-	std::shared_ptr<class Actor> hud = nullptr;
-	std::shared_ptr<class Actor> player = nullptr;
+	using actor_pointer = std::shared_ptr<class Actor>;
+	actor_pointer hud = nullptr;
+	actor_pointer player = nullptr;
 	float camera_pivot = 0.5f;
-	D3DXVECTOR3 prev_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+
+public:
+	auto CreateHeart(const std::string& name, class Layer* const layer, 
+		const D3DXVECTOR3& scale, const D3DXVECTOR3& position) -> const actor_pointer;
 };

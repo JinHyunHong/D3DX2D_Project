@@ -34,7 +34,7 @@ public:
 
 	void AddAnimation(const std::string& animation_name, const std::shared_ptr<class Animation>& animation);
 	void AddAnimation(const std::string& path);
-	void AddAnimation_Continue(const std::string& path, Xml::XMLElement* root_element = nullptr);
+	void AddAnimation_Continue(const std::string& path, Xml::XMLElement* sib_element = nullptr);
 
 	auto MotionEnd() const-> const bool;
 

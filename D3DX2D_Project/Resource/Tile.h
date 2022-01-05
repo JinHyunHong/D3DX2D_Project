@@ -12,7 +12,7 @@ public:
 	bool LoadFromFile(const std::string& path) override;
 	void SaveToFile_Continue(Xml::XMLDocument& doc) override;
 	void SaveToFile_Continue(Xml::XMLDocument& doc, Xml::XMLElement* root_element) override;
-	bool LoadFromFile_Continue(Xml::XMLElement* element) override;
+	bool LoadFromFile_Continue(Xml::XMLElement* sib_element) override;
 
 	auto GetName() const { return name; }
 	void SetName(const std::string& name) { this->name = name; }

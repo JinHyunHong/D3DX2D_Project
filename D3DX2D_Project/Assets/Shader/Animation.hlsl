@@ -22,13 +22,13 @@ cbuffer TransformBuffer : register(b1) // ->  0 ~ 13 // 4096 * 16byte
     matrix world;
 };
 
-// keyframe 정보를 받아오기 위해 constantbuffer을 만든다.
-cbuffer AnimationBuffer : register(b2)
+
+cbuffer TextureBuffer : register(b2)
 {
     float2 sprite_offset; //keyframe이 가지고 있는 offset
     float2 sprite_size; //keyframe이 가지고 있는 size 
     float2 texture_size; //텍스쳐의 최종 크기
-    float is_animated; // 애니메이션이 없는지 있는지
+    float is_texture; // 없는지 있는지
     float padding;
     float4 color_key;
 }
@@ -86,7 +86,7 @@ SamplerState samp        : register(s0); //16 -> 0 ~ 15
 
 float4 PS(PixelInput input) : SV_Target
 {
-    if(is_animated)
+    if (is_texture)
     {
         float4 texture_color = 0.0f;
 

@@ -9,6 +9,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML_Editor", "XML_Editor\XM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXTK_Desktop_2019", "DirectXTK-main\DirectXTK_Desktop_2019.vcxproj", "{E0B52AE7-E160-4D32-BF3F-910B785E5A8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shader", "Shader", "{0C423D9F-0AEF-4C53-A30A-11162F90FDA2}"
+	ProjectSection(SolutionItems) = preProject
+		D3DX2D_Project\Assets\Shader\Animation.hlsl = D3DX2D_Project\Assets\Shader\Animation.hlsl
+		D3DX2D_Project\Assets\Shader\Color.hlsl = D3DX2D_Project\Assets\Shader\Color.hlsl
+		D3DX2D_Project\Assets\Shader\Texture.hlsl = D3DX2D_Project\Assets\Shader\Texture.hlsl
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

@@ -9,6 +9,7 @@
 #include "Scene/Component/MoveScriptComponent.h"
 #include "Scene/Component/TextRendererComponent.h"
 #include "Scene/Component/ColliderComponent.h"
+#include "Scene/Component/TextureComponent.h"
 
 InGameScene::InGameScene(Tool* const tool) :
 	Scene(tool)
@@ -50,12 +51,27 @@ InGameScene::InGameScene(Tool* const tool) :
 	animator = hud->AddComponent<AnimatorComponent>();
 	animator->AddAnimation("Assets/Xml/Animation/HUD.xml");
 	animator->SetCurrentAnimation("HUD");
-	hud->AddComponent<TextRendererComponent>()->AddText("Jewel", "000", D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(137.0f, 42.0f));
-	hud->AddComponent<TextRendererComponent>()->AddText("Bomb", "00", D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(197.0f, 42.0f));
-	hud->AddComponent<TextRendererComponent>()->AddText("Arrow", "00", D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(245.0f, 42.0f));
-	hud->AddComponent<TextRendererComponent>()->AddText("Key", "00", D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(285.0f, 42.0f));
+	hud->AddComponent<TextRendererComponent>()->AddText("Jewel", "000", 
+		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(137.0f, 42.0f));
+	hud->AddComponent<TextRendererComponent>()->AddText("Bomb", "00", 
+		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(197.0f, 42.0f));
+	hud->AddComponent<TextRendererComponent>()->AddText("Arrow", "00", 
+		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(245.0f, 42.0f));
+	hud->AddComponent<TextRendererComponent>()->AddText("Key", "00", 
+		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(285.0f, 42.0f));
+
+	auto heart_0 = CreateHeart("Heart_0", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(353.0f, 47.0f, 0.0f));
+	auto heart_1 = CreateHeart("Heart_1", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(373.0f, 47.0f, 0.0f));
+	auto heart_2 = CreateHeart("Heart_2", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(393.0f, 47.0f, 0.0f));
+	auto heart_3 = CreateHeart("Heart_3", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(413.0f, 47.0f, 0.0f));
+	auto heart_4 = CreateHeart("Heart_4", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(433.0f, 47.0f, 0.0f));
 
 	hud->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	heart_0->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	heart_1->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	heart_2->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	heart_3->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	heart_4->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
 }
 
 InGameScene::~InGameScene()
@@ -148,4 +164,19 @@ void InGameScene::Update()
 void InGameScene::Destroy()
 {
 	Scene::Destroy();
+}
+
+auto InGameScene::CreateHeart(const std::string& name, Layer* const layer, 
+	const D3DXVECTOR3& scale, const D3DXVECTOR3& position) -> const actor_pointer
+{
+	auto new_heart = layer->CreateActor();
+	new_heart->SetName(name);
+	new_heart->GetComponent<TransformComponent>()->SetScale(scale);
+	new_heart->GetComponent<TransformComponent>()->SetPosition(position);
+	new_heart->AddComponent<MeshRendererComponent>();
+	auto texture = new_heart->AddComponent<TextureComponent>();
+	texture->AddTexture("Heart", std::make_shared<Texture>(tool));
+	texture->AddTextures("Assets/Xml/Texture/Heart.xml");
+	texture->SetCurrentTexture("Heart_Full");
+	return new_heart;
 }

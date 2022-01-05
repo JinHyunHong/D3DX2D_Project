@@ -97,17 +97,17 @@ void AnimatorComponent::AddAnimation(const std::string& path)
 	AddAnimation(animation->GetResourceName(), animation);
 }
 
-void AnimatorComponent::AddAnimation_Continue(const std::string& path, Xml::XMLElement* root_element)
+void AnimatorComponent::AddAnimation_Continue(const std::string& path, Xml::XMLElement* sib_element)
 {
 	// Element가 없다면 처음타일을 생성하는 것이다.
-	if (!root_element)
+	if (!sib_element)
 	{
 		AddAnimation(path);
 		return;
 	}
 
 	auto resource_manager = tool->GetManager<ResourceManager>();
-	auto animation = resource_manager->Load_Continue<Animation>(path, root_element);
+	auto animation = resource_manager->Load_Continue<Animation>(path, sib_element);
 	AddAnimation(animation->GetResourceName(), animation);
 }
 

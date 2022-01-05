@@ -65,11 +65,11 @@ void Tile::SaveToFile_Continue(Xml::XMLDocument& doc, Xml::XMLElement* root_elem
 	return;
 }
 
-bool Tile::LoadFromFile_Continue(Xml::XMLElement* element)
+bool Tile::LoadFromFile_Continue(Xml::XMLElement* sib_element)
 {
-	name = element->Attribute("Name");
-	is_move = element->BoolAttribute("Is_Move");
-	potal_tile_name = element->Attribute("Potal_Tile_Name");
+	name = sib_element->Attribute("Name");
+	is_move = sib_element->BoolAttribute("Is_Move");
+	potal_tile_name = sib_element->Attribute("Potal_Tile_Name");
 
 	return true;
 }

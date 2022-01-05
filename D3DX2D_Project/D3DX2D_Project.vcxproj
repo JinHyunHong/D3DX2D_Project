@@ -60,6 +60,7 @@
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\TextRendererComponent.cpp" />
+    <ClCompile Include="Scene\Component\TextureComponent.cpp" />
     <ClCompile Include="Scene\Component\TileRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\InGameScene.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\TextRendererComponent.h" />
+    <ClInclude Include="Scene\Component\TextureComponent.h" />
     <ClInclude Include="Scene\Component\TileRendererComponent.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\InGameScene.h" />

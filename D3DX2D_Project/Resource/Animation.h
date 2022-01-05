@@ -28,7 +28,7 @@ public:
 	bool LoadFromFile(const std::string& path) override;
 	void SaveToFile_Continue(Xml::XMLDocument& doc) override;
 	void SaveToFile_Continue(Xml::XMLDocument& doc, Xml::XMLElement* root_element) override;
-	bool LoadFromFile_Continue(Xml::XMLElement* element) override;
+	bool LoadFromFile_Continue(Xml::XMLElement* sib_element) override;
 
 	auto GetSpriteTexturePath() const -> const std::string& { return sprite_texture_path; }
 	void SetSpriteTexturePath(const std::string& path) { this->sprite_texture_path = path; }
