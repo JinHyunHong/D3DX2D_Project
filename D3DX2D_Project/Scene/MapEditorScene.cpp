@@ -16,6 +16,7 @@ MapEditorScene::MapEditorScene(Tool* const tool) :
 
 MapEditorScene::~MapEditorScene()
 {
+	camera->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(100.0f, 50.0f, 0.0f));
 }
 
 void MapEditorScene::Initialize()

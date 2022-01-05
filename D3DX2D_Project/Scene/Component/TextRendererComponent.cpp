@@ -20,22 +20,19 @@ void TextRendererComponent::Destroy()
 {
 }
 
-void TextRendererComponent::AddText(const std::string& text, const D3DXCOLOR& color, 
+void TextRendererComponent::AddText(const std::string& name, const std::string& text, const D3DXCOLOR& color,
 	const D3DXVECTOR2& scale, const D3DXVECTOR2& offset_position)
 {
-	if (text.empty() || GetText(text))
+	if (text.empty() || GetText(name))
 		return;
 
-	texts.emplace_back(std::make_shared<TextRenderInfo>(text, color, scale, offset_position));
+	texts[name] = std::make_shared<TextRenderInfo>(text, color, scale, offset_position);
 }
 
-auto TextRendererComponent::GetText(const std::string& text) -> const std::shared_ptr<TextRenderInfo>
+auto TextRendererComponent::GetText(const std::string& name) -> const text_pointer
 {
-	for (auto iter = texts.begin(); iter != texts.end(); ++iter)
-	{
-		if ((*iter)->text == text)
-			return (*iter);
-	}
-
+	if (texts.find(name) != texts.end())
+		return texts[name];
+	
 	return nullptr;
 }

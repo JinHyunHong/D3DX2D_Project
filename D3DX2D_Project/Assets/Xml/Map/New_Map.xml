@@ -126,9 +126,9 @@
     <Tile Name="tile105" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile106" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile107" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile108" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile109" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile110" Is_Move="true" Potal_Tile_Name=""/>
+    <Tile Name="tile108" Is_Move="false" Potal_Tile_Name=""/>
+    <Tile Name="tile109" Is_Move="false" Potal_Tile_Name=""/>
+    <Tile Name="tile110" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile111" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile112" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile113" Is_Move="true" Potal_Tile_Name=""/>
@@ -145,9 +145,9 @@
     <Tile Name="tile122" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile123" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile124" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile125" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile126" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile127" Is_Move="true" Potal_Tile_Name=""/>
+    <Tile Name="tile125" Is_Move="false" Potal_Tile_Name=""/>
+    <Tile Name="tile126" Is_Move="false" Potal_Tile_Name=""/>
+    <Tile Name="tile127" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile128" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile129" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile130" Is_Move="true" Potal_Tile_Name=""/>
@@ -164,9 +164,9 @@
     <Tile Name="tile139" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile140" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile141" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile142" Is_Move="true" Potal_Tile_Name=""/>
+    <Tile Name="tile142" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile143" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile144" Is_Move="true" Potal_Tile_Name=""/>
+    <Tile Name="tile144" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile145" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile146" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile147" Is_Move="true" Potal_Tile_Name=""/>
@@ -223,7 +223,7 @@
     <Tile Name="tile192" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile193" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile194" Is_Move="false" Potal_Tile_Name=""/>
-    <Tile Name="tile195" Is_Move="true" Potal_Tile_Name=""/>
+    <Tile Name="tile195" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile196" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile197" Is_Move="false" Potal_Tile_Name=""/>
     <Tile Name="tile198" Is_Move="true" Potal_Tile_Name=""/>
@@ -275,7 +275,7 @@
     <Tile Name="tile238" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile239" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile240" Is_Move="true" Potal_Tile_Name=""/>
-    <Tile Name="tile241" Is_Move="false" Potal_Tile_Name=""/>
+    <Tile Name="tile241" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile242" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile243" Is_Move="true" Potal_Tile_Name=""/>
     <Tile Name="tile244" Is_Move="true" Potal_Tile_Name=""/>

@@ -15,4 +15,6 @@ public:
 private:
 	std::shared_ptr<class Actor> hud = nullptr;
 	std::shared_ptr<class Actor> player = nullptr;
+	float camera_pivot = 0.5f;
+	D3DXVECTOR3 prev_position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 };

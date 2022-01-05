@@ -18,7 +18,7 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 
 	if (!transform)
 		return;
-
+	
 	D3D11_PipelineState pipeline_state;
 	pipeline_state.input_layout = component->GetInputLayout().get();
 	pipeline_state.primitive_topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;

@@ -26,12 +26,16 @@ public:
 	void Update() override;
 	void Destroy() override;
 
-	void AddText(const std::string& text, const D3DXCOLOR& color, 
+private:
+	using text_pointer = std::shared_ptr<TextRenderInfo>;
+
+public:
+	void AddText(const std::string& name, const std::string& text, const D3DXCOLOR& color,
 		const D3DXVECTOR2& scale = D3DXVECTOR2(1.0f, 1.0f), 
-		const D3DXVECTOR2& offset_positoin = D3DXVECTOR2(0.0f, 0.0f));
-	auto GetText(const std::string& text) -> const std::shared_ptr<TextRenderInfo>;
-	auto GetTexts() const -> const std::vector<std::shared_ptr<TextRenderInfo>>& { return texts; }
+		const D3DXVECTOR2& offset_position = D3DXVECTOR2(0.0f, 0.0f));
+	auto GetText(const std::string& text) -> const text_pointer;
+	auto GetTexts() const -> const std::unordered_map<std::string, text_pointer>& { return texts; }
 
 private:
-	std::vector<std::shared_ptr<TextRenderInfo>> texts;
+	std::unordered_map<std::string, text_pointer> texts;
 };

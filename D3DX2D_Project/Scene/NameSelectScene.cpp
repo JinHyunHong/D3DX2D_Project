@@ -29,7 +29,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	auto select_text = select->AddComponent<TextRendererComponent>();
 	auto select_transfrom = select->GetComponent<TransformComponent>();
 	select_transfrom->SetPosition(D3DXVECTOR3(85.0f, 205.0f, 0.0f));
-	select_text->AddText(" ", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	select_text->AddText("Base", " ", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	/*
 		TextBoard
@@ -41,7 +41,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	auto A_transfrom = A->GetComponent<TransformComponent>();
 	A_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	A_transfrom->SetPosition(D3DXVECTOR3(100.0f, 270.0f, 0.0f));
-	A_text->AddText("A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	A_text->AddText("Base", "A", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	A->AddComponent<ColliderComponent>();
 
 	auto B = board_layer->CreateActor();
@@ -50,7 +50,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	auto B_transfrom = B->GetComponent<TransformComponent>();
 	B_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	B_transfrom->SetPosition(D3DXVECTOR3(130.0f, 270.0f, 0.0f));
-	B_text->AddText("B", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	B_text->AddText("Base", "B", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	B->AddComponent<ColliderComponent>();
 
 	auto C = board_layer->CreateActor();
@@ -59,7 +59,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	C_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	C_transfrom->SetPosition(D3DXVECTOR3(160.0f, 270.0f, 0.0f));
 	auto C_text = C->AddComponent<TextRendererComponent>();
-	C_text->AddText("C", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	C_text->AddText("Base", "C", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	C->AddComponent<ColliderComponent>();
 
 	auto D = board_layer->CreateActor();
@@ -69,7 +69,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	D_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	D_transfrom->SetPosition(D3DXVECTOR3(190.0f, 270.0f, 0.0f));
 	D->AddComponent<ColliderComponent>();
-	D_text->AddText("D", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	D_text->AddText("Base", "D", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto E = board_layer->CreateActor();
 	E->SetName("E");
@@ -78,7 +78,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	E_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	E_transfrom->SetPosition(D3DXVECTOR3(220.0f, 270.0f, 0.0f));
 	E->AddComponent<ColliderComponent>();
-	E_text->AddText("E", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	E_text->AddText("Base", "E", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto F = board_layer->CreateActor();
 	F->SetName("F");
@@ -87,7 +87,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	F_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	F_transfrom->SetPosition(D3DXVECTOR3(250.0f, 270.0f, 0.0f));
 	F->AddComponent<ColliderComponent>();
-	F_text->AddText("F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	F_text->AddText("Base", "F", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto G = board_layer->CreateActor();	
 	G->SetName("G");
@@ -96,7 +96,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	G_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	G_transfrom->SetPosition(D3DXVECTOR3(280.0f, 270.0f, 0.0f));
 	G->AddComponent<ColliderComponent>();
-	G_text->AddText("G", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	G_text->AddText("Base", "G", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto H = board_layer->CreateActor();
 	H->SetName("H");
@@ -105,7 +105,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	H_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	H_transfrom->SetPosition(D3DXVECTOR3(310.0f, 270.0f, 0.0f));
 	H->AddComponent<ColliderComponent>();
-	H_text->AddText("H", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	H_text->AddText("Base", "H", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto I = board_layer->CreateActor();	
 	I->SetName("I");
@@ -114,7 +114,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	I_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	I_transfrom->SetPosition(D3DXVECTOR3(340.0f, 270.0f, 0.0f));
 	I->AddComponent<ColliderComponent>();
-	I_text->AddText("I", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	I_text->AddText("Base", "I", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto J = board_layer->CreateActor();
 	J->SetName("J");
@@ -123,7 +123,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	J_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	J_transfrom->SetPosition(D3DXVECTOR3(370.0f, 270.0f, 0.0f));
 	J->AddComponent<ColliderComponent>();
-	J_text->AddText("J", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	J_text->AddText("Base", "J", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto K = board_layer->CreateActor();
 	K->SetName("K");
@@ -132,7 +132,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	K_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	K_transfrom->SetPosition(D3DXVECTOR3(100.0f, 310.0f, 0.0f));
 	K->AddComponent<ColliderComponent>();
-	K_text->AddText("K", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	K_text->AddText("Base", "K", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto L = board_layer->CreateActor();
 	L->SetName("L");
@@ -141,7 +141,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	L_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	L_transfrom->SetPosition(D3DXVECTOR3(130.0f, 310.0f, 0.0f));
 	L->AddComponent<ColliderComponent>();
-	L_text->AddText("L", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	L_text->AddText("Base", "L", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto M = board_layer->CreateActor();
 	M->SetName("M");
@@ -150,7 +150,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	M_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	M_transfrom->SetPosition(D3DXVECTOR3(160.0f, 310.0f, 0.0f));
 	M->AddComponent<ColliderComponent>();
-	M_text->AddText("M", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	M_text->AddText("Base", "M", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto N = board_layer->CreateActor();	
 	N->SetName("N");
@@ -159,7 +159,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	N_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	N_transfrom->SetPosition(D3DXVECTOR3(190.0f, 310.0f, 0.0f));
 	N->AddComponent<ColliderComponent>();
-	N_text->AddText("N", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	N_text->AddText("Base", "N", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto O = board_layer->CreateActor();
 	O->SetName("O");
@@ -168,7 +168,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	O_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	O_transfrom->SetPosition(D3DXVECTOR3(220.0f, 310.0f, 0.0f));
 	O->AddComponent<ColliderComponent>();
-	O_text->AddText("O", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	O_text->AddText("Base", "O", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto P = board_layer->CreateActor();	
 	P->SetName("P");
@@ -177,7 +177,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	P_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	P_transfrom->SetPosition(D3DXVECTOR3(250.0f, 310.0f, 0.0f));
 	P->AddComponent<ColliderComponent>();
-	P_text->AddText("P", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	P_text->AddText("Base", "P", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto Q = board_layer->CreateActor();	
 	Q->SetName("Q");
@@ -186,7 +186,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	Q_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	Q_transfrom->SetPosition(D3DXVECTOR3(280.0f, 310.0f, 0.0f));
 	Q->AddComponent<ColliderComponent>();
-	Q_text->AddText("Q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	Q_text->AddText("Base", "Q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto R = board_layer->CreateActor();
 	R->SetName("R");
@@ -195,7 +195,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	R_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	R_transfrom->SetPosition(D3DXVECTOR3(310.0f, 310.0f, 0.0f));
 	R->AddComponent<ColliderComponent>();
-	R_text->AddText("R", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	R_text->AddText("Base", "R", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto S = board_layer->CreateActor();
 	S->SetName("S");
@@ -204,7 +204,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	S_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	S_transfrom->SetPosition(D3DXVECTOR3(340.0f, 310.0f, 0.0f));
 	S->AddComponent<ColliderComponent>();
-	S_text->AddText("S", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	S_text->AddText("Base", "S", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto T = board_layer->CreateActor();
 	T->SetName("T");
@@ -213,7 +213,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	T_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	T_transfrom->SetPosition(D3DXVECTOR3(370.0f, 310.0f, 0.0f));
 	T->AddComponent<ColliderComponent>();
-	T_text->AddText("T", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	T_text->AddText("Base", "T", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto U = board_layer->CreateActor();
 	U->SetName("U");
@@ -222,7 +222,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	U_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	U_transfrom->SetPosition(D3DXVECTOR3(100.0f, 350.0f, 0.0f));
 	U->AddComponent<ColliderComponent>();
-	U_text->AddText("U", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	U_text->AddText("Base", "U", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto V = board_layer->CreateActor();
 	V->SetName("V");
@@ -231,7 +231,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	V_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	V_transfrom->SetPosition(D3DXVECTOR3(130.0f, 350.0f, 0.0f));
 	V->AddComponent<ColliderComponent>();
-	V_text->AddText("V", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	V_text->AddText("Base", "V", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto W = board_layer->CreateActor();
 	W->SetName("W");
@@ -240,7 +240,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	W_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	W_transfrom->SetPosition(D3DXVECTOR3(160.0f, 350.0f, 0.0f));
 	W->AddComponent<ColliderComponent>();
-	W_text->AddText("W", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	W_text->AddText("Base", "W", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto X = board_layer->CreateActor();
 	X->SetName("X");
@@ -249,7 +249,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	X_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	X_transfrom->SetPosition(D3DXVECTOR3(190.0f, 350.0f, 0.0f));
 	X->AddComponent<ColliderComponent>();
-	X_text->AddText("X", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	X_text->AddText("Base", "X", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto Y = board_layer->CreateActor();
 	Y->SetName("Y");
@@ -258,7 +258,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	Y_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	Y_transfrom->SetPosition(D3DXVECTOR3(220.0f, 350.0f, 0.0f));
 	Y->AddComponent<ColliderComponent>();
-	Y_text->AddText("Y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	Y_text->AddText("Base", "Y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto Z = board_layer->CreateActor();
 	Z->SetName("Z");
@@ -267,7 +267,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	Z_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	Z_transfrom->SetPosition(D3DXVECTOR3(250.0f, 350.0f, 0.0f));
 	Z->AddComponent<ColliderComponent>();
-	Z_text->AddText("Z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	Z_text->AddText("Base", "Z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto minus = board_layer->CreateActor();
 	minus->SetName("-");
@@ -276,7 +276,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	minus_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	minus_transfrom->SetPosition(D3DXVECTOR3(280.0f, 350.0f, 0.0f));
 	minus->AddComponent<ColliderComponent>();
-	minus_text->AddText("-", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	minus_text->AddText("Base", "-", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto period = board_layer->CreateActor();
 	period->SetName(".");
@@ -285,7 +285,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	period_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	period_transfrom->SetPosition(D3DXVECTOR3(310.0f, 350.0f, 0.0f));
 	period->AddComponent<ColliderComponent>();
-	period_text->AddText(".", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	period_text->AddText("Base", ".", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 	
 	auto comma = board_layer->CreateActor();
 	comma->SetName(",");
@@ -294,7 +294,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	comma_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	comma_transfrom->SetPosition(D3DXVECTOR3(340.0f, 350.0f, 0.0f));
 	comma->AddComponent<ColliderComponent>();
-	comma_text->AddText(",", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	comma_text->AddText("Base", ",", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto zero = board_layer->CreateActor();
 	zero->SetName("0");
@@ -303,7 +303,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	zero_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	zero_transfrom->SetPosition(D3DXVECTOR3(220.0f, 390.0f, 0.0f));
 	zero->AddComponent<ColliderComponent>();
-	zero_text->AddText("0", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	zero_text->AddText("Base", "0", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto one = board_layer->CreateActor();
 	one->SetName("1");
@@ -312,7 +312,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	one_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	one_transfrom->SetPosition(D3DXVECTOR3(250.0f, 390.0f, 0.0f));
 	one->AddComponent<ColliderComponent>();
-	one_text->AddText("1", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	one_text->AddText("Base", "1", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto two = board_layer->CreateActor();
 	two->SetName("2");
@@ -321,7 +321,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	two_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	two_transfrom->SetPosition(D3DXVECTOR3(280.0f, 390.0f, 0.0f));
 	two->AddComponent<ColliderComponent>();
-	two_text->AddText("2", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	two_text->AddText("Base", "2", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto three = board_layer->CreateActor();
 	three->SetName("3");
@@ -330,7 +330,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	three_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	three_transfrom->SetPosition(D3DXVECTOR3(310.0f, 390.0f, 0.0f));
 	three->AddComponent<ColliderComponent>();
-	three_text->AddText("3", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	three_text->AddText("Base", "3", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto four = board_layer->CreateActor();
 	four->SetName("4");
@@ -339,7 +339,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	four_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	four_transfrom->SetPosition(D3DXVECTOR3(340.0f, 390.0f, 0.0f));
 	four->AddComponent<ColliderComponent>();
-	four_text->AddText("4", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	four_text->AddText("Base", "4", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto five = board_layer->CreateActor();
 	five->SetName("5");
@@ -348,7 +348,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	five_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	five_transfrom->SetPosition(D3DXVECTOR3(500.0f, 270.0f, 0.0f));
 	five->AddComponent<ColliderComponent>();
-	five_text->AddText("5", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	five_text->AddText("Base", "5", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto six = board_layer->CreateActor();
 	six->SetName("6");
@@ -357,7 +357,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	six_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	six_transfrom->SetPosition(D3DXVECTOR3(530.0f, 270.0f, 0.0f));
 	six->AddComponent<ColliderComponent>();
-	six_text->AddText("6", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	six_text->AddText("Base", "6", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto seven = board_layer->CreateActor();
 	U->SetName("U");
@@ -366,7 +366,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	seven_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	seven_transfrom->SetPosition(D3DXVECTOR3(560.0f, 270.0f, 0.0f));
 	seven->AddComponent<ColliderComponent>();
-	seven_text->AddText("7", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	seven_text->AddText("Base", "7", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto eight = board_layer->CreateActor();
 	eight->SetName("8");
@@ -375,7 +375,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	eight_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	eight_transfrom->SetPosition(D3DXVECTOR3(590.0f, 270.0f, 0.0f));
 	eight->AddComponent<ColliderComponent>();
-	eight_text->AddText("8", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	eight_text->AddText("Base", "8", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto nine = board_layer->CreateActor();
 	nine->SetName("9");
@@ -384,7 +384,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	nine_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	nine_transfrom->SetPosition(D3DXVECTOR3(620.0f, 270.0f, 0.0f));
 	nine->AddComponent<ColliderComponent>();
-	nine_text->AddText("9", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	nine_text->AddText("Base", "9", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto excharm = board_layer->CreateActor();
 	excharm->SetName("!");
@@ -393,7 +393,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	excharm_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	excharm_transfrom->SetPosition(D3DXVECTOR3(500.0f, 310.0f, 0.0f));
 	excharm->AddComponent<ColliderComponent>();
-	excharm_text->AddText("!", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	excharm_text->AddText("Base", "!", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto question = board_layer->CreateActor();
 	question->SetName("?");
@@ -402,7 +402,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	question_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	question_transfrom->SetPosition(D3DXVECTOR3(530.0f, 310.0f, 0.0f));
 	question->AddComponent<ColliderComponent>();
-	question_text->AddText("?", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	question_text->AddText("Base", "?", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto left = board_layer->CreateActor();
 	left->SetName("(");
@@ -411,7 +411,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	left_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	left_transfrom->SetPosition(D3DXVECTOR3(560.0f, 310.0f, 0.0f));
 	left->AddComponent<ColliderComponent>();
-	left_text->AddText("(", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	left_text->AddText("Base", "(", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto right = board_layer->CreateActor();
 	right->SetName(")");
@@ -420,7 +420,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	right_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	right_transfrom->SetPosition(D3DXVECTOR3(590.0f, 310.0f, 0.0f));
 	right->AddComponent<ColliderComponent>();
-	right_text->AddText(")", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	right_text->AddText("Base", ")", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto a = board_layer->CreateActor();
 	a->SetName("a");
@@ -429,7 +429,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	a_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	a_transfrom->SetPosition(D3DXVECTOR3(500.0f, 350.0f, 0.0f));
 	a->AddComponent<ColliderComponent>();
-	a_text->AddText("a", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	a_text->AddText("Base", "a", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto b = board_layer->CreateActor();
 	b->SetName("b");
@@ -438,7 +438,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	b_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	b_transfrom->SetPosition(D3DXVECTOR3(530.0f, 350.0f, 0.0f));
 	b->AddComponent<ColliderComponent>();
-	b_text->AddText("b", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	b_text->AddText("Base", "b", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto c = board_layer->CreateActor();
 	c->SetName("c");
@@ -447,7 +447,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	c_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	c_transfrom->SetPosition(D3DXVECTOR3(560.0f, 350.0f, 0.0f));
 	c->AddComponent<ColliderComponent>();
-	c_text->AddText("c", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	c_text->AddText("Base", "c", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto d = board_layer->CreateActor();
 	d->SetName("d");
@@ -456,7 +456,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	d_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	d_transfrom->SetPosition(D3DXVECTOR3(590.0f, 350.0f, 0.0f));
 	d->AddComponent<ColliderComponent>();
-	d_text->AddText("d", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	d_text->AddText("Base", "d", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto e = board_layer->CreateActor();
 	e->SetName("e");
@@ -465,7 +465,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	e_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	e_transfrom->SetPosition(D3DXVECTOR3(620.0f, 350.0f, 0.0f));
 	e->AddComponent<ColliderComponent>();
-	e_text->AddText("e", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	e_text->AddText("Base", "e", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto f = board_layer->CreateActor();
 	f->SetName("f");
@@ -474,7 +474,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	f_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	f_transfrom->SetPosition(D3DXVECTOR3(650.0f, 350.0f, 0.0f));
 	f->AddComponent<ColliderComponent>();
-	f_text->AddText("f", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	f_text->AddText("Base", "f", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto g = board_layer->CreateActor();
 	g->SetName("g");
@@ -483,7 +483,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	g_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	g_transfrom->SetPosition(D3DXVECTOR3(680.0f, 350.0f, 0.0f));
 	g->AddComponent<ColliderComponent>();
-	g_text->AddText("g", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	g_text->AddText("Base", "g", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto h = board_layer->CreateActor();
 	h->SetName("h");
@@ -492,7 +492,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	h_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	h_transfrom->SetPosition(D3DXVECTOR3(710.0f, 350.0f, 0.0f));
 	h->AddComponent<ColliderComponent>();
-	h_text->AddText("h", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	h_text->AddText("Base", "h", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto i = board_layer->CreateActor();
 	i->SetName("i");
@@ -501,7 +501,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	i_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	i_transfrom->SetPosition(D3DXVECTOR3(740.0f, 350.0f, 0.0f));
 	i->AddComponent<ColliderComponent>();
-	i_text->AddText("i", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	i_text->AddText("Base", "i", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto j = board_layer->CreateActor();
 	j->SetName("j");
@@ -510,7 +510,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	j_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	j_transfrom->SetPosition(D3DXVECTOR3(770.0f, 350.0f, 0.0f));
 	j->AddComponent<ColliderComponent>();
-	j_text->AddText("j", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	j_text->AddText("Base", "j", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto k = board_layer->CreateActor();
 	k->SetName("k");
@@ -519,7 +519,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	k_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	k_transfrom->SetPosition(D3DXVECTOR3(500.0f, 390.0f, 0.0f));
 	k->AddComponent<ColliderComponent>();
-	k_text->AddText("k", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	k_text->AddText("Base", "k", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto l = board_layer->CreateActor();
 	l->SetName("l");
@@ -528,7 +528,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	l_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	l_transfrom->SetPosition(D3DXVECTOR3(530.0f, 390.0f, 0.0f));
 	l->AddComponent<ColliderComponent>();
-	l_text->AddText("l", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	l_text->AddText("Base", "l", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto m = board_layer->CreateActor();
 	m->SetName("m");
@@ -537,7 +537,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	m_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	m_transfrom->SetPosition(D3DXVECTOR3(560.0f, 390.0f, 0.0f));
 	m->AddComponent<ColliderComponent>();
-	m_text->AddText("m", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	m_text->AddText("Base", "m", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto n = board_layer->CreateActor();
 	n->SetName("n");
@@ -546,7 +546,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	n_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	n_transfrom->SetPosition(D3DXVECTOR3(590.0f, 390.0f, 0.0f));
 	n->AddComponent<ColliderComponent>();
-	n_text->AddText("n", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	n_text->AddText("Base", "n", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto o = board_layer->CreateActor();
 	o->SetName("o");
@@ -555,7 +555,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	o_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	o_transfrom->SetPosition(D3DXVECTOR3(620.0f, 390.0f, 0.0f));
 	o->AddComponent<ColliderComponent>();
-	o_text->AddText("o", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	o_text->AddText("Base", "o", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto p = board_layer->CreateActor();
 	p->SetName("p");
@@ -564,7 +564,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	p_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	p_transfrom->SetPosition(D3DXVECTOR3(650.0f, 390.0f, 0.0f));
 	p->AddComponent<ColliderComponent>();
-	p_text->AddText("p", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	p_text->AddText("Base", "p", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto q = board_layer->CreateActor();
 	q->SetName("q");
@@ -573,7 +573,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	q_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	q_transfrom->SetPosition(D3DXVECTOR3(680.0f, 390.0f, 0.0f));
 	q->AddComponent<ColliderComponent>();
-	q_text->AddText("q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	q_text->AddText("Base", "q", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto r = board_layer->CreateActor();
 	r->SetName("r");
@@ -582,7 +582,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	r_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	r_transfrom->SetPosition(D3DXVECTOR3(710.0f, 390.0f, 0.0f));
 	r->AddComponent<ColliderComponent>();
-	r_text->AddText("r", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	r_text->AddText("Base", "r", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto s = board_layer->CreateActor();
 	s->SetName("s");
@@ -591,7 +591,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	s_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	s_transfrom->SetPosition(D3DXVECTOR3(740.0f, 390.0f, 0.0f));
 	s->AddComponent<ColliderComponent>();
-	s_text->AddText("s", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	s_text->AddText("Base", "s", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto t = board_layer->CreateActor();
 	t->SetName("t");
@@ -600,7 +600,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	t_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	t_transfrom->SetPosition(D3DXVECTOR3(770.0f, 390.0f, 0.0f));
 	t->AddComponent<ColliderComponent>();
-	t_text->AddText("t", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	t_text->AddText("Base", "t", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto u = board_layer->CreateActor();
 	u->SetName("u");
@@ -609,7 +609,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	u_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	u_transfrom->SetPosition(D3DXVECTOR3(900.0f, 270.0f, 0.0f));
 	u->AddComponent<ColliderComponent>();
-	u_text->AddText("u", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	u_text->AddText("Base", "u", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto v = board_layer->CreateActor();
 	v->SetName("v");
@@ -618,7 +618,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	v_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	v_transfrom->SetPosition(D3DXVECTOR3(930.0f, 270.0f, 0.0f));
 	v->AddComponent<ColliderComponent>();
-	v_text->AddText("v", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	v_text->AddText("Base", "v", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto w = board_layer->CreateActor();
 	w->SetName("w");
@@ -627,7 +627,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	w_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	w_transfrom->SetPosition(D3DXVECTOR3(960.0f, 270.0f, 0.0f));
 	w->AddComponent<ColliderComponent>();
-	w_text->AddText("w", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	w_text->AddText("Base", "w", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto x = board_layer->CreateActor();
 	x->SetName("x");
@@ -636,7 +636,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	x_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	x_transfrom->SetPosition(D3DXVECTOR3(990.0f, 270.0f, 0.0f));
 	x->AddComponent<ColliderComponent>();
-	x_text->AddText("x", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	x_text->AddText("Base", "x", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto y = board_layer->CreateActor();
 	y->SetName("y");
@@ -645,7 +645,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	y_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	y_transfrom->SetPosition(D3DXVECTOR3(1020.0f, 270.0f, 0.0f));
 	y->AddComponent<ColliderComponent>();
-	y_text->AddText("y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	y_text->AddText("Base", "y", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto z = board_layer->CreateActor();
 	z->SetName("z");
@@ -654,7 +654,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	z_transfrom->SetScale(D3DXVECTOR3(30.0f, 30.0f, 1.0f));
 	z_transfrom->SetPosition(D3DXVECTOR3(1050.0f, 270.0f, 0.0f));
 	z->AddComponent<ColliderComponent>();
-	z_text->AddText("z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	z_text->AddText("Base", "z", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	auto end = board_layer->CreateActor();
 	end->SetName("End");
@@ -663,7 +663,7 @@ NameSelectScene::NameSelectScene(Tool* const tool) :
 	end_transfrom->SetScale(D3DXVECTOR3(80.0f, 45.0f, 1.0f));
 	end_transfrom->SetPosition(D3DXVECTOR3(900.0f, 310.0f, 0.0f));
 	end->AddComponent<ColliderComponent>();
-	end_text->AddText("< END >", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	end_text->AddText("Base", "< END >", D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 	//auto scope_layer = CreateLayer("Scope");
 	scope = board_layer->CreateActor();
@@ -747,7 +747,7 @@ void NameSelectScene::Input()
 			if (actor && static_cast<uint>(player_name.size()) < name_size 
 				&& frame_counter_text > 0.5)
 			{
-				auto name = text_renderer->GetText(player_name);
+				auto name = text_renderer->GetText("Base");
 				player_name = name->text + actor->GetName();
 				name->text = player_name;
 

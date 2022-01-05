@@ -184,15 +184,16 @@ void Renderer::RenderText(class Actor* const actor)
 
 	auto texts = render_text->GetTexts();
 	auto transform = actor->GetComponent<TransformComponent>();
-	auto position = transform->GetPosition();
+	auto position = transform->GetLocalPosition();
 	auto scale = transform->GetScale();
 
-	for (const auto& text : texts)
+	for (auto iter = texts.begin(); iter != texts.end(); ++iter)
 	{
+		auto text = (*iter).second;
 		sprite_batch->Begin();
 		sprite_font->DrawString(sprite_batch.get(), text->text.c_str(),
 			DirectX::SimpleMath::Vector2(position.x + text->offset_position.x, position.y + text->offset_position.y),
-			DirectX::SimpleMath::Color(text->color), 0.0f, DirectX::SimpleMath::Vector2(), 
+			DirectX::SimpleMath::Color(text->color), 0.0f, DirectX::SimpleMath::Vector2(),
 			DirectX::SimpleMath::Vector2(text->scale.x, text->scale.y));
 
 		sprite_batch->End();

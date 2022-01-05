@@ -17,5 +17,6 @@ public:
 
 private:
 	Direction direction = Direction::Down;
+	float speed = 0.08f;
 };
 
