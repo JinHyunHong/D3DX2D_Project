@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation Name="Idle_Left" Type="1" TexturePath="Assets/Sprite/Enemies/Enemies.png" TextureSizeX="840" TextureSizeY="1280" ColorKeyR = "128" ColorKeyG = "128" ColorKeyB = "128" ColorKeyA = "1">
+    <Keyframe OffsetX="14" OffsetY="83" SizeX="35" SizeY="29"  Time="2000"/>    
+	<Keyframe OffsetX="49" OffsetY="83" SizeX="35" SizeY="29"  Time="1000"/>    
+	<Keyframe OffsetX="84" OffsetY="83" SizeX="35" SizeY="29"  Time="1000"/>
+</Animation>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+	<Texture Name="Status_Back" TexturePath="Assets/Sprite/Status.png" TextureSizeX="536" TextureSizeY="1032" ColorKeyR = "128" ColorKeyG = "0" ColorKeyB = "128" ColorKeyA = "1" OffsetX="8" OffsetY="8" SizeX="255" SizeY="223"/>
+</Textures>

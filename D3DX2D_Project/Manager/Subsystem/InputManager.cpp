@@ -23,6 +23,7 @@ bool InputManager::Initialize()
 	CreateKey("LButton", VK_LBUTTON);
 	CreateKey("Save", VK_CONTROL, 'S');
 	CreateKey("Load", VK_CONTROL, 'O');
+	CreateKey("Status", VK_RETURN);
 	return true;
 }
 

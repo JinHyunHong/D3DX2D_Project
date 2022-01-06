@@ -77,7 +77,7 @@ void Renderer::RenderMain(class Actor* const actor, class IRendererComponent* co
 				animator->GetCurrentAnimation()->GetSpriteTexture().get());
 		}
 
-		else if (texture)
+		else if (texture && type == RenderableType::Opaque)
 		{
 			auto current_texture = texture->GetCurrentTexture();
 			cpu_texture_buffer.sprite_offset = current_texture->GetOffset();

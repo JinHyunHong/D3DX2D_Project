@@ -19,11 +19,24 @@ InGameScene::InGameScene(Tool* const tool) :
 	// Load New Map
 	LoadFromFile("Assets/Xml/Map/New_Map.xml", "World_Map", true);
 
+	// World Object Settings
+	auto object_layer = CreateLayer("Object");
+	auto Item_1 = LoadTextureActor("Item_1", object_layer.get(), "Assets/Xml/Texture/Items.xml", 
+		"Boss_Key", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(400.0f, 107.0f, 0.0f));
+	Item_1->AddComponent<ColliderComponent>()->SetOffsetScale(D3DXVECTOR3(30.0f, 40.0f, 0.0f));
+	Item_1->GetComponent<ColliderComponent>()->SetColor(D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f));
+
+	auto Item_2 = LoadTextureActor("Item_2", object_layer.get(), "Assets/Xml/Texture/Items.xml",
+		"Sword", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(230.0f, 300.0f, 0.0f));
+	Item_2->AddComponent<ColliderComponent>()->SetOffsetScale(D3DXVECTOR3(30.0f, 40.0f, 0.0f));
+	Item_2->GetComponent<ColliderComponent>()->SetColor(D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f));
+
+
 	// Player Settings
-	auto player_layer = CreateLayer("Player");
-	player = player_layer->CreateActor();
+	player = object_layer->CreateActor();
 	player->SetName("Player");
 	player->AddComponent<ColliderComponent>()->SetOffsetScale(D3DXVECTOR3(30.0f, 50.0f, 0.0f));
+	player->GetComponent<ColliderComponent>()->SetColor(D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f));
 	player->AddComponent<MeshRendererComponent>();
 	player->AddComponent<MoveScriptComponent>();
 	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
@@ -40,17 +53,29 @@ InGameScene::InGameScene(Tool* const tool) :
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("Idle_Down");
 
+	// Enemy Settings
+	auto enemy = object_layer->CreateActor();
+	enemy->SetName("Enemy_1");
+	enemy->AddComponent<ColliderComponent>()->SetOffsetScale(D3DXVECTOR3(30.0f, 50.0f, 0.0f));
+	enemy->GetComponent<ColliderComponent>()->SetColor(D3DXCOLOR(0.0f, 0.0f, 1.0f, 1.0f));
+	enemy->AddComponent<MeshRendererComponent>();
+	enemy->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
+	enemy->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(100.0f, 420.0f, 0.0f));
+	animator = enemy->AddComponent<AnimatorComponent>();
+	animator->AddAnimation("Assets/Xml/Animation/Knight1_Idle_Left.xml");
+	animator->SetAnimationMode(AnimationMode::Play);
+	animator->SetCurrentAnimation("Idle_Left");
 
 	// Hud Settings
-	auto hud_layer = CreateLayer("HUD");
+	hud_layer = CreateLayer("HUD");
 	hud = hud_layer->CreateActor();
 	hud->SetName("HUD");
 	hud->AddComponent<MeshRendererComponent>();
 	hud->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
 	hud->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	animator = hud->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Assets/Xml/Animation/HUD.xml");
-	animator->SetCurrentAnimation("HUD");
+	auto texture = hud->AddComponent<TextureComponent>();
+	texture->AddTexture("Assets/Xml/Texture/HUD.xml");
+	texture->SetCurrentTexture("HUD");
 	hud->AddComponent<TextRendererComponent>()->AddText("Jewel", "000", 
 		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(137.0f, 42.0f));
 	hud->AddComponent<TextRendererComponent>()->AddText("Bomb", "00", 
@@ -60,11 +85,33 @@ InGameScene::InGameScene(Tool* const tool) :
 	hud->AddComponent<TextRendererComponent>()->AddText("Key", "00", 
 		D3DXCOLOR(255.0f, 255.0f, 255.0f, 1.0f), D3DXVECTOR2(0.6f, 0.6f), D3DXVECTOR2(285.0f, 42.0f));
 
-	auto heart_0 = CreateHeart("Heart_0", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(353.0f, 47.0f, 0.0f));
-	auto heart_1 = CreateHeart("Heart_1", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(373.0f, 47.0f, 0.0f));
-	auto heart_2 = CreateHeart("Heart_2", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(393.0f, 47.0f, 0.0f));
-	auto heart_3 = CreateHeart("Heart_3", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(413.0f, 47.0f, 0.0f));
-	auto heart_4 = CreateHeart("Heart_4", hud_layer.get(), D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(433.0f, 47.0f, 0.0f));
+	auto heart_0 = LoadTextureActor("Heart_0", hud_layer.get(),"Assets/Xml/Texture/Heart.xml", 
+		"Heart_Full", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(353.0f, 47.0f, 0.0f));
+	auto heart_1 = LoadTextureActor("Heart_1", hud_layer.get(),"Assets/Xml/Texture/Heart.xml", 
+		"Heart_Full", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(373.0f, 47.0f, 0.0f));
+	auto heart_2 = LoadTextureActor("Heart_2", hud_layer.get(),"Assets/Xml/Texture/Heart.xml", 
+		"Heart_Full", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(393.0f, 47.0f, 0.0f));
+	auto heart_3 = LoadTextureActor("Heart_3", hud_layer.get(),"Assets/Xml/Texture/Heart.xml", 
+		"Heart_Full", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(413.0f, 47.0f, 0.0f));
+	auto heart_4 = LoadTextureActor("Heart_4", hud_layer.get(),"Assets/Xml/Texture/Heart.xml", 
+		"Heart_Full", D3DXVECTOR3(2.0f, 2.0f, 0.0f), D3DXVECTOR3(433.0f, 47.0f, 0.0f));
+
+	hearts.emplace_back(heart_0);
+	hearts.emplace_back(heart_1);
+	hearts.emplace_back(heart_2);
+	hearts.emplace_back(heart_3);
+	hearts.emplace_back(heart_4);
+
+	// Status(Inventory) Settings
+	auto status_back = hud_layer->CreateActor();
+	status_back->SetName("Status_Back");
+	status_back->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(2.0f, 2.0f, 1.0f));
+	status_back->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-7.0f, -500.0f, 0.0f));
+	status_back->AddComponent<MeshRendererComponent>();
+	texture = status_back->AddComponent<TextureComponent>();
+	texture->AddTexture("Assets/Xml/Texture/Status_Back.xml");
+	texture->SetCurrentTexture("Status_Back");
+
 
 	hud->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
 	heart_0->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
@@ -72,6 +119,7 @@ InGameScene::InGameScene(Tool* const tool) :
 	heart_2->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
 	heart_3->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
 	heart_4->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
+	status_back->GetComponent<TransformComponent>()->SetParent(camera->GetComponent<TransformComponent>().get());
 }
 
 InGameScene::~InGameScene()
@@ -152,11 +200,34 @@ void InGameScene::Input()
 	
 	transform->SetPosition(player_position);
 
+
+	
+	//Key Input
+	auto input_manager = tool->GetManager<SubsystemManager>()->GetSubsystem<InputManager>();
+	auto delta_time = timer->GetDeltaTimeMs();
+
+	if (input_manager->GetKeyDown("Status"))
+	{
+		is_open = !is_open;
+	}
+
+	auto hud_transform = hud->GetComponent<TransformComponent>();
+	auto position = Math::Vec3_Abs(new_position, hud_transform->GetPosition());
+	
+	if (is_open && std::round(position.y) < 500.0f)
+	{
+		hud_layer->SetOffsetPosition(D3DXVECTOR3(0.0f, 0.4f * delta_time, 0.0f));
+	}
+
+	else if (!is_open && position.y > 10.0f)
+	{
+		hud_layer->SetOffsetPosition(D3DXVECTOR3(position.x, -(0.4f * delta_time), 0.0f));
+	}
+
 }
 
 void InGameScene::Update()
 {
-	Input();
 	Scene::Update();
 	tile_layer->SetActive(false);
 }
@@ -166,17 +237,18 @@ void InGameScene::Destroy()
 	Scene::Destroy();
 }
 
-auto InGameScene::CreateHeart(const std::string& name, Layer* const layer, 
-	const D3DXVECTOR3& scale, const D3DXVECTOR3& position) -> const actor_pointer
+auto InGameScene::LoadTextureActor(const std::string& name, Layer* const layer,
+	const std::string& path, const std::string& curent_texture_name, const D3DXVECTOR3& scale, 
+	const D3DXVECTOR3& position) -> const actor_pointer
 {
-	auto new_heart = layer->CreateActor();
-	new_heart->SetName(name);
-	new_heart->GetComponent<TransformComponent>()->SetScale(scale);
-	new_heart->GetComponent<TransformComponent>()->SetPosition(position);
-	new_heart->AddComponent<MeshRendererComponent>();
-	auto texture = new_heart->AddComponent<TextureComponent>();
-	texture->AddTexture("Heart", std::make_shared<Texture>(tool));
-	texture->AddTextures("Assets/Xml/Texture/Heart.xml");
-	texture->SetCurrentTexture("Heart_Full");
-	return new_heart;
+	auto new_actor = layer->CreateActor();
+	new_actor->SetName(name);
+	new_actor->GetComponent<TransformComponent>()->SetScale(scale);
+	new_actor->GetComponent<TransformComponent>()->SetPosition(position);
+	new_actor->AddComponent<MeshRendererComponent>();
+	auto texture = new_actor->AddComponent<TextureComponent>();
+	texture->AddTextures(path);
+	texture->SetCurrentTexture(curent_texture_name);
+
+	return new_actor;
 }

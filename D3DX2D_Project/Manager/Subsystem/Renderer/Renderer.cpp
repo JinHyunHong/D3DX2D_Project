@@ -67,7 +67,7 @@ void Renderer::UpdateRenderables(Layer* const layer)
 			camera = camera_component.get();
 		}
 
-		if (mesh_renderer_component || text_renderer_component || collider_component || texture_component)
+		if (mesh_renderer_component || text_renderer_component || texture_component || collider_component)
 		{
 			renderables[RenderableType::Opaque].emplace_back(actor.get());
 		}

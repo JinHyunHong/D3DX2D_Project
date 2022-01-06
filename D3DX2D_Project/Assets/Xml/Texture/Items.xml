@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+	<Texture Name="Sword" TexturePath="Assets/Sprite/Items.png" TextureSizeX="281" TextureSizeY="384" ColorKeyR = "128" ColorKeyG = "0" ColorKeyB = "128" ColorKeyA = "1" OffsetX="140" OffsetY="5" SizeX="13" SizeY="19"/>
+	<Texture Name="Boss_Key" TexturePath="Assets/Sprite/Items.png" TextureSizeX="281" TextureSizeY="384" ColorKeyR = "128" ColorKeyG = "0" ColorKeyB = "128" ColorKeyA = "1" OffsetX="227" OffsetY="190" SizeX="15" SizeY="17"/>
+</Textures>

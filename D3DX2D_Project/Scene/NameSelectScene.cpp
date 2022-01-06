@@ -712,7 +712,7 @@ void NameSelectScene::Input()
 	auto scope_transform = scope->GetComponent<TransformComponent>();
 	auto scope_position = scope_transform->GetPosition();
 	
-	if (frame_counter > 0.05)
+	if (frame_counter > 0.025)
 	{
 		if (GetAsyncKeyState('A') & 0x8000)
 		{
@@ -761,7 +761,6 @@ void NameSelectScene::Input()
 
 void NameSelectScene::Update()
 {
-	Input();
 	Scene::Update();
 }
 

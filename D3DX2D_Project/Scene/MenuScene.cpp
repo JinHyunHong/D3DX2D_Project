@@ -130,7 +130,6 @@ void MenuScene::Input()
 
 void MenuScene::Update()
 {
-	Input();
 	Scene::Update();
 }
 

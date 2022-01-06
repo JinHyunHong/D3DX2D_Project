@@ -121,7 +121,6 @@ void MapEditorScene::Input()
 
 void MapEditorScene::Update()
 {
-	Input();
 	Scene::Update();
 	tile_layer->SetActive(false);
 }

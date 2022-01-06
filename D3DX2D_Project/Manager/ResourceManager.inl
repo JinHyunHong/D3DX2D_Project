@@ -50,12 +50,10 @@ inline auto ResourceManager::Load_Continue(const std::string& path, Xml::XMLElem
 	last_index = file_name.find_last_of(".");
 	auto resource_name = file_name.substr(0, last_index);
 
-	std::shared_ptr<T> resource;
-
 	if (HasResource(resource_name, IResource::DeduceResourceType<T>()))
-		 resource = GetResourceFromName<T>(resource_name);
+		 return GetResourceFromName<T>(resource_name);
 
-	resource = std::make_shared<T>(tool);
+	auto resource = std::make_shared<T>(tool);
 	resource->SetResourceName(resource_name);
 	resource->SetResourcePath(path);
 
